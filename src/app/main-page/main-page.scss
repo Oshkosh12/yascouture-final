@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.hero {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  z-index: 2;
+  padding: 20px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  width: 60px;
+}
+
+.bottom ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 66px auto;
+  justify-content: center;
+}
+
+.bottom ul li {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 40px 20px;
+  transition: left 0.3s ease;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.sidebar-logo {
+  width: 100px;
+}
+
+.sidebar-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-nav li {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.sidebar-option {
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Icons */
+.hamburger {
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+}
+
+.desktop-icons,
+.mobile-icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Responsive behavior */
+@media (max-width: 799px) {
+  .bottom {
+    display: none;
+  }
+
+  .desktop-icons {
+    display: none;
+  }
+
+  .mobile-icons {
+    display: flex;
+  }
+}
+
+@media (min-width: 800px) {
+  .sidebar {
+    display: none !important;
+  }
+
+  .bottom {
+    display: flex;
+  }
+
+  .desktop-icons {
+    display: flex;
+  }
+
+  .mobile-icons {
+    display: none;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}

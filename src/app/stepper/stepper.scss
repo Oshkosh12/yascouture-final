@@ -1,0 +1,164 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  padding: 20px;
+}
+
+.container {
+//   max-width: 700px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+}
+.heading{
+    text-align: center;
+}
+.appointment-type {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.option {
+  flex: 1;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 10px;
+//   background: #ffffff;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.3s;
+  max-width: 300px;
+  height: 100px;
+  position: relative;
+}
+
+.option:last-child {
+  margin-right: 0;
+}
+
+.option.active {
+  background-color: rgb(238, 237, 237);
+  color: rgb(0, 0, 0);
+  border-color: black;
+}
+.option input{
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  appearance:none;   
+  border: 2px solid #555;
+  cursor: pointer;
+  outline: none;
+}
+.option span {
+  display: block;
+  font-weight: normal;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+.category-options{background-color: rgb(232, 230, 230);
+margin: 0px 70px;
+border-radius: 8px;
+padding: 30px;}
+.category-options label {
+  display: block;
+  margin-bottom: 15px;
+  cursor: pointer;
+  
+}
+
+.box{
+    background-color: white;
+    height: 70px;
+    margin: 8px 0px;
+    padding: 15px;
+    padding-left: 45px;
+    border-radius:4px ;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    position: relative;
+}
+.box h3{
+font-size: 17px;
+font-weight: 500;
+}
+.box p {
+font-size: 14px;
+font-weight: 400;
+}
+.box input{
+        position: absolute;
+    top: 20px;
+    left: 15px;
+    width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  appearance: none;   
+  border: 2px solid #555;
+  cursor: pointer;
+  outline: none;
+}
+#nextStepBtn {
+  display: block;
+  margin: 30px auto ;
+  padding: 10px 20px;
+  font-size: 1em;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  height: 50px;
+}
+.stepUp{
+    // background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 5px;
+}
+.stepUp i{
+  font-size: 22px;
+  font-weight: 300;
+ 
+}
+.stepUp .circle {
+    width: 35px;
+    height: 35px;
+    background-color: black;
+    border-radius:50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.line{
+    width: 40%;
+    height: 1px;
+    background-color: gray;
+}
+.box2{
+    background-color: red;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap:200px ;
+    // padding: 50px;
+    flex-wrap: wrap;
+}
+.box2 .inputBox{
+     width: 300px;
+     background-color: red;
+}
+.box2 .inputBox input{
+    width: 100%;
+
+}
