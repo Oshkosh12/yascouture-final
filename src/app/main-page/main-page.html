@@ -1,56 +1,136 @@
 <div class="hero">
-  <video src="../../assets/Teaser_1_FC.webm" autoplay muted loop playsinline></video>
-
-  <!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <img src="../../assets/yas-logo.png.webp" alt="Yas Logo" class="sidebar-logo" />
+  <div class="background">
+    <video autoplay muted loop playsinline>
+      <source src="assets/Teaser_1_FC.webm" type="video/webm" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="header">
+    <div class="opp">
+      <div class="toggel">
+        <i class="ri-bar-chart-horizontal-line"></i>
+      </div>
+      <div class="calnder"><i class="ri-calendar-line"></i></div>
     </div>
 
-    <ul class="sidebar-nav">
-      <li>COUTURE</li>
-      <li>BRIDAL</li>
-      <li>IN THE SPOTLIGHT</li>
-      <li>BOOK AN APPOINTMENT</li>
-      <li>LANGUAGE</li>
-    </ul>
-
-    <div class="sidebar-bottom">
-      <div class="sidebar-option">PROFILE</div>
-      <div class="sidebar-option">FAVORITE</div>
+    <div class="logo"><img src="../../assets/yas-logo.png.webp" alt=""></div>
+    <div class="option">
+      <div class="opOne"><i class="ri-user-line"></i></div>
+      <div class="opTwo"><i class="ri-heart-line"></i></div>
     </div>
   </div>
-
-  <!-- Top Menu -->
   <div class="menu">
-    <div class="top">
-      <!-- Left: Logo -->
-      <div class="logo">
-        <img src="../../assets/yas-logo.png.webp" alt="Yas Logo" />
-      </div>
+    <div class="toggel-logo"><img src="../../assets/yas-logo.png.webp" alt=""></div>
+    <ul>
+      <li class="COUTURE" (mouseenter)="ShowandHideDetails('list1', true)"
+        (mouseleave)="ShowandHideDetails('list1', false)">COUTURE<i class="ri-arrow-down-s-line"></i>
 
-      <!-- Right side icons -->
-      <div class="desktop-icons">
-        <i class="ri-user-fill"></i>
-        <i class="ri-poker-hearts-fill"></i>
-        <i class="ri-calendar-line"></i>
-      </div>
+      </li>
+      <li (mouseenter)="ShowandHideDetails('list2', true)" (mouseleave)="ShowandHideDetails('list2', false)">BRIDAL<i
+          class="ri-arrow-down-s-line"></i></li>
+      <li (mouseenter)="ShowandHideDetails('list3', true)" (mouseleave)="ShowandHideDetails('list3', false)">IN THE
+        SPOTLIGHT<i class="ri-arrow-down-s-line"></i></li>
+      <li>BOOK AN APPOINTMENT</li>
+      <li>English<i class="ri-arrow-down-s-line"></i></li>
+      <div class="COUTURE-Hover" *ngIf="showHover">
+        <div class="collection">
+          <h1>Collection</h1>
+          <p> SPRING / SUMMER 24</p>
+          <P> WINTER / FALL 23-24</P>
+        </div>
+        <div class="booknow">
+          <h1>BOOK NOW1</h1>
+          <h1 style="color: gray; font-size: 16px; ">book your aoppoinment now</h1>
+        </div>
+        <div class="product">
+          <div class="cardOne">
+            <img src="../../assets/one.jpg" alt="">
+            <p>SPRING / SUMMER 24</p>
+          </div>
+          <div class="cardTwo">
+            <img src="../../assets/one.jpg" alt="">
+            <p>FALL / WINTER 23-24</p>
+          </div>
 
-      <div class="mobile-icons">
-        <i class="ri-calendar-line"></i>
-        <i class="ri-menu-line hamburger" (click)="toggleSidebar()"></i>
+
+        </div>
       </div>
+      <div class="bride-Hover" *ngIf="showHover2">
+        <div class="collection">
+          <h1>Collection</h1>
+          <p> SPRING / SUMMER 24</p>
+          <P> WINTER / FALL 23-24</P>
+        </div>
+        <div class="booknow">
+          <h1>BOOK NOW2</h1>
+          <h1 style="color: gray; font-size: 16px; ">book your aoppoinment now</h1>
+        </div>
+        <div class="product">
+          <div class="cardOne">
+            <img src="../../assets/one.jpg" alt="">
+            <p>SPRING / SUMMER 24</p>
+          </div>
+          <div class="cardTwo">
+            <img src="../../assets/one.jpg" alt="">
+            <p>FALL / WINTER 23-24</p>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="IN-THE-SPOTLIGHT" *ngIf="showHover3">
+        <div class="product">
+          <div class="card1">
+            <img src="../../assets/one.jpg" alt="">
+            <p>name</p>
+          </div>
+          <div class="card2">
+            <img src="../../assets/one.jpg" alt="">
+            <p>name</p>
+          </div>
+          <div class="card3">
+            <img src="../../assets/one.jpg" alt="">
+            <p>name</p>
+          </div>
+          <div class="card4"><img src="../../assets/one.jpg" alt="">
+            <p>name</p>
+          </div>
+        </div>
+      </div>
+    </ul>
+  </div>
+</div>
+<div class="opOne-sideBar">
+  <div class="sign-logo">
+    <i class="ri-user-fill"></i>
+    <div class="sign-close"><i class="ri-close-large-line"></i></div>
+    <p>SIGN IN</p>
+  </div>
+  <div class="sign-form">
+    <div class="sign-input-box">
+      <p>Username or Email</p>
+      <input type="text">
     </div>
-
-    <!-- Desktop Menu -->
-    <div class="bottom">
-      <ul>
-        <li>COUTURE</li>
-        <li>BRIDAL</li>
-        <li>IN THE SPOTLIGHT</li>
-        <li>BOOK AN APPOINTMENT</li>
-        <li>LANGUAGE</li>
-      </ul>
+    <div class="sign-input-box">
+      <p style="margin-right: 210px;">Passwrod</p>
+      <input type="text">
     </div>
+    <div class="sign-input-box-check">
+      <input type="checkbox">
+      <p> Remember me</p>
+    </div>
+    <button class="sign-button">LOGIN</button>
+    <div class="sign-help">Lost your password?</div>
+  </div>
+</div>
+<div class="opTwo-sideBar">
+  <div class="wish-logo">
+    <i class="ri-poker-hearts-fill"></i>
+    <div class="wish-close"><i class="ri-close-large-line"></i></div>
+    <p>WISHLIST</p>
+  </div>
+  <div class="wish-show">
+    <p>no product on th wish list</p>
+    <button class="wish-button">LOGIN</button>
   </div>
 </div>

@@ -1,0 +1,74 @@
+.heading{
+    display: flex;
+    align-items: center;
+    gap :5px;
+    justify-content: center;
+ margin: 20px;
+ font-weight: 300;
+ font-size: 16px;
+}
+.line{
+    width: 30px;
+    height: 1px;
+    background-color: black;
+}
+.heading2{
+    font-size: 55px;
+    color: black;
+    font-weight: 300;
+    text-align: center;
+    margin: 40px;
+
+}
+.containr {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.product {
+  position: relative;
+  width: 460px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+.product img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+/* Scale image on hover */
+.product:hover img {
+  transform: scale(1.1);
+  
+}
+
+/* Overlay for product name */
+.product-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* 🟢 Full width of the image */
+  text-align: center;
+  color: white;
+  font-weight: 400;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition:  0.3s ease;
+ 
+  padding: 10px 0;
+  border-radius: 5px;
+}
+
+
+/* Show product name on hover */
+.product:hover .product-name {
+  opacity: 1;
+  pointer-events: auto;
+}
