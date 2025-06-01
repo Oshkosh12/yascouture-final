@@ -1,0 +1,17 @@
+<div class="three-d-slider-container">
+  <button class="arrow left" (click)="prevSlide()">
+    <span>&lt;</span>
+  </button>
+  <div class="three-d-slider-track">
+    <div
+      class="three-d-slide"
+      *ngFor="let img of images; let i = index"
+      [ngStyle]="getSlideStyle(i)"
+    >
+      <img [src]="img" />
+    </div>
+  </div>
+  <button class="arrow right" (click)="nextSlide()">
+    <span>&gt;</span>
+  </button>
+</div>
