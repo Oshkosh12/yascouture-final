@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common'; // ✅ Import this
 
 @Component({
@@ -9,9 +9,27 @@ import { CommonModule } from '@angular/common'; // ✅ Import this
   styleUrls: ['./main-page.scss']
 })
 export class MainPage {
+  onClickHandler(arg0: string) {
+    if (arg0 == "list1") {
+      this.showHover = !this.showHover;
+      this.showHover2 = false;
+      this.showHover3 = false;
+    }
+    else if (arg0 == "list2") {
+      this.showHover2 = !this.showHover2;
+      this.showHover = false;
+      this.showHover3 = false;
+    }
+    else if (arg0 == "list3") {
+      this.showHover3 = !this.showHover3;
+      this.showHover2 = false;
+      this.showHover = false;
+    }
+  }
   showHover: boolean = false;
   showHover3: boolean = false;
   showHover2: boolean = false;
+  run: boolean = false;
 
   ShowandHideDetails(id: any, isShow: boolean) {
     debugger
@@ -36,5 +54,23 @@ export class MainPage {
       this.showHover = false;
     }
   }
+  ngOnInit() {
+
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    const pageHeight = document.documentElement.clientWidth;
+
+    if (pageHeight > 800) {
+      this.run = true;
+    } else {
+      this.run = false;
+    }
+  }
+menuVisible: boolean = false;
+toggleMenu() {
+  this.menuVisible = !this.menuVisible;
+}
+
 }
 

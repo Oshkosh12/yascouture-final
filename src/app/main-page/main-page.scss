@@ -28,9 +28,11 @@
   justify-content: space-between;
   padding: 0px 70px;
 }
-.toggel{
+
+.toggel {
   display: none;
 }
+
 .calnder i {
   color: white;
   font-size: 26px;
@@ -77,61 +79,68 @@
   position: relative;
 
 }
-.sign-logo i{
-      font-size: 30px;
-    font-weight: 100;
-    color: rgb(200, 198, 198);
+
+.sign-logo i {
+  font-size: 30px;
+  font-weight: 100;
+  color: rgb(200, 198, 198);
 }
-.sign-logo p{
-  font-family:24em;
+
+.sign-logo p {
+  font-family: 24em;
   font-weight: 400;
-color: rgb(200, 198, 198);
+  color: rgb(200, 198, 198);
 }
-.sign-form{
+
+.sign-form {
   display: flex;
-    // background: red;
-    height: 310px;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+  // background: red;
+  height: 310px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
-.sign-input-box{
-      // background: green;
-    height: 50px;
-    width: 100%;
-    display: flex
-;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 2px;
+
+.sign-input-box {
+  // background: green;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
 }
-.sign-input-box input{
+
+.sign-input-box input {
   width: 81%;
-    height: 40px;
-    outline: none;
-    border: none;
+  height: 40px;
+  outline: none;
+  border: none;
   border: 1px solid black;
-    border-radius: 2px;
-    padding-left: 10px;
+  border-radius: 2px;
+  padding-left: 10px;
 }
-.sign-input-box p{
-     margin-right: 139px;
-    /* justify-content: start; */
-    font-size: 16px;
-    font-weight: 400;
+
+.sign-input-box p {
+  margin-right: 139px;
+  /* justify-content: start; */
+  font-size: 16px;
+  font-weight: 400;
 }
-.sign-input-box-check{
+
+.sign-input-box-check {
   gap: 6px;
-    display: flex;
-    font-size: 15px;
-    /* background: red; */
-    width: 100%;
-    padding: 0px 35px;
+  display: flex;
+  font-size: 15px;
+  /* background: red; */
+  width: 100%;
+  padding: 0px 35px;
 }
-.sign-button{
+
+.sign-button {
   background-color: black;
   border: none;
   outline: none;
@@ -144,15 +153,17 @@ color: rgb(200, 198, 198);
   height: 40px;
 
 }
-.sign-help{
+
+.sign-help {
   font-size: 14px;
   color: grey;
 }
-.sign-close{
+
+.sign-close {
   background-color: white;
 
   width: 40px;
-  height:40px;
+  height: 40px;
   border-radius: 50%;
   position: absolute;
   display: flex;
@@ -161,19 +172,22 @@ color: rgb(200, 198, 198);
   right: -60px;
   top: 15px;
 }
-.sign-close i{
-    color: black;
-    font-size: 25px;
+
+.sign-close i {
+  color: black;
+  font-size: 25px;
 }
+
 .opTwo-sideBar {
   height: 100vh;
   width: 350px;
-  
+
   background: white;
   position: absolute;
   top: 0px;
-  right:-450px;
+  right: -450px;
 }
+
 .wish-logo {
   // background: red;
   height: 91px;
@@ -186,32 +200,37 @@ color: rgb(200, 198, 198);
   position: relative;
 
 }
-.wish-logo i{
-      font-size: 30px;
-    font-weight: 100;
-    color: rgb(0, 0, 0);
+
+.wish-logo i {
+  font-size: 30px;
+  font-weight: 100;
+  color: rgb(0, 0, 0);
 }
-.wish-logo p{
-  font-family:24em;
+
+.wish-logo p {
+  font-family: 24em;
   font-weight: 400;
-color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
 }
-.wish-show{
-display: flex;
-    // background: red;
-    // height: 310px;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+
+.wish-show {
+  display: flex;
+  // background: red;
+  // height: 310px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
-.wish-show p{
+
+.wish-show p {
   font-size: 14px;
   font-weight: 400;
   color: gray;
 }
-.wish-button{
+
+.wish-button {
   background-color: black;
   border: none;
   outline: none;
@@ -224,11 +243,12 @@ display: flex;
   height: 40px;
 
 }
-.wish-close{
+
+.wish-close {
   background-color: white;
 
   width: 40px;
-  height:40px;
+  height: 40px;
   border-radius: 50%;
   position: absolute;
   display: flex;
@@ -237,23 +257,27 @@ display: flex;
   left: -60px;
   top: 15px;
 }
-.wish-close i{
-    color: black;
-    font-size: 25px;
+
+.wish-close i {
+  color: black;
+  font-size: 25px;
 }
-.menu{
- width: 100%;
- height: 100px;
-//  background-color: red;
- margin: 10px auto;
- display: flex;
- align-items: center;
- justify-content: center;
+
+.menu {
+  width: 100%;
+  height: 100px;
+  //  background-color: red;
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.toggel-logo{
+
+.toggel-logo {
   display: none;
 }
-.menu ul{
+
+.menu ul {
   display: flex;
   align-items: center;
   list-style: none;
@@ -262,17 +286,19 @@ display: flex;
   width: 100%;
   position: relative;
 }
-.menu ul li{
+
+.menu ul li {
   font-size: 17px;
   font-size: 500;
   color: white;
   cursor: pointer;
 }
+
 // .COUTURE{
 
-   
+
 // }
-.COUTURE-Hover{
+.COUTURE-Hover {
   width: 100%;
   height: 500px;
   background-color: white;
@@ -282,56 +308,63 @@ display: flex;
   display: flex;
   transition: all 0.3s;
 }
-.COUTURE-Hover .collection{
-   width: 20%;
-   height: 100%;
+
+.COUTURE-Hover .collection {
+  width: 20%;
+  height: 100%;
   //  background-color: blue;
 }
-.COUTURE-Hover .collection h1{
- font-size: 20px;
- font-weight: 500;
- text-align: center;
- margin: 20px;
- padding-right: 45px;
+
+.COUTURE-Hover .collection h1 {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  margin: 20px;
+  padding-right: 45px;
 }
+
 .COUTURE-Hover .collection p {
- font-size: 14px;
- font-weight: 400;
- text-align: center;
- margin: 8px 0px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  margin: 8px 0px;
 
 }
-.COUTURE-Hover .booknow h1{
+
+.COUTURE-Hover .booknow h1 {
   font-size: 17px;
- font-weight: 500;
- text-align: center;
- margin: 20px;
- padding-right: 45px;
- margin: 20px 0px;
+  font-weight: 500;
+  text-align: center;
+  margin: 20px;
+  padding-right: 45px;
+  margin: 20px 0px;
 }
 
-.COUTURE-Hover .booknow{
-   width: 30%;
-   height: 100%;
+.COUTURE-Hover .booknow {
+  width: 30%;
+  height: 100%;
   //  background-color: rgb(0, 255, 110);
 }
-.COUTURE-Hover .product{
-   width: 40%;
-   height: 100%;
+
+.COUTURE-Hover .product {
+  width: 40%;
+  height: 100%;
   //  background-color: blue;
-   display: flex;
+  display: flex;
   //  align-items: center;
-   justify-content: center;
-   padding: 20px;
-   gap: 40px;
+  justify-content: center;
+  padding: 20px;
+  gap: 40px;
 }
-.COUTURE-Hover .product img{
+
+.COUTURE-Hover .product img {
   width: 200px;
   height: 60%;
   object-position: center;
   object-fit: cover;
 }
-.COUTURE-Hover .product p{
+
+.COUTURE-Hover .product p {
   text-align: center;
   font-size: 15px;
   font-weight: 500;
@@ -348,7 +381,7 @@ display: flex;
 
 
 
-.bride-Hover{
+.bride-Hover {
   width: 100%;
   height: 500px;
   background-color: white;
@@ -358,64 +391,72 @@ display: flex;
   display: flex;
   transition: all 0.3s;
 }
-.bride-Hover .collection{
-   width: 20%;
-   height: 100%;
+
+.bride-Hover .collection {
+  width: 20%;
+  height: 100%;
   //  background-color: blue;
 }
-.bride-Hover .collection h1{
- font-size: 20px;
- font-weight: 500;
- text-align: center;
- margin: 20px;
- padding-right: 45px;
+
+.bride-Hover .collection h1 {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  margin: 20px;
+  padding-right: 45px;
 }
+
 .bride-Hover .collection p {
- font-size: 14px;
- font-weight: 400;
- text-align: center;
- margin: 8px 0px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  margin: 8px 0px;
 
 }
-.bride-Hover .booknow h1{
+
+.bride-Hover .booknow h1 {
   font-size: 17px;
- font-weight: 500;
- text-align: center;
- margin: 20px;
- padding-right: 45px;
- margin: 20px 0px;
+  font-weight: 500;
+  text-align: center;
+  margin: 20px;
+  padding-right: 45px;
+  margin: 20px 0px;
 }
 
-.bride-Hover .booknow{
-   width: 30%;
-   height: 100%;
+.bride-Hover .booknow {
+  width: 30%;
+  height: 100%;
   //  background-color: rgb(0, 255, 110);
 }
-.bride-Hover .product{
-   width: 40%;
-   height: 100%;
+
+.bride-Hover .product {
+  width: 40%;
+  height: 100%;
   //  background-color: blue;
-   display: flex;
+  display: flex;
   //  align-items: center;
-   justify-content: center;
-   padding: 20px;
-   gap: 40px;
-   
+  justify-content: center;
+  padding: 20px;
+  gap: 40px;
+
 }
-.bride-Hover .product img{
+
+.bride-Hover .product img {
   width: 200px;
   height: 60%;
   object-position: center;
   object-fit: cover;
 }
-.bride-Hover .product p{
+
+.bride-Hover .product p {
   text-align: center;
   font-size: 15px;
   font-weight: 500;
   padding: 10px;
 }
-.IN-THE-SPOTLIGHT{
-width: 100%;
+
+.IN-THE-SPOTLIGHT {
+  width: 100%;
   height: 500px;
   background-color: white;
   position: absolute;
@@ -424,91 +465,242 @@ width: 100%;
   display: flex;
   transition: all 0.3s;
 }
-.IN-THE-SPOTLIGHT .product{
+
+.IN-THE-SPOTLIGHT .product {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-around;
   padding: 10px;
 }
-.IN-THE-SPOTLIGHT .product img{
+
+.IN-THE-SPOTLIGHT .product img {
   width: 100%;
   min-width: 300px;
   height: 80%;
   min-height: 320px;
   object-fit: cover;
 }
-.IN-THE-SPOTLIGHT .product p{
+
+.IN-THE-SPOTLIGHT .product p {
   text-align: center;
   font-size: 20px;
   font-weight: 500;
 }
-@media only screen and (max-width: 800px) {
-  
- .option{
-  display: none;
- }
- .header{
-  flex-direction: row-reverse;
-  justify-content:space-between;
- }
 
- .header .logo img{
-  width: 130px;
-  height: 100px;
- }
- .opp{
-  display: flex;
-  align-items:  center;
-  flex-direction: row-reverse;
-  gap:20px;
- }
-  .toggel{
+@media only screen and (max-width: 800px) {
+
+  .option {
+    display: none;
+  }
+
+  .header {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .header .logo img {
+    width: 130px;
+    height: 100px;
+  }
+
+  .opp {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 20px;
+  }
+
+  .toggel {
     display: inline;
   }
 
-  .toggel i{
-      color: white;
-  font-size: 26px;
-  font-weight: lighter;
+  .toggel i {
+    color: white;
+    font-size: 26px;
+    font-weight: lighter;
   }
-  .menu{
+
+  .menu {
     flex-direction: column;
     background-color: rgb(0, 0, 0);
     position: absolute;
     top: 0;
-    height: 100%; 
-   margin: 0;
-   width: 350px;
-   padding: 0;
-   align-items: center;
-   justify-content: start;
-   padding: 20px 0px;
-   gap: 80px;
+    left: -350px;
+    transition: left 0.3s ease-in-out;
+    height: 100%;
+    margin: 0;
+    width: 350px;
+    padding: 0;
+    align-items: center;
+    justify-content: start;
+    padding: 20px 0px;
+    gap: 80px;
+    overflow-y: scroll;
   }
-  .toggel-logo{
+
+  .menu.menu-open {
+    left: 0;
+  }
+
+  .toggel-logo {
     display: block;
     width: 150px;
     height: 80px;
   }
-    .toggel-logo img{
-      width: inherit;
-      height: inherit;
-    }
-  .menu ul{
+
+  .toggel-logo img {
+    width: inherit;
+    height: inherit;
+  }
+
+  .menu ul {
     flex-direction: column;
     align-items: start;
     padding-left: 20px;
   }
-  .menu ul li{
-  
+
+  .menu ul li {
+
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-right: 20px;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
   }
-   .menu ul li i{
+
+  .menu ul li i {
     font-size: 20px;
-   }
+    position: absolute;
+    right: 15px;
+  }
+
+  .COUTURE-Hover,
+  .bride-Hover,
+  .IN-THE-SPOTLIGHT {
+    display: block;
+  }
+
+  .couture-dropdown {
+    width: 100%;
+    // height: 200px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    padding-top: 10px;
+  }
+
+  .couture-dropdown h1 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 25px 0px;
+    text-align: center;
+  }
+
+  .couture-dropdown p {
+    font-size: 13px;
+    font-weight: 400;
+    margin: 5px 0px;
+  }
+
+  .couture-dropdown .product {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .couture-dropdown .cardOne,
+  .cardTwo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .couture-dropdown .product img {
+    width: 80%;
+  }
+
+  .bride-dropdown {
+    width: 100%;
+    // height: 200px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    padding-top: 10px;
+  }
+
+  .bride-dropdown h1 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 25px 0px;
+    text-align: center;
+  }
+
+  .bride-dropdown p {
+    font-size: 13px;
+    font-weight: 400;
+    margin: 5px 0px;
+  }
+
+  .bride-dropdown .product {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .bride-dropdown .cardOne,
+  .cardTwo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .bride-dropdown .product img {
+    width: 80%;
+  }
+
+  .IN-THE-SPOTLIGHT-dropdwon {
+    width: 100%;
+
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    padding-top: 10px;
+  }
+
+  .IN-THE-SPOTLIGHT-dropdwon .product {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    padding: 20px;
+  }
+
+  .IN-THE-SPOTLIGHT-dropdwon .product .card1,
+  .card2,
+  .card3,
+  .card4 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .IN-THE-SPOTLIGHT-dropdwon .product img {
+    width: 100%;
+  }
 }
