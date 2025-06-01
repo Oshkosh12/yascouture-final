@@ -14,11 +14,10 @@
 
 .three-d-slider-track {
   position: relative;
-  width: 80vw;
-  max-width: 1100px;
+  background-color: red;
+  // max-width: 1100px;
   height: 80vh;
-  max-height: 700px;
-  min-height: 320px;
+  
   display: flex;
   justify-content: center;
   align-items: center;
