@@ -1,76 +1,141 @@
-import { Component, HostListener } from '@angular/core';
-import { CommonModule } from '@angular/common'; // ✅ Import this
+import { Component, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
+declare var Weglot: any; // Declare Weglot global
 
 @Component({
   selector: 'app-main-page',
-  standalone: true, // ⬅️ only needed if this is a standalone component
-  imports: [CommonModule], // ✅ Add this
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './main-page.html',
   styleUrls: ['./main-page.scss']
 })
-export class MainPage {
-  onClickHandler(arg0: string) {
-    if (arg0 == "list1") {
-      this.showHover = !this.showHover;
-      this.showHover2 = false;
-      this.showHover3 = false;
-    }
-    else if (arg0 == "list2") {
-      this.showHover2 = !this.showHover2;
-      this.showHover = false;
-      this.showHover3 = false;
-    }
-    else if (arg0 == "list3") {
-      this.showHover3 = !this.showHover3;
-      this.showHover2 = false;
-      this.showHover = false;
-    }
-  }
-  showHover: boolean = false;
-  showHover3: boolean = false;
-  showHover2: boolean = false;
-  run: boolean = false;
+export class MainPage implements AfterViewInit {
+  @ViewChild('myVideo') myVideo!: ElementRef<HTMLVideoElement>;
 
-  ShowandHideDetails(id: any, isShow: boolean) {
+  constructor(private route: Router) { }
+
+  ngAfterViewInit() {
     debugger
-    if (isShow == false) {
-      this.showHover = false;
-      this.showHover2 = false;
-      this.showHover3 = false;
+    // Setup video playback
+    const video = this.myVideo.nativeElement;
+    video.muted = true;
+    video.autoplay = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.load();
+    video.play().catch(() => { /* Autoplay blocked fallback */ });
+
+    // Sync selectedLanguage with Weglot current language
+    if (Weglot && typeof Weglot.getCurrentLang === 'function') {
+      this.selectedLanguage = Weglot.getCurrentLang();
     }
-    if (id == "list1" && isShow) {
-      this.showHover = true;
-      this.showHover2 = false;
-      this.showHover3 = false;
+
+    // Listen for language change events from Weglot to update UI state
+    if (Weglot && Weglot.on) {
+      Weglot.on('languageChanged', (newLang: string) => {
+        if (newLang === 'en' || newLang === 'ar') {
+          this.selectedLanguage = newLang;
+        }
+        this.languageDropdownOpen = false; // optional: close dropdown after language change
+      });
     }
-    else if (id == "list2" && isShow) {
-      this.showHover2 = true;
-      this.showHover = false;
-      this.showHover3 = false;
-    }
-    else if (id == "list3" && isShow) {
-      this.showHover3 = true;
-      this.showHover2 = false;
-      this.showHover = false;
-    }
-  }
-  ngOnInit() {
+
+
 
   }
+
+  ngOnInit() {
+    let pageWidth = document.documentElement.clientWidth;
+    this.run = pageWidth > 800;
+  }
+
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
-    const pageHeight = document.documentElement.clientWidth;
+    let pageWidth = document.documentElement.clientWidth;
+    this.run = pageWidth > 800;
+  }
 
-    if (pageHeight > 800) {
-      this.run = true;
+  // Sidebar state
+  sidebarOneOpen = false;
+  sidebarTwoOpen = false;
+
+  showHover = false;
+  showHover2 = false;
+  showHover3 = false;
+  run = false;
+  menuVisible = false;
+
+  selectedLanguage: 'en' | 'ar' = 'en';
+  languageDropdownOpen = false;
+
+  languages = {
+    en: { label: 'en', flag: 'assets/america.png' },
+    ar: { label: 'ar', flag: 'assets/dubai.png' },
+  };
+
+  openSidebarOne() {
+    this.sidebarOneOpen = true;
+    this.sidebarTwoOpen = false;
+  }
+
+  closeSidebarOne() {
+    this.sidebarOneOpen = false;
+  }
+
+  openSidebarTwo() {
+    this.sidebarTwoOpen = true;
+    this.sidebarOneOpen = false;
+  }
+
+  closeSidebarTwo() {
+    this.sidebarTwoOpen = false;
+  }
+
+  toggleMenu() {
+    this.menuVisible = !this.menuVisible;
+  }
+
+  onClickHandler(id: string) {
+    this.showHover = id === 'list1' ? !this.showHover : false;
+    this.showHover2 = id === 'list2' ? !this.showHover2 : false;
+    this.showHover3 = id === 'list3' ? !this.showHover3 : false;
+  }
+
+  ShowandHideDetails(id: string, isShow: boolean) {
+    if (!isShow) {
+      this.showHover = this.showHover2 = this.showHover3 = false;
     } else {
-      this.run = false;
+      this.showHover = id === 'list1';
+      this.showHover2 = id === 'list2';
+      this.showHover3 = id === 'list3';
     }
   }
-menuVisible: boolean = false;
-toggleMenu() {
-  this.menuVisible = !this.menuVisible;
-}
 
-}
+  moveNext(id: string) {
+    this.route.navigate([id]);
+  }
+  switchLanguage1(lang: string) {
+    debugger
+    Weglot.switchTo(lang);
+  }
+  switchLanguage(lang: 'en' | 'ar') {
+    debugger
+    if (Weglot && typeof Weglot.switchTo === 'function') {
+      Weglot.switchTo(lang);
+      this.setLanguage(lang); // update component state to keep UI in sync
+    } else {
+      console.error('Weglot is not ready yet.');
+    }
+  }
 
+  get alternateLanguage(): 'en' | 'ar' {
+    return this.selectedLanguage === 'en' ? 'ar' : 'en';
+  }
+
+  setLanguage(lang: 'en' | 'ar') {
+    this.selectedLanguage = lang;
+    this.languageDropdownOpen = false;
+  }
+}

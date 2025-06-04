@@ -1,7 +1,6 @@
 <div class="hero">
   <div class="background">
-    <video autoplay muted loop playsinline>
-      <source src="assets/Teaser_1_FC.webm" type="video/webm" />
+    <video #myVideo src="assets/Teaser_1_FC.webm" autoplay muted loop playsinline>
       Your browser does not support the video tag.
     </video>
   </div>
@@ -15,50 +14,51 @@
 
     <div class="logo"><img src="../../assets/yas-logo.png.webp" alt=""></div>
     <div class="option">
-      <div class="opOne"><i class="ri-user-line"></i></div>
-      <div class="opTwo"><i class="ri-heart-line"></i></div>
+      <div class="opOne" (click)="openSidebarOne()"><i class="ri-user-line"></i></div>
+      <div class="opTwo" (click)="openSidebarTwo()"><i class="ri-heart-line"></i></div>
     </div>
   </div>
   <div class="menu" [ngClass]="{'menu-open': menuVisible}">
     <div class="toggel-logo"><img src="../../assets/yas-logo.png.webp" alt=""></div>
-    <ul>
+    <ul (mouseleave)="run && ShowandHideDetails('list1', false)"
+      (mouseleave)="run && ShowandHideDetails('list2', false)" (mouseleave)="run && ShowandHideDetails('list3', false)">
 
 
       <li class="COUTURE" (mouseenter)="run && ShowandHideDetails('list1', true)"
-        (mouseleave)="run && ShowandHideDetails('list1', false)" (click)="!run && onClickHandler('list1')">
+        (click)="!run && onClickHandler('list1')">
         COUTURE<i class="ri-arrow-down-s-line"></i>
         <div class="couture-dropdown" *ngIf="showHover && !run">
           <div class="collection">
             <h1>Collection</h1>
-            <p> SPRING / SUMMER 24</p>
-            <P> WINTER / FALL 23-24</P>
+            <p (click)="moveNext('SummerSpring')"> SPRING / SUMMER 24</p>
+            <P (click)="moveNext('WinterFall')"> WINTER / FALL 23-24</P>
           </div>
           <div class="booknow">
             <h1>BOOK NOW1</h1>
-            <h1 style="color: gray; font-size: 16px; ">book your aoppoinment now</h1>
+            <h1 style="color: gray; font-size: 16px; " (click)="moveNext('BookAppoinment')">book your aoppoinment now
+            </h1>
           </div>
           <div class="product">
             <div class="cardOne">
               <img src="../../assets/one.jpg" alt="">
-              <p>SPRING / SUMMER 24</p>
+              <p (click)="moveNext('SummerSpring')"> SPRING / SUMMER 24</p>
             </div>
             <div class="cardTwo">
               <img src="../../assets/one.jpg" alt="">
-              <p>FALL / WINTER 23-24</p>
+              <p (click)="moveNext('WinterFall')">FALL / WINTER 23-24</p>
             </div>
           </div>
         </div>
 
       </li>
 
-      <li (mouseenter)="run && ShowandHideDetails('list2', true)"
-        (mouseleave)="run && ShowandHideDetails('list2', false)" (click)="!run && onClickHandler('list2')">
+      <li (mouseenter)="run && ShowandHideDetails('list2', true)" (click)="!run && onClickHandler('list2')">
         BRIDAL<i class="ri-arrow-down-s-line"></i>
         <div class="bride-dropdown" *ngIf="showHover2&& !run">
           <div class="collection">
             <h1>Collection</h1>
-            <p> SPRING / SUMMER 24</p>
-            <P> WINTER / FALL 23-24</P>
+            <p (click)="moveNext('SummerSpring')"> SPRING / SUMMER 24</p>
+            <P (click)="moveNext('WinterFall')"> WINTER / FALL 23-24</P>
           </div>
           <div class="booknow">
             <h1>BOOK NOW1</h1>
@@ -67,38 +67,37 @@
           <div class="product">
             <div class="cardOne">
               <img src="../../assets/one.jpg" alt="">
-              <p>SPRING / SUMMER 24</p>
+              <p (click)="moveNext('SummerSpring')">SPRING / SUMMER 24</p>
             </div>
             <div class="cardTwo">
               <img src="../../assets/one.jpg" alt="">
-              <p>FALL / WINTER 23-24</p>
+              <p (click)="moveNext('WinterFall')">FALL / WINTER 23-24</p>
             </div>
           </div>
         </div>
       </li>
 
-      <li (mouseenter)="run && ShowandHideDetails('list3', true)"
-        (mouseleave)="run && ShowandHideDetails('list3', false)" (click)="!run && onClickHandler('list3')">
+      <li (mouseenter)="run && ShowandHideDetails('list3', true)" (click)="!run && onClickHandler('list3')">
         IN THE SPOTLIGHT<i class="ri-arrow-down-s-line"></i>
         <div class="IN-THE-SPOTLIGHT-dropdwon" *ngIf="showHover3&& !run">
           <div class="product">
             <div class="card1">
-              <img src="../../assets/one.jpg" alt="">
+              <img src="../../assets/one.jpg" alt="" (click)="moveNext('SpotLight')">
               <p>name</p>
             </div>
             <div class="card2">
-              <img src="../../assets/one.jpg" alt="">
+              <img src="../../assets/one.jpg" alt="" (click)="moveNext('SpotLight')">
               <p>name</p>
             </div>
             <div class="card3">
-              <img src="../../assets/one.jpg" alt="">
+              <img src="../../assets/one.jpg" alt="" (click)="moveNext('SpotLight')">
               <p>name</p>
             </div>
-            <div class="card4"><img src="../../assets/one.jpg" alt="">
+            <div class="card4"><img src="../../assets/one.jpg" alt="" (click)="moveNext('SpotLight')">
               <p>name</p>
             </div>
           </div>
-          </div>
+        </div>
       </li>
 
 
@@ -106,69 +105,87 @@
 
 
 
-      <li>BOOK AN APPOINTMENT</li>
-      <li>English<i class="ri-arrow-down-s-line"></i></li>
-      <div class="COUTURE-Hover" *ngIf="showHover && run">
+      <!-- <li class="language-dropdown" (mouseenter)="languageDropdownOpen = true"
+        (mouseleave)="languageDropdownOpen = false">
+        <span>
+          <img [src]="languages[selectedLanguage].flag" [alt]="languages[selectedLanguage].label" class="flag-icon" />
+          {{ languages[selectedLanguage].label }}
+          <i class="ri-arrow-down-s-line"></i>
+        </span>
+
+        <div class="dropdown-content" *ngIf="languageDropdownOpen">
+          <div class="dropdown-option" (click)="switchLanguage(alternateLanguage)">
+            <img [src]="languages[alternateLanguage].flag" [alt]="languages[alternateLanguage].label"
+              class="flag-icon" />
+            {{ languages[alternateLanguage].label }}
+          </div>
+        </div>
+      </li> -->
+
+      <button (click)="switchLanguage1('en')">English</button>
+      <button (click)="switchLanguage1('ar')">Arabic</button>
+      <div class="COUTURE-Hover" *ngIf="showHover && run" (mouseenter)="run && ShowandHideDetails('list1', true)">
         <div class="collection">
-          <h1>Collection</h1>
-          <p> SPRING / SUMMER 24</p>
-          <P> WINTER / FALL 23-24</P>
+          <h1 style="cursor: pointer;">Collection</h1>
+          <p style="cursor: pointer;" (click)="moveNext('SummerSpring')"> SPRING / SUMMER 24</p>
+          <P style="cursor: pointer;" (click)="moveNext('WinterFall')"> WINTER / FALL 23-24</P>
         </div>
         <div class="booknow">
-          <h1>BOOK NOW1</h1>
-          <h1 style="color: gray; font-size: 16px; ">book your aoppoinment now</h1>
+          <h1 style="cursor: pointer;">BOOK NOW</h1>
+          <h1 style="color: gray; font-size: 16px; cursor: pointer;" (click)="moveNext('SpotLight')">book your
+            aoppoinment now</h1>
         </div>
         <div class="product">
           <div class="cardOne">
             <img src="../../assets/one.jpg" alt="">
-            <p>SPRING / SUMMER 24</p>
+            <p style="cursor: pointer;" (click)="moveNext('SummerSpring')">SPRING / SUMMER 24</p>
           </div>
           <div class="cardTwo">
             <img src="../../assets/one.jpg" alt="">
-            <p>FALL / WINTER 23-24</p>
+            <p style="cursor: pointer;" (click)="moveNext('WinterFall')">FALL / WINTER 23-24</p>
           </div>
 
 
         </div>
       </div>
-      <div class="bride-Hover" *ngIf="showHover2&& run">
+      <div class="bride-Hover" *ngIf="showHover2&& run" (mouseenter)="run && ShowandHideDetails('list2', true)">
         <div class="collection">
           <h1>Collection</h1>
-          <p> SPRING / SUMMER 24</p>
-          <P> WINTER / FALL 23-24</P>
+          <p style="cursor: pointer;" (click)="moveNext('SummerSpring')"> SPRING / SUMMER 24</p>
+          <P style="cursor: pointer;" (click)="moveNext('WinterFall')"> WINTER / FALL 23-24</P>
         </div>
         <div class="booknow">
-          <h1>BOOK NOW2</h1>
-          <h1 style="color: gray; font-size: 16px; ">book your aoppoinment now</h1>
+          <h1>BOOK NOW</h1>
+          <h1 style="color: gray; font-size: 16px; cursor: pointer;">book your aoppoinment now</h1>
         </div>
         <div class="product">
           <div class="cardOne">
-            <img src="../../assets/one.jpg" alt="">
-            <p>SPRING / SUMMER 24</p>
+            <img src="../../assets/image11.jpeg" alt="">
+            <p style="cursor: pointer;" (click)="moveNext('SummerSpring')">SPRING / SUMMER 24</p>
           </div>
           <div class="cardTwo">
             <img src="../../assets/one.jpg" alt="">
-            <p>FALL / WINTER 23-24</p>
+            <p style="cursor: pointer;" (click)="moveNext('WinterFall')">FALL / WINTER 23-24</p>
           </div>
 
 
         </div>
       </div>
-      <div class="IN-THE-SPOTLIGHT" *ngIf="showHover3&& run">
+      <div class="IN-THE-SPOTLIGHT" *ngIf="showHover3&& run" (mouseenter)="run && ShowandHideDetails('list3', true)">
         <div class="product">
           <div class="card1">
-            <img src="../../assets/one.jpg" alt="">
+            <img (click)="moveNext('SpotLight')" src="../../assets/image2.jpeg" alt="">
             <p>name</p>
           </div>
           <div class="card2">
-            <img src="../../assets/one.jpg" alt="">
+            <img (click)="moveNext('SpotLight')" src="../../assets/Look-3.1-scaled.jpg" alt="">
             <p>name</p>
           </div>
           <div class="card3">
-            <img src="../../assets/one.jpg" alt="">
+            <img (click)="moveNext('SpotLight')" src="../../assets/one.jpg" alt="">
             <p>name</p>
           </div>
-          <div class="card4"><img src="../../assets/one.jpg" alt="">
+          <div class="card4"><img (click)="moveNext('SpotLight')" src="../../assets/image11.jpeg" alt="">
             <p>name</p>
           </div>
         </div>
@@ -176,10 +193,10 @@
     </ul>
   </div>
 </div>
-<div class="opOne-sideBar">
+<div class="opOne-sideBar" [ngStyle]="{ left: sidebarOneOpen ? '0px' : '-450px' }">
   <div class="sign-logo">
     <i class="ri-user-fill"></i>
-    <div class="sign-close"><i class="ri-close-large-line"></i></div>
+    <div class="sign-close" (click)="openSidebarTwo()"><i class="ri-close-large-line"></i></div>
     <p>SIGN IN</p>
   </div>
   <div class="sign-form">
@@ -199,8 +216,8 @@
     <div class="sign-help">Lost your password?</div>
   </div>
 </div>
-<div class="opTwo-sideBar">
-  <div class="wish-logo">
+<div class="opTwo-sideBar" [ngStyle]="{ right: sidebarTwoOpen ? '0px' : '-450px' }">
+  <div class="wish-logo" (click)="closeSidebarTwo()">
     <i class="ri-poker-hearts-fill"></i>
     <div class="wish-close"><i class="ri-close-large-line"></i></div>
     <p>WISHLIST</p>

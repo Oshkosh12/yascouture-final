@@ -1,105 +1,114 @@
 <div class="container">
-    <h1 class="heading">BOOK AN APPOINTMENT</h1>
-    <div class="stepUp">
-        <div class="circle">
-
-            <i class="ri-map-pin-line"></i>
-        </div>
-        <div class="line"></div>
-        <div class="circle" style="color: black; background-color: white; border: 1px solid black ; ">
-
-            <i class="ri-bank-card-line"></i>
-        </div>
-        <div class="line"></div>
-        <div class="circle" style="color: black; background-color: white; border:1px solid black; ">
-
-            <i class="ri-calendar-line"></i>
-        </div>
+  <h1 class="heading">BOOK AN APPOINTMENT</h1>
+  <div class="stepUp">
+    <div class="circle" [ngClass]="{'active-step': currentStep >= 1}">
+      <i class="ri-map-pin-line"></i>
     </div>
+    <div class="line"></div>
+    <div class="circle" [ngStyle]="{color: currentStep >= 2 ? 'white':'black', backgroundColor: currentStep >= 2 ? 'black':'white', border: '1px solid black'}">
+      <i class="ri-bank-card-line"></i>
+    </div>
+    <div class="line"></div>
+    <div class="circle" [ngStyle]="{color: currentStep === 3 ? 'white':'black', backgroundColor: currentStep === 3 ? 'black':'white', border:'1px solid black'}">
+      <i class="ri-calendar-line"></i>
+    </div>
+  </div>
+
+  <!-- Step 1: Appointment type & category -->
+  <div *ngIf="currentStep === 1" class="category-options">
     <div class="appointment-type">
-        <div class="option active" data-type="online"><input type="checkbox">ONLINE<br><span>BOOK AN ONLINE
-                APPOINTMENT</span></div>
-        <div class="option" data-type="in-boutique"><input type="checkbox" name="" id="">IN BOUTIQUE<br><span>BOOK AN
-                IN- BOUTIQUE APPOINTMENT</span></div>
+      <div class="option"
+           *ngFor="let type of appointmentTypes"
+           [class.active]="type.selected"
+           (click)="selectAppointmentType(type)">
+        <input type="checkbox"
+               [checked]="type.selected"
+               (click)="$event.stopPropagation(); selectAppointmentType(type)" />
+        {{type.label}}<br>
+        <span>{{type.description}}</span>
+      </div>
     </div>
-
-   <div class="category-options">
-
-  <div class="step1" *ngIf="currentStep === 1">
-    <div class="box">
-      <input type="checkbox">
-      <h3>Haute Couture</h3>
-      <p>This is the process to find your perfect haute couture gown, created just for you</p>
-    </div>
-    <div class="box">
-      <input type="checkbox">
-      <h3>Bridal Dress</h3>
-      <p>This is the process to find the bridal dress of your dreams, designed to reflect your vision</p>
-    </div>
-    <div class="box">
-      <input type="checkbox">
-      <h3>Ready to Wear</h3>
-      <p>This is the process to find your ideal ready-to-wear dress, effortlessly chic and elegant</p>
+    <div class="step1">
+      <div class="box"
+           *ngFor="let cat of categories; let i = index"
+           [class.selected]="cat.selected"
+           (click)="selectCategory(i)">
+        <input type="checkbox"
+               [checked]="cat.selected"
+               (click)="$event.stopPropagation(); selectCategory(i)" />
+        <h3>{{cat.title}}</h3>
+        <p>{{cat.description}}</p>
+      </div>
     </div>
   </div>
 
-  <div class="step2" *ngIf="currentStep === 2">
-    <div class="field-partOne">
-      <div class="input-box">
-        <p>Name</p>
-        <input type="text" />
+  <!-- Step 2: Personal details -->
+  <div *ngIf="currentStep === 2" class="category-options">
+    <div class="step2">
+      <div class="field-partOne">
+        <div class="input-box">
+          <p>Name</p>
+          <input type="text" [(ngModel)]="userDetails.name" />
+        </div>
+        <div class="input-box">
+          <p>Last Name</p>
+          <input type="text" [(ngModel)]="userDetails.lastName" />
+        </div>
       </div>
-      <div class="input-box">
-        <p>Last Name</p>
-        <input type="text" />
-      </div>
-    </div>
-    <div class="field-parttwo">
-      <div class="input-box">
-        <p>Email</p>
-        <input type="text" />
-      </div>
-      <div class="input-box phone-input">
-        <p>Phone Number</p>
-        <div class="phone-wrapper">
-          <select class="country-code" name="countryCode">
-            <option value="+1">🇺🇸 +1</option>
-            <option value="+44">🇬🇧 +44</option>
-            <option value="+91" selected>🇮🇳 +91</option>
-            <option value="+61">🇦🇺 +61</option>
-            <option value="+971">🇦🇪 +971</option>
-          </select>
-          <input type="text" name="phone" placeholder="Enter phone number" />
+      <div class="field-parttwo">
+        <div class="input-box">
+          <p>Email</p>
+          <input type="text" [(ngModel)]="userDetails.email" />
+        </div>
+        <div class="input-box phone-input">
+          <p>Phone Number</p>
+          <div class="phone-wrapper">
+            <select class="country-code" [(ngModel)]="userDetails.countryCode">
+              <option value="+1">🇺🇸 +1</option>
+              <option value="+44">🇬🇧 +44</option>
+              <option value="+91">🇮🇳 +91</option>
+              <option value="+61">🇦🇺 +61</option>
+              <option value="+971">🇦🇪 +971</option>
+            </select>
+            <input type="text" name="phone" placeholder="Enter phone number" [(ngModel)]="userDetails.phone" />
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="step3" *ngIf="currentStep === 3">
+  <!-- Step 3: Calendar -->
+  <div *ngIf="currentStep === 3" class="category-options">
     <div class="calendar">
       <div class="calendar-header">
         <span (click)="prevMonth()">&lt;</span>
         <div>{{ monthNames[displayMonth] }} {{ displayYear }}</div>
         <span (click)="nextMonth()">&gt;</span>
       </div>
-
       <div class="calendar-days">
         <div *ngFor="let day of weekDays">{{ day }}</div>
       </div>
-
       <div class="calendar-dates">
         <div
           *ngFor="let day of days"
           [class.inactive]="day.inactive"
           [class.current-day]="day.isToday"
+          [class.selected-date]="selectedDate?.year === displayYear && selectedDate?.month === displayMonth && selectedDate?.date === day.date && !day.inactive"
+          (click)="selectDate(day)"
         >
           {{ day.date }}
         </div>
       </div>
     </div>
+    <div *ngIf="selectedDate" class="selected-date-summary">
+      <p>Selected Date: <b>{{selectedDate.date}} {{monthNames[selectedDate.month]}} {{selectedDate.year}}</b></p>
+    </div>
   </div>
 
-  <button id="nextStepBtn" (click)="nextStep()">
-    NEXT STEP
-  </button>
+  <div class="step-buttons">
+    <button *ngIf="currentStep > 1" id="prevStepBtn" (click)="prevStep()">Back</button>
+    <button id="nextStepBtn" (click)="nextStep()">
+      {{ currentStep === 3 ? 'BOOK NOW' : 'NEXT STEP' }}
+    </button>
+  </div>
 </div>

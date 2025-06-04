@@ -98,8 +98,8 @@
 }
 .partThree-bottom{
     width: 100%;
-    height: 500px;
-    background-color: black;
+    height: 600px;
+    // background-color: black;
 }
 .partThree-end button {
     padding: 1vw 2.8vw;
@@ -192,8 +192,8 @@
 }
 .partfive-bottom{
     width: 100%;
-    height: 500px;
-    background-color: black;
+    height: 600px;
+    // background-color: black;
 }
 
 
@@ -238,8 +238,8 @@
 }
 .partsix-bottom{
     width: 100%;
-    height: 500px;
-    background-color: black;
+    height: 600px;
+    // background-color: black;
 }
 
 
@@ -299,3 +299,94 @@ font-size: 1vw;
  background: #ffffff;
   color: #000000;
 }
+@media (max-width: 1024px) {
+  .partTwo p,
+  .partfive-top p,
+  .partsix-top p {
+    width: 90%;
+    font-size: 13px;
+  }
+  .partThree-bottom,
+  .partfive-bottom,
+  .partsix-bottom {
+    height: 400px;
+  }
+  .partThree-end button,
+  .pageseven .heading button {
+    font-size: 2.5vw;
+    padding: 2vw 4vw;
+  }
+  .pageFour .pageFour-top h1,
+  .pageseven .heading h1 {
+    font-size: 5vw;
+  }
+  .pageFour .pageFour-top p,
+  .pageseven .heading p {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .partTwo-top .heading2,
+  .partThree-top .heading2,
+  .partfive-top .heading2,
+  .partsix-top .heading2 {
+    font-size: 32px;
+  }
+  .partTwo p,
+  .partfive-top p,
+  .partsix-top p {
+    font-size: 12px;
+  }
+  .partThree-bottom,
+  .partfive-bottom,
+  .partsix-bottom {
+    height: 300px;
+  }
+  .pageseven .heading h1 {
+    font-size: 4vw;
+  }
+  .pageseven .heading p {
+    font-size: 32w;
+  }
+  .pageseven .heading button {
+    font-size: 2vw;
+    padding: 1vw 2vw;
+  }
+  .pageFour .pageFour-top h1 {
+    font-size: 4vw;
+  }
+  .pageFour .pageFour-top p {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .partTwo-top .heading,
+  .partTwo-top .heading2,
+  .partThree-top .heading2,
+  .partfive-top .heading2,
+  .partsix-top .heading2 {
+    font-size: 24px;
+  }
+  .partTwo p,
+  .partfive-top p,
+  .partsix-top p {
+    font-size: 11px;
+    width: 95%;
+  }
+  .partThree-end button,
+  .pageseven .heading button {
+    font-size: 2vw;
+    padding: 2vw 2vw;
+  }
+  .pageFour .pageFour-top h1,
+  .pageseven .heading h1 {
+    font-size: 5vw;
+  }
+  .pageFour .pageFour-top p,
+  .pageseven .heading p {
+    font-size: 2vw;
+  }
+}
+

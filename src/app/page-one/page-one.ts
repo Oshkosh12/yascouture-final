@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 import { MainPage } from '../main-page/main-page';
 import { Silder } from '../silder/silder';
 import { Footer } from "../footer/footer";
+import { Sidebartwo } from "../sidebartwo/sidebartwo";
+import { Slidertwo } from "../slidertwo/slidertwo";
 @Component({
   selector: 'app-page-one',
-  imports: [MainPage, Silder, Footer],
+  imports: [MainPage, Silder, Footer, Slidertwo],
   templateUrl: './page-one.html',
   styleUrl: './page-one.scss'
 })

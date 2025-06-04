@@ -1,8 +1,17 @@
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('./assets/LaureenZazaDisplay-Smdisplay.ttf') format('tff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 *{
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-      font-family: "Roboto", sans-serif;
+  font-family: 'MyCustomFont', Arial, sans-serif;
+
 }
 html,body{
     width: 100%;

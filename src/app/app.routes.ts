@@ -8,7 +8,14 @@ import { PageOne } from './page-one/page-one';
 import { PageTwo } from './page-two/page-two';
 import { PageThree } from './page-three/page-three';
 import { PageFour } from './page-four/page-four';
+import { PageFive } from './page-five/page-five';
 export const routes: Routes = [
     { path: '', redirectTo: 'main-page', pathMatch: 'full' },
-    { path: 'main-page', component: Silder },
+    { path: 'main-page', component: PageOne },
+    { path: 'SummerSpring', component: PageTwo },
+    { path: 'WinterFall', component: PageThree },
+    { path: 'Bridal', component: PageFour },
+    { path: 'SpotLight', component: PageFive },
+    { path: 'BookAppoinment', component: Stepper },
+
 ];
