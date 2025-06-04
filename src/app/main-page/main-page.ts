@@ -71,8 +71,8 @@ export class MainPage implements AfterViewInit {
   languageDropdownOpen = false;
 
   languages = {
-    en: { label: 'en', flag: 'assets/america.png' },
-    ar: { label: 'ar', flag: 'assets/dubai.png' },
+    en: { label: 'English', flag: 'assets/Flag_of_the_United_States_(DoS_ECA_Color_Standard).svg.png' },
+    ar: { label: 'للعربية', flag: 'assets/Flag_of_the_United_Arab_Emirates.svg.png' },
   };
 
   openSidebarOne() {
@@ -123,6 +123,8 @@ export class MainPage implements AfterViewInit {
   switchLanguage(lang: 'en' | 'ar') {
     debugger
     if (Weglot && typeof Weglot.switchTo === 'function') {
+      document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
       Weglot.switchTo(lang);
       this.setLanguage(lang); // update component state to keep UI in sync
     } else {

@@ -105,7 +105,7 @@
 
 
 
-      <!-- <li class="language-dropdown" (mouseenter)="languageDropdownOpen = true"
+      <li class="language-dropdown" (mouseenter)="languageDropdownOpen = true"
         (mouseleave)="languageDropdownOpen = false">
         <span>
           <img [src]="languages[selectedLanguage].flag" [alt]="languages[selectedLanguage].label" class="flag-icon" />
@@ -120,10 +120,9 @@
             {{ languages[alternateLanguage].label }}
           </div>
         </div>
-      </li> -->
+      </li>
 
-      <button (click)="switchLanguage1('en')">English</button>
-      <button (click)="switchLanguage1('ar')">Arabic</button>
+      
       <div class="COUTURE-Hover" *ngIf="showHover && run" (mouseenter)="run && ShowandHideDetails('list1', true)">
         <div class="collection">
           <h1 style="cursor: pointer;">Collection</h1>
