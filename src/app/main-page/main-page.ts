@@ -27,6 +27,9 @@ export class MainPage implements AfterViewInit, OnInit {
   sidebarTwoOpen = false;
   showHover = false;
   showHover2 = false;
+  divshow1 =false;
+  divshow2 = false;
+  divshow3 =false;
   showHover3 = false;
   run = false;
   menuVisible = false;
