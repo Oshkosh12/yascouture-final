@@ -1,6 +1,10 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Footer } from "../footer/footer";
+
+// ✅ Declare global Weglot object
+declare var Weglot: any;
+
 @Component({
   selector: 'app-spotlight',
   standalone: true,
@@ -8,7 +12,9 @@ import { Footer } from "../footer/footer";
   templateUrl: './spotlight.html',
   styleUrl: './spotlight.scss'
 })
-export class Spotlight {
+export class Spotlight  {
+  
+
   products = [
     { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image1.jpeg' },
     { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image2.jpeg' },
@@ -116,7 +122,7 @@ export class Spotlight {
   }
 
   onWheel(event: WheelEvent) {
-    // Optional: implement scroll zoom in/out, currently not used.
+    // Optional: implement scroll zoom in/out
   }
 
   onImgMouseDown(event: MouseEvent) {
@@ -124,17 +130,13 @@ export class Spotlight {
     this.dragging = true;
     this.startX = event.clientX - this.translateX;
     this.startY = event.clientY - this.translateY;
-    if (this.imgEl && this.imgEl.nativeElement) {
-      this.imgEl.nativeElement.style.cursor = 'grabbing';
-    }
+    this.imgEl.nativeElement.style.cursor = 'grabbing';
   }
 
   onImgMouseUp(event: MouseEvent) {
     if (this.zoomState === 'normal') return;
     this.dragging = false;
-    if (this.imgEl && this.imgEl.nativeElement) {
-      this.imgEl.nativeElement.style.cursor = 'grab';
-    }
+    this.imgEl.nativeElement.style.cursor = 'grab';
   }
 
   onImgMouseMove(event: MouseEvent) {
@@ -151,28 +153,23 @@ export class Spotlight {
   }
 
   private setImgTransform() {
-    if (this.imgEl && this.imgEl.nativeElement) {
-      let scale = 1;
-      if (this.zoomState === 'in') scale = 2;
-      if (this.zoomState === 'out') scale = 0.5;
-      this.imgEl.nativeElement.style.transform =
-        scale !== 1
-          ? `scale(${scale}) translate(${this.translateX}px,${this.translateY}px)`
-          : '';
-    }
+    let scale = 1;
+    if (this.zoomState === 'in') scale = 2;
+    if (this.zoomState === 'out') scale = 0.5;
+
+    this.imgEl.nativeElement.style.transform =
+      scale !== 1 ? `scale(${scale}) translate(${this.translateX}px,${this.translateY}px)` : '';
   }
 
   private resetImgTransform() {
     this.translateX = 0;
     this.translateY = 0;
-    if (this.imgEl && this.imgEl.nativeElement) {
-      let scale = 1;
-      if (this.zoomState === 'in') scale = 2;
-      if (this.zoomState === 'out') scale = 0.5;
-      this.imgEl.nativeElement.style.transform =
-        scale !== 1 ? `scale(${scale})` : '';
-      this.imgEl.nativeElement.style.cursor =
-        scale !== 1 ? 'grab' : 'zoom-in';
-    }
+
+    let scale = 1;
+    if (this.zoomState === 'in') scale = 2;
+    if (this.zoomState === 'out') scale = 0.5;
+
+    this.imgEl.nativeElement.style.transform = scale !== 1 ? `scale(${scale})` : '';
+    this.imgEl.nativeElement.style.cursor = scale !== 1 ? 'grab' : 'zoom-in';
   }
 }

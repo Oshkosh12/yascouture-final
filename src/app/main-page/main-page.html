@@ -9,10 +9,10 @@
       <div class="toggel" (click)="toggleMenu()">
         <i class="ri-bar-chart-horizontal-line"></i>
       </div>
-      <div class="calnder"><i class="ri-calendar-line"></i></div>
+      <div class="calnder"  (click)="moveNext('BookAppoinment')" style="cursor: pointer;"><i class="ri-calendar-line"></i></div>
     </div>
 
-    <div class="logo"><img src="../../assets/yas-logo.png.webp" alt=""></div>
+    <div class="logo" (click)="moveNext('main-page')" style="cursor: pointer;"><img src="../../assets/yas-logo.png.webp" alt=""></div>
     <div class="option">
       <div class="opOne" (click)="openSidebarOne()"><i class="ri-user-line"></i></div>
       <div class="opTwo" (click)="openSidebarTwo()"><i class="ri-heart-line"></i></div>
@@ -99,12 +99,7 @@
           </div>
         </div>
       </li>
-
-
-
-
-
-
+      <li (click)="moveNext('BookAppoinment')" >BOOK AN APPOINTMENT</li>
       <li class="language-dropdown" (mouseenter)="languageDropdownOpen = true"
         (mouseleave)="languageDropdownOpen = false">
         <span>
@@ -217,6 +212,7 @@
 </div>
 <div class="opTwo-sideBar" [ngStyle]="{ right: sidebarTwoOpen ? '0px' : '-450px' }">
   <div class="wish-logo" (click)="closeSidebarTwo()">
+    
     <i class="ri-poker-hearts-fill"></i>
     <div class="wish-close"><i class="ri-close-large-line"></i></div>
     <p>WISHLIST</p>

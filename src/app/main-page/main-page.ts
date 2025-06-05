@@ -1,50 +1,49 @@
-import { Component, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
+  HostListener,
+  OnInit,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
-declare var Weglot: any; // Declare Weglot global
+declare var Weglot: any;
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './main-page.html',
-  styleUrls: ['./main-page.scss']
+  styleUrls: ['./main-page.scss'],
 })
-export class MainPage implements AfterViewInit {
+export class MainPage implements AfterViewInit, OnInit {
   @ViewChild('myVideo') myVideo!: ElementRef<HTMLVideoElement>;
 
-  constructor(private route: Router) { }
+  constructor(private route: Router) {}
 
-  ngAfterViewInit() {
-    debugger
-    // Setup video playback
-    const video = this.myVideo.nativeElement;
-    video.muted = true;
-    video.autoplay = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.load();
-    video.play().catch(() => { /* Autoplay blocked fallback */ });
+  sidebarOneOpen = false;
+  sidebarTwoOpen = false;
+  showHover = false;
+  showHover2 = false;
+  showHover3 = false;
+  run = false;
+  menuVisible = false;
 
-    // Sync selectedLanguage with Weglot current language
-    if (Weglot && typeof Weglot.getCurrentLang === 'function') {
-      this.selectedLanguage = Weglot.getCurrentLang();
-    }
+  selectedLanguage: 'en' | 'ar' = 'en';
+  languageDropdownOpen = false;
 
-    // Listen for language change events from Weglot to update UI state
-    if (Weglot && Weglot.on) {
-      Weglot.on('languageChanged', (newLang: string) => {
-        if (newLang === 'en' || newLang === 'ar') {
-          this.selectedLanguage = newLang;
-        }
-        this.languageDropdownOpen = false; // optional: close dropdown after language change
-      });
-    }
-
-
-
-  }
+  languages = {
+    en: {
+      label: 'English',
+      flag: 'assets/Flag_of_the_United_States_(DoS_ECA_Color_Standard).svg.png',
+    },
+    ar: {
+      label: 'للعربية',
+      flag: 'assets/Flag_of_the_United_Arab_Emirates.svg.png',
+    },
+  };
 
   ngOnInit() {
     let pageWidth = document.documentElement.clientWidth;
@@ -57,23 +56,34 @@ export class MainPage implements AfterViewInit {
     this.run = pageWidth > 800;
   }
 
-  // Sidebar state
-  sidebarOneOpen = false;
-  sidebarTwoOpen = false;
+  ngAfterViewInit(): void {
+    const video = this.myVideo.nativeElement;
+    video.muted = true;
+    video.autoplay = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.load();
+    video.play().catch(() => {});
 
-  showHover = false;
-  showHover2 = false;
-  showHover3 = false;
-  run = false;
-  menuVisible = false;
+    // ✅ Reapply the current language
+    setTimeout(() => {
+      const currentLang = Weglot.getCurrentLang?.() || 'en';
+      Weglot.switchTo(currentLang);
+      document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+      this.selectedLanguage = currentLang;
+    }, 500);
 
-  selectedLanguage: 'en' | 'ar' = 'en';
-  languageDropdownOpen = false;
-
-  languages = {
-    en: { label: 'English', flag: 'assets/Flag_of_the_United_States_(DoS_ECA_Color_Standard).svg.png' },
-    ar: { label: 'للعربية', flag: 'assets/Flag_of_the_United_Arab_Emirates.svg.png' },
-  };
+    // ✅ Listen for language change and update local state
+    if (Weglot && Weglot.on) {
+      Weglot.on('languageChanged', (newLang: string) => {
+        if (newLang === 'en' || newLang === 'ar') {
+          this.selectedLanguage = newLang;
+          document.documentElement.setAttribute('dir', newLang === 'ar' ? 'rtl' : 'ltr');
+        }
+        this.languageDropdownOpen = false;
+      });
+    }
+  }
 
   openSidebarOne() {
     this.sidebarOneOpen = true;
@@ -116,28 +126,23 @@ export class MainPage implements AfterViewInit {
   moveNext(id: string) {
     this.route.navigate([id]);
   }
-  switchLanguage1(lang: string) {
-    debugger
-    Weglot.switchTo(lang);
-  }
-  switchLanguage(lang: 'en' | 'ar') {
-    debugger
-    if (Weglot && typeof Weglot.switchTo === 'function') {
-      document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
 
+  switchLanguage(lang: 'en' | 'ar') {
+    if (Weglot && typeof Weglot.switchTo === 'function') {
       Weglot.switchTo(lang);
-      this.setLanguage(lang); // update component state to keep UI in sync
+      document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      this.setLanguage(lang);
     } else {
       console.error('Weglot is not ready yet.');
     }
   }
 
-  get alternateLanguage(): 'en' | 'ar' {
-    return this.selectedLanguage === 'en' ? 'ar' : 'en';
-  }
-
   setLanguage(lang: 'en' | 'ar') {
     this.selectedLanguage = lang;
     this.languageDropdownOpen = false;
+  }
+
+  get alternateLanguage(): 'en' | 'ar' {
+    return this.selectedLanguage === 'en' ? 'ar' : 'en';
   }
 }

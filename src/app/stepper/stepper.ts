@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MainPage } from "../main-page/main-page";
 interface Step1Category {
   title: string;
   description: string;
@@ -17,7 +18,7 @@ interface AppointmentType {
 @Component({
   selector: 'app-stepper',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule, MainPage],
   templateUrl: './stepper.html',
   styleUrls: ['./stepper.scss']
 })

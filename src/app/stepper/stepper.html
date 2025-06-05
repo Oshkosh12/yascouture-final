@@ -1,46 +1,47 @@
-<div class="container">
+<div class="main">
+  <div class="hero">
+    <app-main-page></app-main-page>
+  </div>
+  <div class="pageOne">
+    <div class="container">
   <h1 class="heading">BOOK AN APPOINTMENT</h1>
   <div class="stepUp">
     <div class="circle" [ngClass]="{'active-step': currentStep >= 1}">
       <i class="ri-map-pin-line"></i>
     </div>
     <div class="line"></div>
-    <div class="circle" [ngStyle]="{color: currentStep >= 2 ? 'white':'black', backgroundColor: currentStep >= 2 ? 'black':'white', border: '1px solid black'}">
+    <div class="circle"
+      [ngStyle]="{color: currentStep >= 2 ? 'white':'black', backgroundColor: currentStep >= 2 ? 'black':'white', border: '1px solid black'}">
       <i class="ri-bank-card-line"></i>
     </div>
     <div class="line"></div>
-    <div class="circle" [ngStyle]="{color: currentStep === 3 ? 'white':'black', backgroundColor: currentStep === 3 ? 'black':'white', border:'1px solid black'}">
+    <div class="circle"
+      [ngStyle]="{color: currentStep === 3 ? 'white':'black', backgroundColor: currentStep === 3 ? 'black':'white', border:'1px solid black'}">
       <i class="ri-calendar-line"></i>
     </div>
   </div>
 
   <!-- Step 1: Appointment type & category -->
+  <!-- Step 1: Appointment type & category -->
   <div *ngIf="currentStep === 1" class="category-options">
     <div class="appointment-type">
-      <div class="option"
-           *ngFor="let type of appointmentTypes"
-           [class.active]="type.selected"
-           (click)="selectAppointmentType(type)">
-        <input type="checkbox"
-               [checked]="type.selected"
-               (click)="$event.stopPropagation(); selectAppointmentType(type)" />
+      <div class="option" *ngFor="let type of appointmentTypes" [class.active]="type.selected"
+        (click)="selectAppointmentType(type)">
+        <input type="checkbox" [(ngModel)]="type.selected" class="custom-checkbox" (click)="$event.stopPropagation()" />
         {{type.label}}<br>
         <span>{{type.description}}</span>
       </div>
     </div>
     <div class="step1">
-      <div class="box"
-           *ngFor="let cat of categories; let i = index"
-           [class.selected]="cat.selected"
-           (click)="selectCategory(i)">
-        <input type="checkbox"
-               [checked]="cat.selected"
-               (click)="$event.stopPropagation(); selectCategory(i)" />
+      <div class="box" *ngFor="let cat of categories; let i = index" [class.selected]="cat.selected"
+        (click)="selectCategory(i)">
+        <input type="checkbox" [(ngModel)]="cat.selected" class="custom-checkbox" (click)="$event.stopPropagation()" />
         <h3>{{cat.title}}</h3>
         <p>{{cat.description}}</p>
       </div>
     </div>
   </div>
+
 
   <!-- Step 2: Personal details -->
   <div *ngIf="currentStep === 2" class="category-options">
@@ -89,13 +90,9 @@
         <div *ngFor="let day of weekDays">{{ day }}</div>
       </div>
       <div class="calendar-dates">
-        <div
-          *ngFor="let day of days"
-          [class.inactive]="day.inactive"
-          [class.current-day]="day.isToday"
+        <div *ngFor="let day of days" [class.inactive]="day.inactive" [class.current-day]="day.isToday"
           [class.selected-date]="selectedDate?.year === displayYear && selectedDate?.month === displayMonth && selectedDate?.date === day.date && !day.inactive"
-          (click)="selectDate(day)"
-        >
+          (click)="selectDate(day)">
           {{ day.date }}
         </div>
       </div>
@@ -110,5 +107,7 @@
     <button id="nextStepBtn" (click)="nextStep()">
       {{ currentStep === 3 ? 'BOOK NOW' : 'NEXT STEP' }}
     </button>
+  </div>
+</div>
   </div>
 </div>
