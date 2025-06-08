@@ -1,0 +1,14 @@
+<h1 class="main-heading">THE LOOKS</h1>
+<div class="main">
+  <div class="slider">
+    <div class="slides" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+      <div class="slide" *ngFor="let group of groupedImages">
+        <div class="slide-img" *ngFor="let img of group">
+          <img [src]="img.url.split(',')[0]" alt="Slide Image" (click)="sendValue(img.url)" />
+        </div>
+      </div>
+    </div>
+    <button class="nav prev" (click)="moveSlide(-1)">←</button>
+    <button class="nav next" (click)="moveSlide(1)">→</button>
+  </div>
+</div>

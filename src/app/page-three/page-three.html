@@ -7,14 +7,14 @@
             <h4 class="heading">
                 <div class="line"></div> EXPLORE<div class="line"></div>
             </h4>
-            <h1 class="heading2">FALL / WINTER</h1>
+            <h1 class="heading2">SPRING / SUMMER</h1>
             <p>Indulge in sophistication with our Fall / Winter 23-24 curated couture selection. Each piece radiates
                 luxury and refinement, crafted to elevate your style effortlessly. Explore our premium picks and embrace
-                the epitome of couture excellence.</p>
+                the epitome of couture excellence..</p>
         </div>
         <div class="partTwo-bottom">
             <video autoplay muted loop playsinline>
-                <source src="assets/Teaser_1_FC.webm" type="video/webm" />
+                <source src="../../assets/Teaser_3_FC.mp4" type="video/webm" />
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -25,10 +25,10 @@
                 THE LOOKS</h1>
         </div>
         <div class="partThree-bottom">
-            <app-slidertwo></app-slidertwo>
+            <app-slidertwo [images]="images"></app-slidertwo>
         </div>
         <div class="partThree-end">
-            <button>The Looks</button>
+            <button  (click)="moveNext('summerLooks')" >The Looks</button>
         </div>
     </div>
     <div class="pageFour">
@@ -41,12 +41,12 @@
         </div>
         <div class="pageFour-mid">
             <video autoplay muted loop playsinline>
-                <source src="assets/Teaser_1_FC.webm" type="video/webm" />
+                <source src="../../assets/Teaser_1_FC.mp4" type="video/webm" />
                 Your browser does not support the video tag.
             </video>
         </div>
     </div>
- 
+
 
 
     <div class="partfive">
@@ -57,7 +57,7 @@
             </p>
         </div>
         <div class="partfive-bottom">
-            <app-slidertwo></app-slidertwo>
+            <app-slidertwo [images]="images2"></app-slidertwo>
         </div>
 
     </div>
@@ -69,18 +69,18 @@
                 irresistible symphony of style. Step into the world where each garment serves as a canvas for magic.</p>
         </div>
         <div class="partsix-bottom">
-             <app-slidertwo></app-slidertwo>
+            <app-slidertwo [images]="images3"></app-slidertwo>
         </div>
 
     </div>
-   <div class="pageseven">
+    <div class="pageseven">
         <div class="background">
             <img src="../../assets/Look-21-scaled.jpg.webp" alt="">
         </div>
         <div class="heading">
-            <h1>EXCLUSIVE VIEWING</h1>
-            <p>Discover the collection through a private consultation, available online or in-person.</p>
-            <button>REQUEST AN APPOINTMENT</button>
+            <h1>BOOK YOUR APPOINTMENT</h1>
+            <p>Schedule a private consultation to discover exquisite haute couture creations tailored just for you.</p>
+            <button  (click)="moveNext('BookAppoinment')">BOOK NOW</button>
         </div>
     </div>
     <div class="footer">

@@ -1,0 +1,18 @@
+<div class="main">
+  <h1 class="main-heading">THE LOOKS</h1>
+  <div class="containr">
+    <div class="product" *ngFor="let product of lookData">
+      <img
+        [src]="product.img"
+        [alt]="product.name"
+        (click)="showLookDetails({
+          allpictures:allPictures,
+          pictures: getImages(product),
+          name: product.name,
+          text: product.text || ''
+        })"
+      />
+      <div class="product-name">{{ product.name }}</div>
+    </div>
+  </div>
+</div>

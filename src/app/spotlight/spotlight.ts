@@ -12,31 +12,32 @@ declare var Weglot: any;
   templateUrl: './spotlight.html',
   styleUrl: './spotlight.scss'
 })
-export class Spotlight  {
-  
+export class Spotlight {
+
 
   products = [
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image1.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image2.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image3.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image4.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image5.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image6.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image7.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image8.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image9.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image11.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image12.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image14.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image15.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image16.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image21.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image18.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image19.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image20.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image21.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image1.jpeg' },
-    { name: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', img: 'assets/image2.jpeg' },
+    {
+      name: 'Shanaya Kapoor Dazzles in a Yas Couture Fall Winter 23/24  Haute Couture dress,', img: 'assets/Models/Shanaya Kapoor Dazzle.jpeg' },
+    { name: 'Malaika Arora Stuns in a Yas Couture Fall Winter 23/24 Haute Couture dress,', img: 'assets/Models/Malaika Arora.jpeg' },
+    { name: 'Shehnaaz Gill Dazzles in a Yas Couture Fall Winter 23/24 HauteCouture dress', img: 'assets/Models/Shahnaz Gill.jpeg' },
+    { name: 'Mouni Roy Stuns in a Yas Couture Fall Winter 23/24 HauteCouture dress', img: 'assets/Models/Mouni Roy.jpeg' },
+    { name: 'Deborah Cox light up the stage wearing Yas Couture Haute Couture dress during her Performance in KTUphoria,', img: 'assets/Models/Debroh Cox.jpeg' },
+    { name: 'Actress Berite La Belle Stuns in "Time is Eternal" playingCleopatra role wearing Yas Couture in a dramatic gold embellished crystal gown,', img: 'assets/Models/Berite La Bella.jpeg' },
+    { name: 'Dayena Erappa wearing Yas Couture Haute Couture dress', img: 'assets/Models/Diana Erappa.jpeg' },
+    { name: 'The Beauty Icon Gwen Stefani glowing in a Yas Couture golden bodysuit for GXVE Beauty,', img: 'assets/Models/Gwen Stephani.jpeg' },
+    { name: 'Nora Fatehi Stuns in a Multicolor tiger print dress from YasCouture', img: 'assets/Models/Nora Fatehi.jpeg' },
+    { name: 'Amyra Dastur looking flawless in a Yas Couture See through mirror beaded gown', img: 'assets/Models/Amyra Dastur.jpeg' },
+    { name: 'Balqees Fathi Stuns in a red beaded dressfrom Yas Couture for the hope makers in Dubai,', img: 'assets/Models/Balqees Fathi.jpeg' },
+    { name: 'Golden Goddess Paris Hilton looking absolutely stunning in a Golden beaded gown from Yas Couture', img: 'assets/Models/Golden Godess.jpeg' },
+    { name: 'Paris Hilton wearing a fully silver crystal-beaded see-through mini dress from Yas Couture for her music video My Best Friends Ass.', img: 'assets/Models/Paris Hilton.jpeg' },
+    { name: 'Hofit Golan shines in a Yas Couture gown at the 27th Annual Elton John AIDS Foundation Academy Awards.', img: 'assets/Models/Hofit Galon.jpeg' },
+    { name: 'Patrizia Yanguela stuns in a Yas Couture dress while attending the 61st Annual Grammy Awards', img: 'assets/Models/Patrizia.jpeg' },
+    { name: 'Nour Al ghandour stuns in a Yas Couture dress', img: 'assets/Models/Nour Al Ghandour.jpeg' },
+    { name: 'Bebe Rexha wearing a Yas Couture crystal beaded evening gown while performing on The Tonight Show starring Jimmy Fallon,', img: 'assets/Models/Bebe Rexha.jpeg' },
+    { name: 'Paulina Rubio shines in a gold metallic crystal dress from Yas Couture,', img: 'assets/Models/Poulina Robio.jpeg' },
+    { name: 'Yuri stuns in a Yas Couture dress for the Latin Grammys', img: 'assets/Models/Yuri Stuns.jpeg' },
+    { name: 'Ashanti shines in a Yas Couture dress at the Video Music Awards', img: 'assets/Models/Ashanti SHines.jpeg' },
+    { name: 'Pia Toscano stuns in a Yas Couture dress for the PolarBear Affair event in Tronto', img: 'assets/Models/Peta Murghaizia.jpeg' },
   ];
 
   viewerOpen = false;

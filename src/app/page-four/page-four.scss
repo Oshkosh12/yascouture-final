@@ -3,8 +3,10 @@
     margin: 0;
     box-sizing: border-box;
     width: 100%;
-    min-height: 100vh;
-    overflow-y: auto;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-image: url(../../assets/Look-3.1-scaled.jpg);
 }
 
 /* General Utility */
@@ -26,6 +28,7 @@
 /* Part Two */
 .partTwo {
     width: 100%;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,12 +37,14 @@
     padding-top: 30px;
     gap: 10px;
 }
+
 .partTwo-top {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
+
 .partTwo-top .heading {
     display: flex;
     align-items: center;
@@ -49,15 +54,18 @@
     font-weight: 300;
     font-size: 1.1rem;
 }
+
 .partTwo-top .line {
     width: 40px;
     height: 1px;
     background-color: black;
 }
+
 .partTwo-top .heading2 {
     font-size: 2.2rem;
     margin: 10px;
 }
+
 .partTwo p {
     text-align: center;
     font-size: 1rem;
@@ -66,13 +74,15 @@
     max-width: 650px;
     padding: 5px 0;
 }
+
 .partTwo-bottom {
-    width: 90%;
-    max-width: 650px;
+    width: 80%;
+
 }
+
 .partTwo-bottom video {
     width: 100%;
-    height: auto;
+
     display: block;
     border-radius: 10px;
 }
@@ -87,12 +97,15 @@
     padding: 10px;
     padding-top: 40px;
     gap: 25px;
-    margin: 10px 0;
+    // margin: 10px 0;
+    background-color: white;
 }
+
 .partThree-top .heading2 {
     font-size: 2.2rem;
     margin: 10px;
 }
+
 .partThree-bottom {
     width: 100%;
     max-width: 1200px;
@@ -100,9 +113,62 @@
     height: 50vw;
     max-height: 600px;
 }
+.partThree-end button {
+    padding: 1vw 2.8vw;
+  font-size: 1.2vw;
+  letter-spacing: 2px;
+  border: 1px solid #222;
+  background: transparent;
+  color: #222;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.partThree-end button:hover {
+  background: #222;
+  color: #fff;
+}
+
+
+.pageFour {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 10px;
+    padding-top: 60px;
+    background-color: white;
+}
+
+.pageFour .pageFour-top h1 {
+    font-size: 3vw;
+    font-weight: 400;
+    margin-bottom: 1vw;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.pageFour .pageFour-top p {
+    font-size: 1vw;
+    color: #000000;
+    max-width: 60vw;
+    line-height: 1.5;
+    margin-bottom: 2vw;
+    text-align: center;
+}
+
+.pageFour-mid {
+    width: 70%;
+}
+
+.pageFour-mid video {
+    width: 100%;
+}
+
 
 /* Part Five/Four */
-.partfour, .partfive {
+.partfour,
+.partfive {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -110,20 +176,24 @@
     justify-content: center;
     padding: 10px;
     padding-top: 40px;
-    margin-top: 10px;
+    // margin-top: 10px;
     gap: 25px;
-    margin: 10px 0;
+    // margin: 10px 0;
+    background-color: #ffffff;
 }
+
 .partfive-top {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
+
 .partfive-top .heading2 {
     font-size: 2.2rem;
     margin: 10px;
 }
+
 .partfive-top p {
     text-align: center;
     font-size: 1rem;
@@ -132,6 +202,7 @@
     max-width: 650px;
     padding: 5px 0;
 }
+
 .partfive-bottom {
     width: 100%;
     max-width: 1200px;
@@ -140,13 +211,62 @@
     max-height: 600px;
 }
 
+.partsix {
+    width: 100%;
+    // height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: white;
+    padding-top: 40px;
+    // background-color: red;
+    gap: 25px;
+}
+
+
+.partsix-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.partsix-top .heading2 {
+    font-size: 45px;
+    color: black;
+    font-weight: 400;
+    text-align: center;
+    margin: 10px;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+
+}
+
+.partsix-top p {
+    text-align: center;
+    font-size: 14px;
+    font-size: 300;
+    color: rgb(0, 0, 0);
+    width: 70%;
+    padding: 5px 0px;
+}
+
+.partsix-bottom {
+    width: 100%;
+    height: 600px;
+    // background-color: black;
+}
+
 /* Page Seven */
 .pageseven {
     width: 100%;
-    height: 400px;
+    height: 300px;
     margin-top: 10px;
     position: relative;
 }
+
 .pageseven .background {
     position: absolute;
     width: 100%;
@@ -155,12 +275,14 @@
     top: 0;
     left: 0;
 }
+
 .pageseven .background img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: top;
 }
+
 .pageseven .heading {
     width: 100%;
     height: 100%;
@@ -169,6 +291,7 @@
     justify-content: center;
     flex-direction: column;
 }
+
 .pageseven .heading h1 {
     font-size: 2.5vw;
     font-weight: 400;
@@ -177,6 +300,7 @@
     text-align: center;
     color: white;
 }
+
 .pageseven .heading p {
     font-size: 1.2vw;
     color: #ffffff;
@@ -185,6 +309,7 @@
     margin-bottom: 4vw;
     text-align: center;
 }
+
 .pageseven .heading button {
     padding: 1vw 2.8vw;
     font-size: 1.1vw;
@@ -196,6 +321,7 @@
     transition: background 0.2s, color 0.2s;
     border-radius: 4px;
 }
+
 .pageseven .heading button:hover {
     background: #ffffff;
     color: #000000;
@@ -209,6 +335,7 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+
     .partTwo-bottom,
     .partfive-bottom,
     .partThree-bottom {
@@ -217,12 +344,15 @@
         height: 300px;
         max-height: 400px;
     }
+
     .pageseven {
         height: 300px;
     }
+
     .pageseven .heading h1 {
         font-size: 4vw;
     }
+
     .pageseven .heading p,
     .pageseven .heading button {
         font-size: 2vw;
@@ -231,17 +361,20 @@
 
 /* Tablet */
 @media (max-width: 768px) {
+
     .heading2,
     .partTwo-top .heading2,
     .partThree-top .heading2,
     .partfive-top .heading2 {
         font-size: 1.8rem;
     }
+
     .partTwo p,
     .partfive-top p {
         font-size: 0.95rem;
         width: 100%;
     }
+
     .partTwo-bottom,
     .partfive-bottom,
     .partThree-bottom {
@@ -249,12 +382,15 @@
         height: 200px;
         max-height: 250px;
     }
+
     .pageseven {
         height: 220px;
     }
+
     .pageseven .heading h1 {
         font-size: 5vw;
     }
+
     .pageseven .heading p,
     .pageseven .heading button {
         font-size: 3vw;
@@ -263,6 +399,7 @@
 
 /* Mobile */
 @media (max-width: 500px) {
+
     .heading2,
     .partTwo-top .heading2,
     .partThree-top .heading2,
@@ -270,24 +407,34 @@
         font-size: 1.2rem;
         margin: 5px 0;
     }
+
     .partTwo p,
     .partfive-top p {
         font-size: 0.88rem;
         padding: 2px 0;
     }
-    .main, .partTwo, .partThree, .partfive, .partfour {
+
+    .main,
+    .partTwo,
+    .partThree,
+    .partfive,
+    .partfour {
         padding: 5px;
     }
+
     .pageseven {
         height: 120px;
     }
+
     .pageseven .heading h1 {
         font-size: 6vw;
     }
+
     .pageseven .heading p,
     .pageseven .heading button {
         font-size: 3.5vw;
     }
+
     .pageseven .heading button {
         padding: 2vw 6vw;
     }

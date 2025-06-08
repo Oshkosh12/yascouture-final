@@ -1,0 +1,19 @@
+<div class="main">
+  <div class="slider">
+    <div class="slides" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+      <div class="slide" *ngFor="let img of images">
+        <img [src]="img.url" alt="Slide Image" />
+      </div>
+    </div>
+    <button class="nav prev" (click)="moveSlide(-1)">←</button>
+    <button class="nav next" (click)="moveSlide(1)">→</button>
+  </div>
+
+  <div class="slider2">
+    <div class="slides2" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+      <div class="slide2" *ngFor="let img of images">
+        <p>{{ img.text }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -45,9 +45,11 @@
 .three-d-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit:fill;
+
   pointer-events: none;
   user-select: none;
+
 }
 
 .three-d-slide.side {

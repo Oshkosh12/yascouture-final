@@ -1,4 +1,3 @@
-
 .main {
   padding: 0;
   margin: 0;
@@ -7,23 +6,31 @@
   height: 100%;
   overflow-y: scroll;
 }
+
 .container {
   margin: auto;
   background: white;
   padding: 30px;
   border-radius: 10px;
+  width: 80%;
 }
+
 .heading {
   text-align: center;
 }
+
 .appointment-type {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
   align-items: center;
 }
+
 .option {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10px;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 10px;
@@ -35,20 +42,21 @@
   max-width: 300px;
   height: 100px;
   position: relative;
-  border: 1px solid transparent;
+  // border: 1px solid black;
 }
+
 .option:last-child {
   margin-right: 0;
 }
+
 .option.active {
-  background-color: rgb(238, 237, 237);
+  background-color: #f6f4ee;
   color: rgb(0, 0, 0);
-  border-color: black;
+  border: none;
+
 }
+
 .option input {
-  position: absolute;
-  top: 20px;
-  left: 15px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -57,21 +65,24 @@
   cursor: pointer;
   outline: none;
 }
+
 .option span {
   display: block;
   font-weight: normal;
-  font-size: 0.9em;
-  margin-top: 5px;
+  font-size: 13px;
+  // margin-top: 5px;
 }
+
 .category-options {
-  background-color:  rgb(244 244 244);
+  height: 100%;
+  background-color: rgb(244 244 244);
   margin: 0px 70px;
   border-radius: 8px;
   padding: 30px;
 }
+
 .box {
   background-color: white;
-  height: 70px;
   margin: 8px 0px;
   padding: 15px;
   padding-left: 45px;
@@ -79,19 +90,28 @@
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   position: relative;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  height: 100%;
 }
+
 .box.selected {
-  border: 2px solid black;
+  border: 1px solid black;
   background: #ededed;
 }
+
 .box h3 {
   font-size: 17px;
-  font-weight: 500;
+  font-weight: bold;
 }
+
 .box p {
   font-size: 14px;
   font-weight: 400;
+  width: 60%;
 }
+
 .box input {
   position: absolute;
   top: 20px;
@@ -104,7 +124,9 @@
   cursor: pointer;
   outline: none;
 }
-#nextStepBtn, #prevStepBtn {
+
+#nextStepBtn,
+#prevStepBtn {
   display: inline-block;
   margin: 30px 10px 0 10px;
   padding: 10px 20px;
@@ -116,23 +138,27 @@
   height: 50px;
   border-radius: 6px;
 }
+
 #prevStepBtn {
   background: #888;
 }
+
 .stepUp {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  gap: 5px;
+  padding: 15px 39px;
+  gap: 2px;
 }
+
 .stepUp i {
   font-size: 22px;
   font-weight: 300;
 }
+
 .stepUp .circle {
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   background-color: black;
   border-radius: 50%;
   color: white;
@@ -140,38 +166,42 @@
   justify-content: center;
   align-items: center;
 }
+
 .line {
   width: 40%;
-  height: 1px;
+  height: 0.1px;
   background-color: gray;
 }
+
 .step2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 30px;
+  gap: 10px;
 }
+
 .field-partOne,
 .field-parttwo {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  flex: 1 1 400px;
   align-items: center;
-  margin: 20px;
 }
+
 .input-box {
-  width: 70%;
+  width: 100%;
 }
+
 .input-box p {
   margin: 0 0 5px;
   font-weight: bold;
   font-size: 14px;
   font-weight: 400;
 }
+
 .input-box input {
   width: 100%;
-  height: 35px;
+  height: 40px;
   padding: 8px 10px;
   // border: 1px solid #ccc;
   border: none;
@@ -179,33 +209,47 @@
   font-size: 14px;
   outline: none;
 }
+
 .phone-wrapper {
   display: flex;
   gap: 10px;
   align-items: center;
+  position: relative;
+    padding-left: 70px;
+
 }
+
 .country-code {
-  padding: 5px;
+ 
   height: 35px;
-  border: 1px solid #ccc;
   border-radius: 4px;
   background-color: white;
   font-size: 14px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 0;
+    width: 73px;
+
+
 }
+
 .phone-wrapper input {
   flex: 1;
-  height: 35px;
+  height: 45px;
   padding: 8px 10px;
   outline: none;
   border-radius: 4px;
   font-size: 14px;
 }
+
 .calendar {
   width: 350px;
   background-color: white;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   margin: auto;
 }
+
 .calendar-header {
   display: flex;
   justify-content: space-between;
@@ -214,10 +258,12 @@
   font-weight: bold;
   font-size: 18px;
 }
+
 .calendar-header span {
   cursor: pointer;
   font-size: 20px;
 }
+
 .calendar-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -226,6 +272,7 @@
   padding: 10px 0;
   font-weight: bold;
 }
+
 .calendar-dates {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -233,33 +280,208 @@
   padding: 10px;
   color: #999;
 }
+
 .calendar-dates div {
   padding: 10px 0;
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
+
 .calendar-dates div.current-day {
   background-color: #333;
   color: white;
   font-weight: bold;
 }
+
 .calendar-dates div.selected-date {
   background-color: #222;
   color: #fff;
   font-weight: bold;
   border: 2px solid #000;
 }
+
 .calendar-dates div.inactive {
   background-color: #f5f5f5;
   color: #ccc;
   cursor: not-allowed;
 }
+
 .selected-date-summary {
   text-align: center;
   margin-top: 15px;
   font-size: 1.05em;
 }
+
 .step-buttons {
   text-align: center;
+}
+.custom-select {
+  position: relative;
+  width: 100%;
+  user-select: none;
+}
+
+.selected2{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 4px;
+}
+
+.options li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+.option img{
+  width: 55%;
+}
+.options li:hover {
+  background-color: #f0f0f0;
+}
+
+.options img {
+  width: 20px;
+  height: auto;
+}
+.circle-checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: sans-serif;
+  gap: 8px;
+}
+
+.circle-checkbox input {
+  display: none; /* Hide the default checkbox */
+}
+
+.circle-checkbox span {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #555;
+  border-radius: 50%; /* Makes it circular */
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.circle-checkbox input:checked + span::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #555;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.map{
+  width: 100%;
+  height: 300px;
+}
+.map iframe{width: inherit;
+height: inherit;
+outline: none;}
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 95%;
+    padding: 20px;
+  }
+
+  
+
+
+  .appointment-type {
+    flex-direction: column;
+  }
+
+  .category-options {
+    margin: 0px 20px;
+    padding: 20px;
+  }
+
+  .step2 {
+    flex-direction: column;
+  }
+
+  .calendar {
+    width: 100%;
+  }
+
+  .option {
+    max-width: 100%;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .field-partOne,
+  .field-parttwo {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .phone-wrapper {
+    padding-left: 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .country-code {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .stepUp {
+    padding: 10px;
+  }
+
+  .calendar-header {
+    font-size: 16px;
+  }
+
+  .calendar-days,
+  .calendar-dates {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .calendar-dates div {
+    padding: 8px 0;
+    font-size: 14px;
+  }
+
+  .input-box input,
+  .phone-wrapper input {
+    width: 100%;
+  }
+  .text{
+    flex-direction: column;
+  }
+}
+.option {
+  width: 100%;
+  max-width: 100%;
 }

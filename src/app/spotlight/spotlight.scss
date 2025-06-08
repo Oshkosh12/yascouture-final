@@ -53,7 +53,7 @@
 .product img {
     width: 100%;
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform 0.9s ease;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
@@ -75,16 +75,17 @@
     font-size: 14px;
     opacity: 0;
     pointer-events: none;
-    transition: 0.3s ease;
+    transition: 0.9s ease;
     padding: 10px 0;
     border-radius: 5px;
-    background: rgba(0,0,0,0.4);
+ 
 }
 
 /* Show product name on hover */
 .product:hover .product-name {
     opacity: 1;
     pointer-events: auto;
+    background-color: transparent;
 }
 
 /* Responsive Styles */

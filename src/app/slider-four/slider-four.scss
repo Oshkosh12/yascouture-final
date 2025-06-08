@@ -1,0 +1,97 @@
+.main {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.slider {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.9s ease-in-out;
+}
+
+.slide {
+  display: flex;
+  min-width: 100%;
+  flex-wrap: wrap;
+}
+
+.slide-img {
+  width: 25%;
+  padding: 5px;
+}
+
+.slide-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.main-heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+  padding: 40px 20px;
+  margin-top: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .slide-img {
+    width: 33.33%; // 3 images per slide
+  }
+}
+
+@media (max-width: 768px) {
+  .slide-img {
+    width: 50%; // 2 images per slide
+  }
+
+  .nav {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-img {
+    width: 100%; // 1 image per slide
+  }
+
+  .main-heading {
+    font-size: 1.5rem;
+  }
+
+  .nav {
+    font-size: 1rem;
+    padding: 6px;
+  }
+}

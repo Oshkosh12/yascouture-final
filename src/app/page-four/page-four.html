@@ -14,7 +14,7 @@
         </div>
         <div class="partTwo-bottom">
             <video autoplay muted loop playsinline>
-                <source src="assets/Teaser_1_FC.webm" type="video/webm" />
+                <source src="../../assets/Teaser_1_FC.mp4" type="video/webm" />
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -25,12 +25,27 @@
                 THE LOOKS</h1>
         </div>
         <div class="partThree-bottom">
-            <app-silder></app-silder>
+            <app-slidertwo [images]="images"></app-slidertwo>
         </div>
-        
+          <div class="partThree-end">
+            <button  (click)="moveNext('WinterLooks')"   >The Looks</button>
+        </div>
     </div>
-
-
+    <div class="pageFour">
+        <div class="pageFour-top">
+            <h1>MAKING OF</h1>
+            <p>
+                Experience the epitome of sophistication and elegance through Yas Couture Haute Couture Fall / Winter
+                23-24 Collection. Prepare to be enchanted by the unparalleled artistry and craftsmanship.
+            </p>
+        </div>
+        <div class="pageFour-mid">
+            <video autoplay muted loop playsinline>
+                <source src="../../assets/Teaser_1_FC.mp4" type="video/webm" />
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
 
     <div class="partfour">
         <div class="partfive-top">
@@ -40,18 +55,29 @@
             </p>
         </div>
         <div class="partfive-bottom">
-            <app-silder></app-silder>
+            <app-slidertwo [images]="images2"></app-slidertwo>
         </div>
+        <div class="partsix">
+            <div class="partsix-top">
+                <h1 class="heading2">DETAILS</h1>
+                <p>Immerse yourself in the captivating essence of our collection, where every stitch, every detail,
+                    whispers
+                    of enchantment and allure. Bold prints, intricate details, and rich textures intertwine to create
+                    irresistible symphony of style. Step into the world where each garment serves as a canvas for magic.
+                </p>
+            </div>
+            <div class="partsix-bottom">
+                <app-slidertwo [images]="images3"></app-slidertwo>
+            </div>
 
-    </div>
-   <div class="pageseven">
-        <div class="background">
-            <img src="../../assets/Look-21-scaled.jpg.webp" alt="">
         </div>
+    </div>
+    <div class="pageseven">
+
         <div class="heading">
-            <h1>EXCLUSIVE VIEWING</h1>
-            <p>Discover the collection through a private consultation, available online or in-person.</p>
-            <button>REQUEST AN APPOINTMENT</button>
+            <h1>BOOK YOUR APPOINTMENT</h1>
+            <p>Schedule a private consultation to discover exquisite haute couture creations tailored just for you..</p>
+            <button   (click)="moveNext('BookAppoinment')">BOOK NOW</button>
         </div>
     </div>
     <div class="footer">

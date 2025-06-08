@@ -6,6 +6,7 @@
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+
 }
 
 .partOne {
@@ -19,6 +20,7 @@
   padding: 10px;
   justify-content: space-between;
   margin: 50px 0;
+  
 }
 
 .partTwo-left, .partThree-right {
@@ -178,7 +180,9 @@
   margin-bottom: 4vw;
   text-align: center;
 }
-
+.pageFive-bottom{
+  height: 800px;
+}
 /* Responsive Fixes */
 @media (max-width: 900px) {
   .main {

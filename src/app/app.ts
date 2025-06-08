@@ -1,9 +1,10 @@
-import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
-declare var Weglot: any;
+import { filter } from 'rxjs';
 declare global {
   interface Window {
-    WeglotInstance?: any;
+    Weglot: any;
+    Weglot_initialized?: boolean;
   }
 }
 
@@ -15,28 +16,53 @@ declare global {
   styleUrl: './app.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class App implements AfterViewInit {
+export class App implements  AfterViewInit {
   protected title = 'YAS Couture';
+  private weglotLoaded = false;
 
   constructor(private router: Router) {}
 
-  ngAfterViewInit(): void {
-    // Initialize Weglot
-    Weglot.initialize({
-      api_key: 'wg_c2d775e6260f61f8c526cd4cf1e7f2af3', // Replace with your actual Weglot API key
-      originalLanguage: 'en',
-      destinationLanguages: ['ar'],
-    });
+  ngAfterViewInit() {
+    this.loadWeglotScript().then(() => {
+      this.initWeglot();
 
-    // Listen for route changes
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        // Wait for DOM to update before applying translation
-        setTimeout(() => {
-          const currentLang = Weglot.getCurrentLang();
-          Weglot.switchTo(currentLang);
-        }, 500); // Adjust delay as needed
-      }
+      this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd)
+      ).subscribe(() => {
+        this.initWeglot();
+      });
     });
   }
+
+  loadWeglotScript(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      if (this.weglotLoaded) {
+        resolve();
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'https://cdn.weglot.com/weglot.min.js';
+      script.onload = () => {
+        this.weglotLoaded = true;
+        resolve();
+      };
+      script.onerror = () => reject('Weglot script failed to load');
+      document.body.appendChild(script);
+    });
+  }
+
+  initWeglot() {
+    if (window.Weglot) {
+      if (!window.Weglot_initialized) {
+        window.Weglot.initialize({
+          api_key: 'wg_c2d775e6260f61f8c526cd4cf1e7f2af3', 
+        });
+        window.Weglot_initialized = true;
+      } else {
+        const currentLang = window.Weglot.getCurrentLang();
+        window.Weglot.switchTo(currentLang);
+      }
+    }
+  }
+
 }

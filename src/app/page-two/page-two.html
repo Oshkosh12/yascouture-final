@@ -22,7 +22,7 @@
                 Bridal Looks</h1>
         </div>
         <div class="partThree-bottom">
-            <app-slidertwo></app-slidertwo>
+            <app-slidertwo slidertwo [images]="images"></app-slidertwo>
         </div>
     </div>
     <div class="pageFour" style="background-color: white;">
@@ -34,17 +34,17 @@
             </p>
         </div>
         <div class="pageFour-mid">
-            <app-slidertwo></app-slidertwo>
+            <app-slidertwo slidertwo [images]="images2"></app-slidertwo>
         </div>
     </div>
     <div class="pageFive">
-        <div class="background">
+        <!-- <div class="background">
             <img src="../../assets/Look-21-scaled.jpg.webp" alt="">
-        </div>
+        </div> -->
         <div class="heading">
             <h1>EXCLUSIVE VIEWING</h1>
             <p>Discover the collection through a private consultation, available online or in-person.</p>
-            <button>REQUEST AN APPOINTMENT</button>
+            <button   (click)="moveNext('BookAppoinment')" >REQUEST AN APPOINTMENT</button>
         </div>
     </div>
     <div class="footer">

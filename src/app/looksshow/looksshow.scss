@@ -1,0 +1,298 @@
+.main{
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+.product-show {
+  width: 100%;
+  height: 600px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.part-1 {
+  width: 30%;
+  height: 100%;
+
+}
+
+.part-1 img {
+  width: 100%;
+  height: 100%;
+}
+
+.part-2 {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 60px 30px;
+  padding: 10px;
+
+}
+
+.part-2 h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.part-2 p {
+  font-size: 16px;
+  font-weight: 400;
+  color: gray;
+  width: 70%;
+}
+
+.part-2 .buttons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.part-2 button {
+  // width: 100px;
+  // height: 40px;
+  background-color: black;
+  color: white;
+  outline: none;
+  padding: 20px 30px;
+  font-weight: 500;
+  font-size: 15px;
+  outline: none;
+  border: 2px solid black;
+  text-transform: uppercase;
+  transition: 0.6s ease-in;
+  cursor: pointer;
+}
+
+.part-2 button:hover {
+  background-color: white;
+  color: black;
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  //   margin: auto;
+  height: inherit;
+
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.9s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.995);
+  border: none;
+  padding: 10px;
+  //   border-radius: 50%;
+  cursor: pointer;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+// @media (max-width: 1024px) {
+//   .main {
+//     flex-direction: column;
+//     height: 800x;
+//   }
+
+// .slider2 {
+//       width: 100%;
+//     height: 30%;
+//   }
+//      .slider{
+//         width: 100%;
+//         height: 70%;
+//      }
+// }
+
+/* Responsive layout for mobile phones */
+@media (max-width: 600px) {
+
+  .slider2 {
+    width: 100%;
+    height: 30%;
+  }
+
+  .slider {
+    width: 100%;
+    height: 70%;
+  }
+
+  .slide2 p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .nav {
+    font-size: 1rem;
+    padding: 6px;
+  }
+}
+
+.zoom-img {
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.zoom-img.zoomed {
+  transform: scale(1.8);
+  cursor: zoom-in;
+}
+.img-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.zoom-img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  object-position: center;
+  transform-origin: center;
+  pointer-events: none; // avoids stuttering during mousemove
+}
+/* TABLET SCREENS: max-width 900px */
+@media (max-width: 900px) {
+  .product-show {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .part-1,
+  .part-2 {
+    width: 100%;
+    height: auto;
+  }
+
+  .part-2 {
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .part-2 h1 {
+    font-size: 1.8rem;
+  }
+
+  .part-2 p {
+    font-size: 15px;
+    width: 90%;
+  }
+
+  .part-2 .buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .part-2 button {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+
+  .slider {
+    height: auto;
+  }
+
+  .slide img {
+    height: auto;
+  }
+
+  .nav {
+    font-size: 1.2rem;
+    padding: 6px 10px;
+  }
+}
+
+
+/* MOBILE SCREENS: max-width 600px */
+@media (max-width: 600px) {
+  .product-show {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+  }
+
+  .part-1,
+  .part-2 {
+    width: 100%;
+    height: auto;
+  }
+
+  .part-2 {
+    padding: 15px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .part-2 h1 {
+    font-size: 1.5rem;
+  }
+
+  .part-2 p {
+    font-size: 14px;
+    width: 95%;
+  }
+
+  .part-2 .buttons {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .part-2 button {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 14px;
+  }
+
+  .slider {
+    height: auto;
+  }
+
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+
+  .nav {
+    font-size: 1rem;
+    padding: 5px 8px;
+  }
+}

@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,18 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './slidertwo.scss',
 })
 export class Slidertwo {
-  images = [
-    'assets/image1.jpeg',
-    'assets/image2.jpeg',
-    'assets/image3.jpeg',
-    'assets/image4.jpeg',
-    'assets/image5.jpeg',
-    'assets/image6.jpeg',
-    'assets/image7.jpeg',
-    'assets/image8.jpeg',
-    'assets/image9.jpeg',
-    'assets/image11.jpeg',
-  ];
+  @Input() images: string[] = [];
   activeIndex = 1;
 
   // Drag state

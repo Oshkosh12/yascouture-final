@@ -1,0 +1,101 @@
+.contact-container {
+  width: 80%;
+  max-width: 900px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 0 15px;
+}
+
+.contact-container h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.contact-container p {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.name-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.name-fields input {
+  flex: 1;
+}
+
+input,
+textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  background: #000;
+  color: #fff;
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #333;
+}
+
+/* Media Query: Tablets (max-width: 900px) */
+@media (max-width: 900px) {
+  .contact-container h1 {
+    font-size: 36px;
+  }
+
+  .name-fields {
+    flex-direction: column;
+  }
+
+  .name-fields input {
+    width: 100%;
+  }
+}
+
+/* Media Query: Small Screens (max-width: 600px) */
+@media (max-width: 600px) {
+  .contact-container {
+    width: 95%;
+    margin: 30px auto;
+  }
+
+  .contact-container h1 {
+    font-size: 28px;
+  }
+
+  .contact-container p {
+    font-size: 14px;
+  }
+
+  input,
+  textarea {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 14px;
+  }
+}

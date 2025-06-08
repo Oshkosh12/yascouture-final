@@ -2,12 +2,15 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MainPage } from "../main-page/main-page";
+import { Footer } from "../footer/footer";
+
 interface Step1Category {
   title: string;
-  description: string;
   selected: boolean;
+  defaultDescription: string;
+  selectedDescription: string;
+  phone: string;
 }
-
 interface AppointmentType {
   name: string;
   label: string;
@@ -18,7 +21,7 @@ interface AppointmentType {
 @Component({
   selector: 'app-stepper',
   standalone: true,
-  imports: [CommonModule, FormsModule, MainPage],
+  imports: [CommonModule, FormsModule, MainPage, Footer],
   templateUrl: './stepper.html',
   styleUrls: ['./stepper.scss']
 })
@@ -37,6 +40,7 @@ export class Stepper {
   // Step state
   currentStep: number = 1;
 
+  inboutique: boolean = false;
   // Step 1: Appointment Types
   appointmentTypes: AppointmentType[] = [
     {
@@ -57,20 +61,36 @@ export class Stepper {
   categories: Step1Category[] = [
     {
       title: 'Haute Couture',
-      description: 'This is the process to find your perfect haute couture gown, created just for you',
-      selected: false
+      selected: false,
+      defaultDescription: 'This is the process to find your perfect haute couture gown, created just for you.',
+      selectedDescription: `Yas Couture
+
+Yas Couture is located in heart of Kuwait, in Jabriya, since 2003. It is a place where you can get amazing haute couture dresses, evening Gowns, and gorgeous wedding dresses.
+`,
+      phone: '+96525325522'
     },
     {
       title: 'Bridal Dress',
-      description: 'This is the process to find the bridal dress of your dreams, designed to reflect your vision',
-      selected: false
+      selected: false,
+      defaultDescription: 'This is the process to find the bridal dress of your dreams, designed to reflect your vision.',
+      selectedDescription: `Yas Couture
+
+Yas Couture is located in heart of Kuwait, in Jabriya, since 2003. It is a place where you can get amazing haute couture dresses, evening Gowns, and gorgeous wedding dresses.
+`,
+      phone: '+96525325522'
     },
     {
       title: 'Ready to Wear',
-      description: 'This is the process to find your ideal ready-to-wear dress, effortlessly chic and elegant',
-      selected: false
+      selected: false,
+      defaultDescription: 'This is the process to find your ideal ready-to-wear dress, effortlessly chic and elegant.',
+      selectedDescription: `Yas Couture
+
+Yas Couture is located in heart of Kuwait, in Jabriya, since 2003. It is a place where you can get amazing haute couture dresses, evening Gowns, and gorgeous wedding dresses.`,
+      phone: '+96525325522'
+
     }
   ];
+
 
   // Step 2: User details
   userDetails = {
@@ -149,18 +169,22 @@ export class Stepper {
     this.generateCalendar();
   }
 
-  // APPOINTMENT TYPE SELECTION
   selectAppointmentType(type: AppointmentType): void {
+    debugger
+    if (type.name == "in-boutique") {
+      this.inboutique = true;
+    }
+    else {
+      this.inboutique = false;
+    }
     this.appointmentTypes.forEach(t => t.selected = false);
     type.selected = true;
   }
 
-  // CATEGORY SELECTION
-  selectCategory(index: number): void {
-    // Only one selection allowed
-    this.categories.forEach((cat, idx) => cat.selected = idx === index);
+  selectCategory(index: number) {
+    debugger
+    this.categories.forEach((cat, i) => cat.selected = i === index ? !cat.selected : false);
   }
-
   // CALENDAR SELECTION
   selectDate(day: { date: number; inactive: boolean; isToday: boolean }): void {
     if (day.inactive) return;
@@ -218,4 +242,25 @@ export class Stepper {
       this.currentStep--;
     }
   }
+  userDetails2 = {
+    countryCode: '+1',
+    phone: ''
+  };
+
+  countries = [
+    { code: '+1', flag: 'assets/Flag_of_the_United_Arab_Emirates.svg.png' },
+    { code: '+44', flag: 'assets/Flag_of_the_United_Arab_Emirates.svg.png' },
+    { code: '+91', flag: 'assets/Flag_of_the_United_Arab_Emirates.svgp.ng' },
+    { code: '+61', flag: 'assets/Flag_of_the_United_Arab_Emirates.svg.png' },
+    { code: '+971', flag: 'assets/Flag_of_the_United_Arab_Emirates.svg.png' }
+  ];
+  dropdownOpen = false;
+  selectedCountry = this.countries[0];
+
+  selectCountry(country: any) {
+    this.selectedCountry = country;
+    this.userDetails2.countryCode = country.code;
+    this.dropdownOpen = false;
+  }
+
 }
