@@ -21,7 +21,14 @@
     </div>
   </div>
   <div class="menu" [ngClass]="{'menu-open': menuVisible}">
-    <div class="toggel-logo"><img src="../../assets/yas-logo.png.webp" alt=""></div>
+    <!-- Insert this right inside your .menu div, above the <ul> -->
+    <div class="menu-close" (click)="toggleMenu()">
+      <i class="ri-close-fill"></i>
+    </div>
+
+    <div class="toggel-logo"><img src="../../assets/yas-logo.png.webp" alt="">
+      <i class="ri-close-fill" class="toggel-close"></i>
+    </div>
     <ul (mouseleave)="run && ShowandHideDetails('list1', false)"
       (mouseleave)="run && ShowandHideDetails('list2', false)" (mouseleave)="run && ShowandHideDetails('list3', false)">
 
@@ -130,7 +137,8 @@
         </div>
         <div class="booknow">
           <h1 style="cursor: pointer;">BOOK NOW</h1>
-          <h1 style="color: gray;  cursor: pointer; font-size: 14px; margin-top: 40px; font-weight: 400;"   (click)="moveNext('BookAppoinment')" >book your
+          <h1 style="color: gray;  cursor: pointer; font-size: 14px; margin-top: 40px; font-weight: 400;"
+            (click)="moveNext('BookAppoinment')">book your
             aoppoinment now</h1>
         </div>
         <div class="product">
@@ -149,12 +157,14 @@
       <div class="bride-Hover" *ngIf="showHover2&& run" (mouseenter)="run && ShowandHideDetails('list2', true)">
         <div class="collection">
           <h1>Collection</h1>
-          <p style="cursor: pointer; color: gray; margin-top: 50px;"  (click)="moveNext('Bridal')"> BRIDAL COLLECTION 2024</p>
+          <p style="cursor: pointer; color: gray; margin-top: 50px;" (click)="moveNext('Bridal')"> BRIDAL COLLECTION
+            2024</p>
 
         </div>
         <div class="booknow">
           <h1>BOOK NOW</h1>
-          <h1 style="color: gray;  cursor: pointer; font-size: 14px; margin-top: 50px; font-weight: 400;"   (click)="moveNext('BookAppoinment')">book your aoppoinment now</h1>
+          <h1 style="color: gray;  cursor: pointer; font-size: 14px; margin-top: 50px; font-weight: 400;"
+            (click)="moveNext('BookAppoinment')">book your aoppoinment now</h1>
         </div>
         <div class="product">
           <div class="cardOne">
@@ -191,10 +201,10 @@
     </ul>
   </div>
 </div>
-<div class="opOne-sideBar" [ngStyle]="{ left: sidebarOneOpen ? '0px' : '-450px' }">
+<div class="opOne-sideBar"[ngStyle]="{ left: sidebarOneOpen ? '0px' : '-450px' }">
   <div class="sign-logo">
     <i class="ri-user-fill"></i>
-    <div class="sign-close" (click)="openSidebarTwo()"><i class="ri-close-large-line"></i></div>
+    <div class="sign-close" (click)="closeSidebarOne()"><i class="ri-close-large-line"></i></div>
     <p>SIGN IN</p>
   </div>
   <div class="sign-form">
@@ -214,8 +224,8 @@
     <div class="sign-help">Lost your password?</div>
   </div>
 </div>
-<div class="opTwo-sideBar" [ngStyle]="{ right: sidebarTwoOpen ? '0px' : '-450px' }">
-  <div class="wish-logo" (click)="closeSidebarTwo()">
+<div class="opTwo-sideBar"  [ngStyle]="{ right: sidebarTwoOpen ? '0px' : '-450px' }">
+  <div class="wish-logo"(click)="closeSidebarTwo()">
 
     <i class="ri-poker-hearts-fill"></i>
     <div class="wish-close"><i class="ri-close-large-line"></i></div>

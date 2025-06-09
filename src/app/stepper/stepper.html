@@ -36,7 +36,7 @@
   <div class="step1" *ngFor="let cat of categories; let i = index" >
     <div class="box" (click)="selectCategory(i)" [class.selected]="cat.selected">
       <h3>{{cat.title}}</h3>
-      <div class="text" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <div class="text" >
         <p style="width: 80%;">{{cat.selected && inboutique ? cat.selectedDescription : cat.defaultDescription}}</p>
         <p style="text-align: end; width: 20%;">{{cat.selected && inboutique ? cat.phone : ''}}</p>
       </div>

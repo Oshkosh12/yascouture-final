@@ -88,26 +88,29 @@ export class MainPage implements AfterViewInit, OnInit {
     }
   }
 
-  openSidebarOne() {
-    this.sidebarOneOpen = true;
-    this.sidebarTwoOpen = false;
-  }
+ openSidebarOne() {
+  this.sidebarOneOpen = true;
+  this.sidebarTwoOpen = false;
+}
 
-  closeSidebarOne() {
-    this.sidebarOneOpen = false;
-  }
+closeSidebarOne() {
+  this.sidebarOneOpen = false;
+}
 
-  openSidebarTwo() {
-    this.sidebarTwoOpen = true;
-    this.sidebarOneOpen = false;
-  }
+openSidebarTwo() {
+  this.sidebarTwoOpen = true;
+  this.sidebarOneOpen = false;
+}
 
-  closeSidebarTwo() {
-    this.sidebarTwoOpen = false;
-  }
+closeSidebarTwo() {
+  this.sidebarTwoOpen = false;
+}
 
   toggleMenu() {
     this.menuVisible = !this.menuVisible;
+  }
+   closeMenu() {
+    this.menuVisible = false;
   }
 
   onClickHandler(id: string) {

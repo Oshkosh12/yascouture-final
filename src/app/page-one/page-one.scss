@@ -182,6 +182,7 @@
 }
 .pageFive-bottom{
   height: 800px;
+  width: 100%;
 }
 /* Responsive Fixes */
 @media (max-width: 900px) {
@@ -189,7 +190,16 @@
     overflow-x: hidden;
   }
 
-  .partTwo,
+  .partTwo{
+    flex-direction: column-reverse;
+    gap: 40px;
+    height: auto;
+  }
+   .partThree{
+    flex-direction: column;
+    gap: 40px;
+    height: auto;
+  }
  
   .pageFour-mid,
   .pageFive-bottom {
@@ -197,13 +207,14 @@
     gap: 40px;
     height: auto;
   }
- .partThree{
-  flex-direction: column-reverse;
-    gap: 40px;
-    height: auto;
- }
-  .partTwo-left,
-  .partTwo-right,
+  .partTwo-left{
+    width: 100%;
+    height: 30%;
+  }
+  .partTwo-right{
+    width: 100%;
+    height: 70%;
+  }
   .partThree-left,
   .partThree-right,
   .pageFour-mid,
@@ -232,6 +243,14 @@
 }
 
 @media (max-width: 600px) {
+    .partTwo-left{
+    width: 100%;
+    height: 40%;
+  }
+  .partTwo-right{
+    width: 100%;
+    height: 60%;
+  }
   .spring-summer-section h1,
   .pageFour .pageFour-top h1 {
     font-size: 5vw;
