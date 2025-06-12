@@ -1,17 +1,18 @@
 .main {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
     overflow-y: scroll;
-    background-image: url(../../assets/Look-3.1-scaled.jpg);
+    background-image: url(../../assets/looks/Look-1.2-600x900.jpeg.webp);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .partOne {
     width: 100%;
+    height: 100vh;
 }
 
 /* PART TWO */
@@ -24,6 +25,7 @@
     padding: 10px 0 0 0;
     background-color: white;
     gap: 10px;
+    margin: 0;
 }
 .partTwo-top {
     display: flex;
@@ -46,7 +48,7 @@
     background-color: black;
 }
 .partTwo-top .heading2 {
-    font-size: 2.8vw;
+    font-size: clamp(20px, 2.8vw, 32px);
     color: black;
     font-weight: 400;
     text-align: center;
@@ -56,7 +58,7 @@
 }
 .partTwo p {
     text-align: center;
-    font-size: 1.1vw;
+    font-size: clamp(14px, 1.1vw, 18px);
     color: #000;
     width: 70%;
     padding: 5px 0;
@@ -80,9 +82,10 @@
     padding: 40px 0 0 0;
     background-color: white;
     gap: 25px;
+    margin: 0;
 }
 .partThree-top .heading2 {
-    font-size: 2.8vw;
+    font-size: clamp(20px, 2.8vw, 32px);
     color: black;
     font-weight: 400;
     text-align: center;
@@ -104,7 +107,7 @@
 }
 .partThree-end button {
     padding: 1vw 2.8vw;
-    font-size: 1.2vw;
+    font-size: clamp(14px, 1.2vw, 18px);
     letter-spacing: 2px;
     border: 1px solid #222;
     background: transparent;
@@ -126,16 +129,17 @@
     flex-direction: column;
     padding: 60px 10px 20px 10px;
     background-color: white;
+    margin: 0;
 }
 .pageFour .pageFour-top h1 {
-    font-size: 3vw;
+    font-size: clamp(22px, 3vw, 36px);
     font-weight: 400;
     margin-bottom: 1vw;
     letter-spacing: 1px;
     text-align: center;
 }
 .pageFour .pageFour-top p {
-    font-size: 1vw;
+    font-size: clamp(14px, 1vw, 18px);
     color: #000;
     max-width: 60vw;
     line-height: 1.5;
@@ -161,6 +165,7 @@
     padding: 40px 0 10px 0;
     background-color: white;
     gap: 25px;
+    margin: 0;
 }
 .partfive-top {
     display: flex;
@@ -169,7 +174,7 @@
     flex-direction: column;
 }
 .partfive-top .heading2 {
-    font-size: 2.8vw;
+    font-size: clamp(20px, 2.8vw, 32px);
     color: black;
     font-weight: 400;
     text-align: center;
@@ -179,7 +184,7 @@
 }
 .partfive-top p {
     text-align: center;
-    font-size: 1.1vw;
+    font-size: clamp(14px, 1.1vw, 18px);
     color: #000;
     width: 70%;
     padding: 5px 0;
@@ -201,6 +206,7 @@
     padding: 40px 0 10px 0;
     background-color: white;
     gap: 25px;
+    margin: 0;
 }
 .partsix-top {
     display: flex;
@@ -209,7 +215,7 @@
     flex-direction: column;
 }
 .partsix-top .heading2 {
-    font-size: 2.8vw;
+    font-size: clamp(20px, 2.8vw, 32px);
     color: black;
     font-weight: 400;
     text-align: center;
@@ -219,7 +225,7 @@
 }
 .partsix-top p {
     text-align: center;
-    font-size: 1.1vw;
+    font-size: clamp(14px, 1.1vw, 18px);
     color: #000;
     width: 70%;
     padding: 5px 0;
@@ -231,16 +237,16 @@
     margin: 0 auto;
 }
 
-/* PAGE SEVEN (PARALLAX EFFECT) */
+/* PAGE SEVEN */
 .pageseven {
     width: 100%;
-    // min-height: 80vh;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     background: transparent;
+    margin: 0;
 }
 .pageseven .background {
     position: fixed;
@@ -270,7 +276,7 @@
     z-index: 1;
 }
 .pageseven .heading h1 {
-    font-size: 3vw;
+    font-size: clamp(22px, 3vw, 36px);
     font-weight: 400;
     margin-bottom: 1vw;
     letter-spacing: 1px;
@@ -278,7 +284,7 @@
     color: #fff;
 }
 .pageseven .heading p {
-    font-size: 1.2vw;
+    font-size: clamp(14px, 1.2vw, 18px);
     color: #fff;
     max-width: 60vw;
     line-height: 1.5;
@@ -287,7 +293,7 @@
 }
 .pageseven .heading button {
     padding: 1vw 2.8vw;
-    font-size: 1.2vw;
+    font-size: clamp(14px, 1.2vw, 18px);
     letter-spacing: 2px;
     border: 1px solid #fff;
     background: transparent;
@@ -301,63 +307,26 @@
     color: #000;
 }
 
-
-/* RESPONSIVE BREAKPOINTS */
-
+/* RESPONSIVE TWEAKS */
 @media (max-width: 1024px) {
-    .partTwo p,
-    .partfive-top p,
-    .partsix-top p {
-        width: 90%;
-        font-size: 13px;
-    }
     .partThree-bottom,
     .partfive-bottom,
     .partsix-bottom {
-        height: 400px;
-        min-height: 180px;
-    }
-    .partThree-end button {
-        font-size: 2.5vw;
-        padding: 2vw 4vw;
-    }
-    .pageFour .pageFour-top h1 {
-        font-size: 5vw;
-    }
-    .pageFour .pageFour-top p {
-        font-size: 2vw;
+        height: 550px;
     }
     .pageFour-mid {
         width: 90%;
     }
-    .pageseven{
+    .pageseven {
         height: 300px;
     }
 }
 
 @media (max-width: 768px) {
-    .partTwo-top .heading2,
-    .partThree-top .heading2,
-    .partfive-top .heading2,
-    .partsix-top .heading2 {
-        font-size: 32px;
-    }
-    .partTwo p,
-    .partfive-top p,
-    .partsix-top p {
-        font-size: 12px;
-    }
     .partThree-bottom,
     .partfive-bottom,
     .partsix-bottom {
-        height: 260px;
-        min-height: 120px;
-    }
-    .pageFour .pageFour-top h1 {
-        font-size: 4vw;
-    }
-    .pageFour .pageFour-top p {
-        font-size: 2vw;
+        height: 500px;
     }
     .pageFour-mid {
         width: 100%;
@@ -366,44 +335,31 @@
         background-size: auto 100%;
         background-position: center;
     }
+    .pageseven {
+        height: 250px;
+    }
 }
 
 @media (max-width: 480px) {
-    .partTwo-top .heading,
-    .partTwo-top .heading2,
-    .partThree-top .heading2,
-    .partfive-top .heading2,
-    .partsix-top .heading2 {
-        font-size: 24px;
-    }
-    .partTwo p,
-    .partfive-top p,
-    .partsix-top p {
-        font-size: 11px;
-        width: 98%;
-    }
     .partThree-end button {
-        font-size: 4vw;
-        padding: 3vw 4vw;
-    }
-    .pageFour .pageFour-top h1 {
-        font-size: 9vw;
-        margin-bottom: 3vw;
+        font-size: 16px;
+        padding: 10px 16px;
     }
     .pageFour .pageFour-top p {
-        font-size: 4vw;
-        margin-bottom: 6vw;
+        margin-bottom: 30px;
     }
-    .partThree-bottom,
-    .partfive-bottom,
-    .partsix-bottom {
-        height: 160px;
-        min-height: 80px;
+    .pageseven {
+        height: 200px;
     }
-    .pageFour-mid {
-        width: 100%;
+    .partThree-bottom{
+        height: 380px;
     }
-    .pageseven{
-      height: 200px;
+    .partThree-bottom{
+        height: 380px;
     }
+    .partsix , .partfive{
+        gap: 0px;
+      
+    }
+    .partfive-bottom , .partsix-bottom{height: 413px;}
 }

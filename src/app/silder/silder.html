@@ -1,5 +1,6 @@
 <div class="three-d-slider-container">
   <i class="ri-arrow-left-wide-fill arrow left" (click)="prevSlide()"></i>
+
   <div
     class="three-d-slider-track"
     #sliderTrack
@@ -19,8 +20,9 @@
       [ngClass]="getSideClass(i)"
       [ngStyle]="getSlideStyle(i)"
     >
-      <img [src]="img" draggable="false"/>
+      <img [src]="img" draggable="false" />
     </div>
   </div>
+
   <i class="ri-arrow-right-wide-fill arrow right" (click)="nextSlide()"></i>
 </div>

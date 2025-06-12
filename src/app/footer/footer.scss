@@ -183,5 +183,19 @@ body {
 
   .logo-section p {
     text-align: center;
+    
+  }
+     .footer-section h3{
+    margin-top: 0px;
+   }
+   .footer-bottom{
+    margin-top: 0px;
+    padding-top: 0px;
+   }
+   .footer-section{
+    flex: 1 1 175px;
+}
+  .cards-container{
+    gap: 0px;
   }
 }

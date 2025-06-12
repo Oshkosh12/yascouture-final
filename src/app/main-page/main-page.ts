@@ -5,23 +5,26 @@ import {
   ElementRef,
   HostListener,
   OnInit,
+  Input,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router } from '@angular/router';
+import { Video } from "../video/video";
 
 declare var Weglot: any;
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, Video],
   templateUrl: './main-page.html',
   styleUrls: ['./main-page.scss'],
 })
 export class MainPage implements AfterViewInit, OnInit {
   @ViewChild('myVideo') myVideo!: ElementRef<HTMLVideoElement>;
-
+  @Input() videoElement:string = "assets/Teaser_1_FC.mp4";
   constructor(private route: Router) {}
+  
 
   sidebarOneOpen = false;
   sidebarTwoOpen = false;
@@ -51,6 +54,7 @@ export class MainPage implements AfterViewInit, OnInit {
   ngOnInit() {
     let pageWidth = document.documentElement.clientWidth;
     this.run = pageWidth > 800;
+    console.log(document.getElementById)
   }
 
   @HostListener('window:resize', ['$event'])

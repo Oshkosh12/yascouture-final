@@ -1,31 +1,59 @@
 .main {
+  width: 100%;
+  height: 100vh;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
   overflow-x: hidden;
-
+  /* Remove or avoid setting a fixed height for .main */
 }
 
+.pageFive-bottom {
+  width: 100%;
+  /* Remove any fixed height! */
+  height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-bottom: 24px;
+}
+
+@media (max-width: 900px) {
+  .pageFive-bottom {
+    min-height: 300px;
+    height: auto;
+    padding-bottom: 16px;
+  }
+}
+@media (max-width: 600px) {
+  .pageFive-bottom {
+    min-height: 140px;
+    height: auto;
+    padding-bottom: 8px;
+  }
+}
 .partOne {
   width: 100%;
 }
 
 .partTwo, .partThree {
   width: 100%;
-  height: 600px;
+  height: 800px;
   display: flex;
   padding: 10px;
   justify-content: space-between;
   margin: 50px 0;
-  
 }
 
 .partTwo-left, .partThree-right {
   width: 40%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .partTwo-right, .partThree-left {
   width: 55%;
@@ -43,6 +71,7 @@
   font-weight: 400;
   margin-bottom: 1vw;
   letter-spacing: 1px;
+  
 }
 
 .spring-summer-section p {
@@ -84,7 +113,7 @@
   overflow: hidden;
 }
 
-.partThree-right{
+.partThree-right {
   width: 55%;
   height: 100%;
 }
@@ -159,8 +188,8 @@
 }
 
 .pageFive .line {
-  width: 30px;
-  height: 1px;
+  width: 50px;
+  height: 0.5px;
   background-color: black;
 }
 
@@ -180,97 +209,242 @@
   margin-bottom: 4vw;
   text-align: center;
 }
-.pageFive-bottom{
-  height: 800px;
+
+.pageFive-bottom {
   width: 100%;
+  /* Remove any fixed height! */
+  min-height: 0;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Prevent child overflow: */
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-bottom: 24px;
 }
-/* Responsive Fixes */
+
+/* ===================== Responsive Fixes ===================== */
 @media (max-width: 900px) {
   .main {
     overflow-x: hidden;
   }
-
-  .partTwo{
+  .partTwo, .partThree, .pageFour-mid, .pageFive-bottom {
+    flex-direction: column;
+    gap: 40px;
+    height: auto;
+    width: 100%;
+    min-height: unset; /* Remove any min-height if applied elsewhere */
+  }
+  .partTwo {
     flex-direction: column-reverse;
-    gap: 40px;
-    height: auto;
   }
-   .partThree{
-    flex-direction: column;
-    gap: 40px;
-    height: auto;
-  }
- 
-  .pageFour-mid,
-  .pageFive-bottom {
-    flex-direction: column;
-    gap: 40px;
-    height: auto;
-  }
-  .partTwo-left{
-    width: 100%;
-    height: 30%;
-  }
-  .partTwo-right{
-    width: 100%;
-    height: 70%;
-  }
-  .partThree-left,
-  .partThree-right,
-  .pageFour-mid,
-  .pageFive-bottom {
+  .partTwo-left, .partTwo-right,
+  .partThree-left, .partThree-right,
+  .pageFour-mid, .pageFive-bottom {
     width: 100%;
     height: auto;
   }
-
   .spring-summer-section h1,
   .pageFour .pageFour-top h1 {
     font-size: 7vw;
   }
-
   .spring-summer-section p,
   .pageFour .pageFour-top p,
   .pageFive p {
     font-size: 3vw;
     max-width: 90vw;
   }
-
   .spring-summer-section button,
   .pageFour .pageFour-bottom button {
     font-size: 3vw;
     padding: 2vw 5vw;
   }
+  .pageFour-mid,
+  .pageFive-bottom {
+    height: auto;
+  }
+  .pageFive-bottom {
+    min-height: 400px;
+  }
 }
 
 @media (max-width: 600px) {
-    .partTwo-left{
+  .partTwo-left, .partTwo-right,
+  .partThree-left, .partThree-right,
+  .pageFour-mid, .pageFive-bottom {
     width: 100%;
-    height: 40%;
-  }
-  .partTwo-right{
-    width: 100%;
-    height: 60%;
+    height: auto;
   }
   .spring-summer-section h1,
   .pageFour .pageFour-top h1 {
-    font-size: 5vw;
+    font-size: 8vw;
+  }
+  .spring-summer-section p,
+  .pageFour .pageFour-top p,
+  .pageFive p {
+    font-size: 4vw;
+    max-width: 98vw;
+  }
+  .spring-summer-section button,
+  .pageFour .pageFour-bottom button {
+    font-size: 4vw;
+    padding: 3vw 6vw;
+  }
+  .heading {
+    font-size: 12px;
+  }
+  .pageFive .heading2 {
+    font-size: 22px;
+  }
+  .pageFive-bottom {
+    min-height: 220px;
+    height: auto;
   }
 
+}
+
+/* Optional: for very small screens */
+@media (max-width: 400px) {
+  .spring-summer-section h1,
+  .pageFour .pageFour-top h1 {
+    font-size: 10vw;
+  }
+  .spring-summer-section p,
+  .pageFour .pageFour-top p,
+  .pageFive p {
+    font-size: 5vw;
+  }
+  .spring-summer-section button,
+  .pageFour .pageFour-bottom button {
+    font-size: 5vw;
+    padding: 4vw 8vw;
+  }
+  .pageFive .heading2 {
+    font-size: 16px;
+  }
+  .pageFive-bottom {
+    min-height: 120px;
+  }
+  .spring-summer-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+      .spring-summer-section p,  .spring-summer-section p{
+      text-align:center;
+    }
+}
+@media (max-width: 900px) {
+  .spring-summer-section{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .spring-summer-section h1,
+  .pageFour .pageFour-top h1 {
+    font-size: 4vw;
+  }
   .spring-summer-section p,
   .pageFour .pageFour-top p,
   .pageFive p {
     font-size: 2vw;
   }
+  .spring-summer-section button{
+    font-size: 2vw;
+    padding: 1.2vw 3vw;
+    width: 60%;
+    min-height: 45px;
+    // height: 40px;
+  }
+  .pageFour-bottom button {
+    width: 100%;
+    min-height: 45px;
+  }
+  .pageFive .heading2 {
+    font-size: 24px;
+  }
+        .spring-summer-section h1,  .spring-summer-section p{
+      text-align:center;
+    }
+      .spring-summer-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
+      .spring-summer-section p,  .spring-summer-section p{
+      text-align:center;
+    }
+}
+
+@media (max-width: 600px) {
+  .spring-summer-section h1,
+  .pageFour .pageFour-top h1 {
+    font-size: 6vw;
+  }
+  .spring-summer-section p,
+  .pageFour .pageFour-top p,
+  .pageFive p {
+    font-size: 3vw;
+  }
   .spring-summer-section button,
   .pageFour .pageFour-bottom button {
-    font-size: 2vw;
-    padding: 2vw 2vw;
+    font-size: 3vw;
+    padding: 1.5vw 3vw;
   }
-  .heading{
+  .pageFive .heading2 {
+    font-size: 18px;
+  }
+    .spring-summer-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+      .spring-summer-section p,  .spring-summer-section p{
+      text-align:center;
+    }
+}
+
+@media (max-width: 480px) {
+  .spring-summer-section h1,
+  .pageFour .pageFour-top h1 {
+    font-size: 6.5vw;
+  }
+  .spring-summer-section p,
+  .pageFour .pageFour-top p,
+  .pageFive p {
+    font-size: 3vw;
+  }
+  .spring-summer-section button,
+  .pageFour .pageFour-bottom button {
+    font-size: 4vw;
+    padding: 2vw 4vw;
+  }
+  .pageFive .heading2 {
     font-size: 14px;
+    
   }
-  .pageFive  .heading2{
-    font-size: 34px;
+  .pageFive-top .heading{
+    font-size: 11px;
+  }
+    .pageFive-top .heading2{
+    font-size: 20px;
+  }
+}
+@media (max-width: 900px) {
+  .pageFive-bottom {
+    min-height: 300px;
+    height: auto;
+    padding-bottom: 16px;
+  }
+}
+@media (max-width: 600px) {
+  .pageFive-bottom {
+    min-height: 140px;
+    height: auto;
+    padding-bottom: 8px;
   }
 }

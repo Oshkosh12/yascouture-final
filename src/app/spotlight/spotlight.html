@@ -14,44 +14,38 @@
 <!-- Image Viewer Modal -->
 <div class="viewer-modal" *ngIf="viewerOpen" (click)="closeViewer()">
   <div class="viewer-img-wrapper" (click)="$event.stopPropagation()">
-   
-
-    <i class="ri-arrow-left-wide-fill viewer-nav left" *ngIf="products.length > 1" (click)="nextImage($event)"></i>
-    <img [src]="products[selectedIndex].img" [alt]="products[selectedIndex].name" [ngClass]="{
+    <i class="ri-arrow-left-wide-fill viewer-nav left" *ngIf="products.length > 1" (click)="prevImage($event)"></i>
+    <img
+      [src]="products[selectedIndex].img"
+      [alt]="products[selectedIndex].name"
+      [ngClass]="{
         'zoomed-in': zoomState === 'in',
         'zoomed-out': zoomState === 'out'
-      }" (mousedown)="onImgMouseDown($event)" (mouseup)="onImgMouseUp($event)" (mousemove)="onImgMouseMove($event)"
-      (mouseleave)="onImgMouseLeave($event)" #imgEl />
-
+      }"
+      (mousedown)="onImgMouseDown($event)"
+      (mouseup)="onImgMouseUp($event)"
+      (mousemove)="onImgMouseMove($event)"
+      (mouseleave)="onImgMouseLeave($event)"
+      #imgEl
+    />
     <i class="ri-arrow-right-wide-fill viewer-nav right" *ngIf="products.length > 1" (click)="nextImage($event)"></i>
-    <div class="viewer-counter">{{selectedIndex + 1}} / {{products.length}}</div>
+
+    <div class="viewer-counter">{{ selectedIndex + 1 }} / {{ products.length }}</div>
+
     <div class="viewer-actions">
-      <!-- <button class="viewer-action" (click)="toggleFullScreen($event)">
-        <svg width="22" height="22" viewBox="0 0 24 24">
-          <path fill="#222"
-            d="M7 14H5v5c0 1.1.9 2 2 2h5v-2H7v-5zm10-10h-5v2h5v5h2V5c0-1.1-.9-2-2-2zm0 17h-5v2h5c1.1 0 2-.9 2-2v-5h-2v5zM5 5h5V3H5c-1.1 0-2 .9-2 2v5h2V5z" />
-        </svg>
-      </button> -->
       <i class="ri-fullscreen-line viewer-action" (click)="toggleFullScreen($event)"></i>
+
       <span class="viewer-action" (click)="toggleZoom($event)">
-        <!-- Normal: show zoom in icon -->
         <i *ngIf="zoomState === 'normal'" class="ri-search-line"></i>
-
-        <!-- Zoom in: show zoom out icon -->
         <i *ngIf="zoomState === 'in'" class="ri-zoom-in-line"></i>
-
-        <!-- Zoom out: show reset/zoom normal icon -->
         <i *ngIf="zoomState === 'out'" class="ri-zoom-out-line"></i>
       </span>
 
-
       <div class="viewer-share-dropdown">
-        <!-- Share button -->
         <span class="viewer-action" (click)="toggleShare($event)">
           <i class="ri-share-line"></i>
         </span>
 
-        <!-- Dropdown menu -->
         <div class="viewer-share-menu" *ngIf="showShare">
           <button (click)="shareLink($event, 'facebook')">
             <i class="ri-facebook-circle-line"></i> Facebook
@@ -64,8 +58,10 @@
           </button>
         </div>
       </div>
-         <button class="viewer-close" (click)="closeViewer()">×</button>
+
+      <button class="viewer-close" (click)="closeViewer()">&times;</button>
     </div>
   </div>
 </div>
+
 <app-footer></app-footer>

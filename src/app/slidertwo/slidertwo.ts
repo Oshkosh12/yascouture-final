@@ -33,7 +33,6 @@ export class Slidertwo {
     if (offset > total / 2) offset -= total;
     if (offset < -total / 2) offset += total;
 
-    // Drag feedback for center & sides
     let extraTransform = '';
     if (this.isDragging && offset === 0) {
       extraTransform = ` translateX(${this.dragDeltaX}px)`;
@@ -103,19 +102,21 @@ export class Slidertwo {
     this.dragDeltaX = currentX - this.dragStartX;
   }
 
-onDragEnd(event: MouseEvent | TouchEvent) {
-  if (!this.isDragging || this.dragStartX === null) return;
-  const threshold = 60; // px to trigger slide
-  if (this.dragDeltaX > threshold) {
-    this.prevSlide();
-  } else if (this.dragDeltaX < -threshold) {
-    this.nextSlide();
+  onDragEnd(event: MouseEvent | TouchEvent) {
+    if (!this.isDragging || this.dragStartX === null) return;
+    const threshold = 60; // px to trigger slide
+
+    // ✅ Fixed drag direction
+    if (this.dragDeltaX > threshold) {
+      this.nextSlide(); // Swipe right = next
+    } else if (this.dragDeltaX < -threshold) {
+      this.prevSlide(); // Swipe left = prev
+    }
+
+    this.isDragging = false;
+    this.dragStartX = null;
+    this.dragDeltaX = 0;
   }
-  // Reset
-  this.isDragging = false;
-  this.dragStartX = null;
-  this.dragDeltaX = 0;
-}
 
   getPointerX(event: MouseEvent | TouchEvent): number {
     if (event instanceof TouchEvent) {

@@ -10,10 +10,9 @@ import { CommonModule } from '@angular/common';
 })
 export class Silder {
   @Input() images: string[] = [];
- 
+
   activeIndex = 1;
 
-  // Drag state
   private dragStartX: number | null = null;
   private dragDeltaX: number = 0;
   private isDragging = false;
@@ -34,7 +33,6 @@ export class Silder {
     if (offset > total / 2) offset -= total;
     if (offset < -total / 2) offset += total;
 
-    // Drag feedback for center & sides
     let extraTransform = '';
     if (this.isDragging && offset === 0) {
       extraTransform = ` translateX(${this.dragDeltaX}px)`;
@@ -43,7 +41,6 @@ export class Silder {
       extraTransform = ` translateX(${this.dragDeltaX * 0.7}px)`;
     }
 
-    // Center slide smaller width only, scale(0.7, 1)
     if (offset === 0) {
       return {
         transform: `translateX(-50%) scale(0.9, 1)${extraTransform}`,
@@ -55,7 +52,7 @@ export class Silder {
     }
     if (offset === -1) {
       return {
-        transform: `translateX(calc(10%)) scale(1, 0.77)${extraTransform}`,
+        transform: `translateX(calc(-120%)) scale(1, 0.77)${extraTransform}`,
         opacity: 1,
         zIndex: 2,
         left: '50%',
@@ -64,7 +61,7 @@ export class Silder {
     }
     if (offset === 1) {
       return {
-        transform: `translateX(calc(-120%)) scale(1, 0.77)${extraTransform}`,
+        transform: `translateX(calc(10%)) scale(1, 0.77)${extraTransform}`,
         opacity: 1,
         zIndex: 2,
         left: '50%',
@@ -91,7 +88,6 @@ export class Silder {
     return '';
   }
 
-  // --- Drag logic ---
   onDragStart(event: MouseEvent | TouchEvent) {
     this.isDragging = true;
     this.dragStartX = this.getPointerX(event);
@@ -107,13 +103,15 @@ export class Silder {
 
   onDragEnd(event: MouseEvent | TouchEvent) {
     if (!this.isDragging || this.dragStartX === null) return;
-    const threshold = 60; // px to trigger slide
-    if (this.dragDeltaX > threshold) {
-      this.prevSlide();
-    } else if (this.dragDeltaX < -threshold) {
+    const threshold = 60;
+
+    // ✅ FIXED: Swiping left (dragDeltaX < 0) → next; right → prev
+    if (this.dragDeltaX < -threshold) {
       this.nextSlide();
+    } else if (this.dragDeltaX > threshold) {
+      this.prevSlide();
     }
-    // Reset
+
     this.isDragging = false;
     this.dragStartX = null;
     this.dragDeltaX = 0;

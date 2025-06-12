@@ -1,8 +1,6 @@
 <div class="hero">
   <div class="background">
-    <video #myVideo src="assets/Teaser_1_FC.mp4" autoplay muted loop playsinline>
-      Your browser does not support the video tag.
-    </video>
+   <app-video [videoref]="videoElement"></app-video>
   </div>
   <div class="header">
     <div class="opp">
@@ -90,19 +88,19 @@
         <div class="IN-THE-SPOTLIGHT-dropdwon" *ngIf="showHover3&& !run">
           <div class="product">
             <div class="card1">
-              <img src="../../assets/one.jpg" alt="" (click)="moveNext('SpotLight')">
-              <p>name</p>
+             <img (click)="moveNext('SpotLight')" src="../../assets/image11.jpeg" alt="">
+              <p>DEBORAH COX</p>
             </div>
             <div class="card2">
-              <img src="../../assets/one.jpg" alt="" (click)="moveNext('SpotLight')">
-              <p>name</p>
+               <img (click)="moveNext('SpotLight')" src="../../assets/image2.jpeg" alt="">
+               <p>NORA FATEHI</p>
             </div>
             <div class="card3">
-              <img src="../../assets/one.jpg" alt="" (click)="moveNext('SpotLight')">
-              <p>name</p>
+               <img (click)="moveNext('SpotLight')" src="../../assets/44.jpeg" alt="">
+               <p>PARIS HILTON</p>
             </div>
             <div class="card4"><img src="../../assets/one.jpg" alt="" (click)="moveNext('SpotLight')">
-              <p>name</p>
+               <p>ASHANTI</p>
             </div>
           </div>
         </div>
@@ -193,7 +191,8 @@
             <img (click)="moveNext('SpotLight')" src="../../assets/3C8A1581-300x450.jpg" alt="">
             <p>PARIS HILTON</p>
           </div>
-          <div class="card4"><img (click)="moveNext('SpotLight')" src="../../assets/44.jpeg" alt="">
+          <div class="card4">
+            <img (click)="moveNext('SpotLight')" src="../../assets/44.jpeg" alt="">
             <p>ASHANTI</p>
           </div>
         </div>
@@ -201,7 +200,7 @@
     </ul>
   </div>
 </div>
-<div class="opOne-sideBar"[ngStyle]="{ left: sidebarOneOpen ? '0px' : '-450px' }">
+<!-- <div class="opOne-sideBar"[ngStyle]="{ left: sidebarOneOpen ? '0px' : '-450px' }">
   <div class="sign-logo">
     <i class="ri-user-fill"></i>
     <div class="sign-close" (click)="closeSidebarOne()"><i class="ri-close-large-line"></i></div>
@@ -235,4 +234,4 @@
     <p>no product on th wish list</p>
     <button class="wish-button">LOGIN</button>
   </div>
-</div>
+</div> -->
