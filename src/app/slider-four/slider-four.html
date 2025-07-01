@@ -3,8 +3,9 @@
   <div class="slider">
     <div class="slides" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
       <div class="slide" *ngFor="let group of groupedImages">
-        <div class="slide-img" *ngFor="let img of group">
+        <div class="slide-img" *ngFor="let img of group" >
           <img [src]="img.url.split(',')[0]" alt="Slide Image" (click)="sendValue(img.url)" />
+          <i class="ri-eye-line" (click)="buttonClicked(img.url)"></i>
         </div>
       </div>
     </div>

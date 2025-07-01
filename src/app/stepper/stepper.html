@@ -12,7 +12,7 @@
         <div class="line"></div>
         <div class="circle"
           [ngStyle]="{color: currentStep >= 2 ? 'white':'black', backgroundColor: currentStep >= 2 ? 'black':'white', border: '1px solid black'}">
-          <i class="ri-bank-card-line"></i>
+          <i class="ri-bank-card-line" style="color: gray;"></i>
         </div>
         <div class="line"></div>
         <div class="circle"
@@ -26,7 +26,9 @@
       <div class="appointment-type" *ngIf="currentStep === 1">
         <div class="option" *ngFor="let type of appointmentTypes" [class.active]="type.selected"
           (click)="selectAppointmentType(type)">
+        
           <div style="display: flex; gap: 10px; align-items: center;">
+              <input type="checkbox">
             {{type.label}}
           </div>
           <span>{{type.description}}</span>

@@ -1,10 +1,11 @@
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'MyCustomFont', Arial, sans-serif;
+}
 body {
   font-family: 'Helvetica Neue', sans-serif;
   background-color: #f9f9f9;
@@ -14,7 +15,7 @@ body {
 .bespoke-section {
   padding: 60px 20px;
   text-align: center;
-  background-color: white;
+background-color: #f5f5f5;
 }
 
 .title-group .subtitle {
@@ -33,18 +34,18 @@ body {
 .cards-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 60px;
 }
 
 .card {
-  max-width: 300px;
+  max-width: 361px;
   padding: 20px;
   text-align: center;
 }
 
 .card img {
-  width: 70px;
+  width: 51px;
   margin-bottom: 20px;
 }
 
@@ -52,6 +53,7 @@ body {
   font-size: 16px;
   letter-spacing: 1.5px;
   margin-bottom: 15px;
+  font-weight: 400;
 }
 
 .card p {
@@ -113,6 +115,10 @@ body {
   line-height: 1.8;
   color: #222;
 }
+.logo-section{
+  padding: 62px 0px 0px 0px;
+    margin: 0px 87px 0px 0px;
+}
 
 .footer-section h3 {
   font-size: 18px;
@@ -129,6 +135,7 @@ body {
 
 .footer-section ul li {
   margin: 20px 0;
+
 }
 
 .footer-section ul li a {
@@ -156,7 +163,9 @@ body {
 .logo {
   width: 200px;
   height: auto;
+  margin-bottom: 10px;
 }
+
 
 .footer-bottom {
   width: 100%;

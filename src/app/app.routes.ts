@@ -16,21 +16,20 @@ import { Form } from './form/form';
 import { PageSix } from './page-six/page-six';
 import { PageSeven } from './page-seven/page-seven';
 import { PageEight } from './page-eight/page-eight';
+
 export const routes: Routes = [
-  { path: '', redirectTo: 'main-page', pathMatch: 'full' },
-  { path: 'main-page', component: PageOne },
+  { path: '', component: PageOne, pathMatch: 'full' }, // ✅ Default page load
+  { path: 'main-page', component: PageOne },           // ✅ Optional if you still want direct route
   { path: 'SummerSpring', component: PageThree },
   { path: 'WinterFall', component: PageFour },
   { path: 'Bridal', component: PageTwo },
   { path: 'SpotLight', component: PageFive },
   { path: 'BookAppoinment', component: Stepper },
   { path: 'WinterLooks', component: PageSix },
-    { path: 'contact-us', component: PageSeven },
-      { path: 'summerLooks', component: PageEight },
+  { path: 'contact-us', component: PageSeven },
+  { path: 'summerLooks', component: PageEight },
   { path: 'look', component: Look },
   { path: 'looksShow', component: Looksshow },
   { path: 'slider', component: SliderFour },
-  { path: 'form', component: Form },
-
-
+  { path: 'form', component: Form }
 ];

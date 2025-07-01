@@ -36,6 +36,8 @@
   padding: 5px;
   height: 100%;
   box-sizing: border-box;
+  position: relative;
+  transition: all 0.9s ease;
 }
 
 .slide-img img {
@@ -43,8 +45,29 @@
   height: 100%;
   object-fit: cover;
   display: block;
+   transition: all 0.9s ease;
 }
-
+.slide-img i{
+  position: absolute;
+  bottom: -10%;
+  left: 10%;
+  background-color: white;
+  color: black;
+  width: 60px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: lighter;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  transition: all 0.9s ease;
+}
+.slide-img:hover  i{
+  bottom: 10%;
+  display: flex;
+  transition: all 0.9s ease;
+}
 .nav {
   position: absolute;
   top: 50%;

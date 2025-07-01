@@ -27,22 +27,20 @@
 }
 
 .option {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  gap: 10px;
-  padding: 20px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  border-radius: 10px;
-  text-align: center;
-  font-weight: bold;
-  cursor: pointer;
-  margin-right: 10px;
-  transition: 0.3s;
-  max-width: 300px;
-  height: 100px;
-  position: relative;
-  // border: 1px solid black;
+      display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 13px 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: 0.3s;
+    max-width: 300px;
+    min-height: 91px;
+    position: relative;
 }
 
 .option:last-child {
@@ -170,7 +168,7 @@
 .line {
   width: 40%;
   height: 0.1px;
-  background-color: gray;
+  background-color: grey;
 }
 
 .step2 {
@@ -380,7 +378,7 @@
 .circle-checkbox span {
   width: 20px;
   height: 20px;
-  border: 2px solid #555;
+  border: 2px solid #a0a0a0;
   border-radius: 50%; /* Makes it circular */
   display: inline-block;
   position: relative;

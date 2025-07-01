@@ -41,9 +41,13 @@ export class Slidertwo {
       extraTransform = ` translateX(${this.dragDeltaX * 0.7}px)`;
     }
 
+    // Adjust vertical offset for center image
+    const centerOffset = 20;  // Vertical offset for the center image
+    const horizontalOffset = 0;  // Move center image slightly to the left
+
     if (offset === 0) {
       return {
-        transform: `translateX(-50%) scale(1)${extraTransform}`,
+        transform: `translateX(calc(-50% + ${horizontalOffset}px)) translateY(${centerOffset}px) scaleY(1.1)${extraTransform}`, // Apply vertical offset and larger scale for center
         opacity: 1,
         zIndex: 3,
         left: '50%',
@@ -52,7 +56,7 @@ export class Slidertwo {
     }
     if (offset === -1) {
       return {
-        transform: `translateX(calc(40%)) scale(1, 0.77)${extraTransform}`,
+        transform: `translateX(calc(24%)) scaleY(0.9)${extraTransform}`, // Slightly reduced height for left image
         opacity: 1,
         zIndex: 2,
         left: '50%',
@@ -61,7 +65,7 @@ export class Slidertwo {
     }
     if (offset === 1) {
       return {
-        transform: `translateX(calc(-140%)) scale(1, 0.77)${extraTransform}`,
+        transform: `translateX(calc(-127%)) scaleY(0.9)${extraTransform}`, // Slightly reduced height for right image
         opacity: 1,
         zIndex: 2,
         left: '50%',
@@ -69,7 +73,7 @@ export class Slidertwo {
       };
     }
     return {
-      transform: `translateX(calc(-50% + ${offset * 65}%)) scale(0.92, 0.77)`,
+      transform: `translateX(calc(-50% + ${offset * 65}%))`,
       opacity: 0,
       zIndex: 1,
       left: '50%',

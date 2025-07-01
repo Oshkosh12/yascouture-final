@@ -19,7 +19,7 @@ export class SliderThree {
     },
     {
       url: 'assets/Models/Kety Perry.jpeg',
-      text: 'Amyra Dastur looking flawless in a Yas Couture See through mirror beaded gown.'
+      text: 'Katty Perry Shines in a Yas Couture silver embellished catsuit dress for the Video Music Awards'
     },
     {
       url: 'assets/Models/Gwen Stephani.jpeg',

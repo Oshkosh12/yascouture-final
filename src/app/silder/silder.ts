@@ -43,7 +43,7 @@ export class Silder {
 
     if (offset === 0) {
       return {
-        transform: `translateX(-50%) scale(0.9, 1)${extraTransform}`,
+        transform: `translateX(-50%) scale(0.999, 0.95)${extraTransform}`,
         opacity: 1,
         zIndex: 3,
         left: '50%',
@@ -52,7 +52,7 @@ export class Silder {
     }
     if (offset === -1) {
       return {
-        transform: `translateX(calc(-120%)) scale(1, 0.77)${extraTransform}`,
+        transform: `translateX(calc(-93%)) scale(1, 0.77)${extraTransform}`,
         opacity: 1,
         zIndex: 2,
         left: '50%',
@@ -61,7 +61,7 @@ export class Silder {
     }
     if (offset === 1) {
       return {
-        transform: `translateX(calc(10%)) scale(1, 0.77)${extraTransform}`,
+        transform: `translateX(calc(-4%)) scale(1, 0.77)${extraTransform}`,
         opacity: 1,
         zIndex: 2,
         left: '50%',

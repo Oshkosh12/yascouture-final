@@ -6,6 +6,7 @@
   <div class="partTwo">
     <div class="product-show" *ngIf="item">
       <div class="part-1">
+        <div class="boxShow">efes</div>
         <div class="slider">
           <div class="slides" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
             <div class="slide" *ngFor="let pic of item.pictures">
@@ -38,11 +39,21 @@
   </div>
 
   <div class="partThree">
-    <app-slider-four [imagesArry]="item?.allpictures ?? []" (valueChange)="receiveValue($event)">
+    <app-slider-four [imagesArry]="item?.allpictures ?? []" (valueChange)="receiveValue($event)" (valueChange1)="handleTrueClick($event)">
     </app-slider-four>
   </div>
 
   <div class="partFour">
     <app-footer></app-footer>
+  </div>
+  <div class="sidebar" *ngIf="this.hide">
+      <div style="position: relative;"><i class="ri-close-fill close"  (click)="hide = false"></i></div>
+    <img [src]="this.receivedImage" alt="">
+    <h1>LOOKS 12</h1>
+    <p>{{receivedText}}</p>
+       
+          <button (click)="moveNext('contact-us')" class="">ENQUIRE NOW</button>
+          <button (click)="moveNext('BookAppoinment')">Book Appointment</button>
+      
   </div>
 </div>

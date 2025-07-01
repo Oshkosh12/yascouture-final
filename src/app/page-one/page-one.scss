@@ -5,7 +5,11 @@
   margin: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+  font-family: "Lato", sans-serif;
   /* Remove or avoid setting a fixed height for .main */
+}
+h1{
+    font-family: 'MyCustomFont' !important;
 }
 
 .pageFive-bottom {
@@ -44,20 +48,26 @@
   display: flex;
   padding: 10px;
   justify-content: space-between;
-  margin: 50px 0;
+  padding: 65px 0;
+  background-color: #f5f5f5;
+  z-index: -999;
 }
 
-.partTwo-left, .partThree-right {
-  width: 40%;
+.partTwo-left {
+  width: 35%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.partTwo-right, .partThree-left {
-  width: 55%;
+.partTwo-right{
+  width: 65%;
   height: 100%;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .spring-summer-section {
   margin-top: 8vw;
@@ -75,7 +85,7 @@
 }
 
 .spring-summer-section p {
-  font-size: 1vw;
+  font-size: 1.11vw;
   color: #888;
   max-width: 60vw;
   line-height: 1.5;
@@ -83,8 +93,9 @@
 }
 
 .spring-summer-section button {
-  padding: 1vw 2.8vw;
-  font-size: 1vw;
+
+  padding: 1.2vw 3vw;
+  font-size: 1.2vw;
   letter-spacing: 2px;
   border: 1px solid #222;
   background: transparent;
@@ -123,7 +134,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 20px 10px;
+  padding: 65px 10px;
+  gap: 10px;
 }
 
 .pageFour .pageFour-top h1 {
@@ -133,31 +145,32 @@
   letter-spacing: 1px;
   text-align: center;
 }
+.pageFour .pageFour-bottom button{
+     padding: 1.2vw 2vw;
+    font-size: 1.2vw;
+    letter-spacing: 2px;
+    border: 1px solid #222;
+    background: transparent;
+    color: #222;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
 
 .pageFour .pageFour-top p {
-  font-size: 1vw;
+  font-size: 1.11vw;
   color: #888;
   max-width: 60vw;
   line-height: 1.5;
-  margin-bottom: 4vw;
+  margin-bottom: 2vw;
   text-align: center;
-}
-
-.pageFour .pageFour-bottom button {
-  padding: 1vw 2.8vw;
-  font-size: 1vw;
-  letter-spacing: 2px;
-  border: 1px solid #222;
-  background: transparent;
-  color: #222;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  margin: 10px;
 }
 
 .pageFour .pageFour-bottom button:hover {
   background: #222;
   color: #fff;
+}
+.pageFour .pageFive-bottom{
+  padding: 93px
 }
 
 .pageFour-mid, .pageFive-bottom {
@@ -174,7 +187,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 30px 10px;
+  padding: 0px 10px;
 }
 
 .pageFive .heading {
@@ -182,32 +195,32 @@
   align-items: center;
   gap: 5px;
   justify-content: center;
-  margin: 20px;
   font-weight: 300;
   font-size: 16px;
+
 }
 
 .pageFive .line {
-  width: 50px;
+  width: 70px;
   height: 0.5px;
   background-color: black;
 }
 
 .pageFive .heading2 {
-  font-size: 40px;
+  font-size: 55px;
   color: black;
   font-weight: 300;
   text-align: center;
-  margin: 20px;
+  margin:0px 2px 0px  20px;
 }
 
 .pageFive p {
   font-size: 1vw;
-  color: #888;
+  color: #020202;
   max-width: 60vw;
   line-height: 1.5;
-  margin-bottom: 4vw;
   text-align: center;
+  margin-bottom: 70px;
 }
 
 .pageFive-bottom {
@@ -229,6 +242,7 @@
   .main {
     overflow-x: hidden;
   }
+  
   .partTwo, .partThree, .pageFour-mid, .pageFive-bottom {
     flex-direction: column;
     gap: 40px;
@@ -267,6 +281,7 @@
   .pageFive-bottom {
     min-height: 400px;
   }
+  
 }
 
 @media (max-width: 600px) {
@@ -275,6 +290,7 @@
   .pageFour-mid, .pageFive-bottom {
     width: 100%;
     height: auto;
+    justify-content: center;
   }
   .spring-summer-section h1,
   .pageFour .pageFour-top h1 {
@@ -288,8 +304,9 @@
   }
   .spring-summer-section button,
   .pageFour .pageFour-bottom button {
-    font-size: 4vw;
-    padding: 3vw 6vw;
+        font-size: 4vw;
+        padding: 4.5vw 6vw;
+        text-transform: uppercase;
   }
   .heading {
     font-size: 12px;
@@ -311,18 +328,11 @@
     font-size: 10vw;
   }
   .spring-summer-section p,
-  .pageFour .pageFour-top p,
-  .pageFive p {
+  .pageFour .pageFour-top p
+  {
     font-size: 5vw;
   }
-  .spring-summer-section button,
-  .pageFour .pageFour-bottom button {
-    font-size: 5vw;
-    padding: 4vw 8vw;
-  }
-  .pageFive .heading2 {
-    font-size: 16px;
-  }
+
   .pageFive-bottom {
     min-height: 120px;
   }
@@ -335,6 +345,7 @@
       .spring-summer-section p,  .spring-summer-section p{
       text-align:center;
     }
+    
 }
 @media (max-width: 900px) {
   .spring-summer-section{
@@ -347,17 +358,10 @@
     font-size: 4vw;
   }
   .spring-summer-section p,
-  .pageFour .pageFour-top p,
-  .pageFive p {
+  .pageFour .pageFour-top p{
     font-size: 2vw;
   }
-  .spring-summer-section button{
-    font-size: 2vw;
-    padding: 1.2vw 3vw;
-    width: 60%;
-    min-height: 45px;
-    // height: 40px;
-  }
+
   .pageFour-bottom button {
     width: 100%;
     min-height: 45px;
@@ -385,15 +389,10 @@
     font-size: 6vw;
   }
   .spring-summer-section p,
-  .pageFour .pageFour-top p,
-  .pageFive p {
+  .pageFour .pageFour-top p {
     font-size: 3vw;
   }
-  .spring-summer-section button,
-  .pageFour .pageFour-bottom button {
-    font-size: 3vw;
-    padding: 1.5vw 3vw;
-  }
+ 
   .pageFive .heading2 {
     font-size: 18px;
   }
@@ -405,7 +404,17 @@
 
       .spring-summer-section p,  .spring-summer-section p{
       text-align:center;
+      justify-content: center;
     }
+  .pageFive .pageFive-top .heading{
+    font-size: 13px;
+  }
+  .pageFive .pageFive-top .heading2{
+    font-size: 36px;
+  }
+  .pageFive .pageFive-top .detail{
+    padding: 0px 18px ;
+  }
 }
 
 @media (max-width: 480px) {
@@ -418,21 +427,7 @@
   .pageFive p {
     font-size: 3vw;
   }
-  .spring-summer-section button,
-  .pageFour .pageFour-bottom button {
-    font-size: 4vw;
-    padding: 2vw 4vw;
-  }
-  .pageFive .heading2 {
-    font-size: 14px;
-    
-  }
-  .pageFive-top .heading{
-    font-size: 11px;
-  }
-    .pageFive-top .heading2{
-    font-size: 20px;
-  }
+
 }
 @media (max-width: 900px) {
   .pageFive-bottom {
@@ -447,4 +442,7 @@
     height: auto;
     padding-bottom: 8px;
   }
+}
+.pageFour-bottom{
+  padding-top: 93px;
 }

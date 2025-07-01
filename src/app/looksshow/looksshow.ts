@@ -16,10 +16,10 @@ export class Looksshow {
   @Input() item: { allpictures: string[]; pictures: string[]; name: string; text: string } | null = null;
 
   receivedImage: string = '';
-  receivedText:string = '';
+  receivedText: string = '';
   currentIndex = 0;
   startX = 0;
-
+  hide: boolean = false;
   constructor(private router: Router) {
     const nav = this.router.getCurrentNavigation();
     const state = nav?.extras.state as {
@@ -31,7 +31,14 @@ export class Looksshow {
       console.log(this.item)
     }
   }
-
+  handleTrueClick(event: { flag: boolean; message: string }) {
+    debugger
+     var origval = event.message;
+    this.receivedImage = origval.split(',')[0];
+    this.receivedText = origval.split(',')[1];
+    this.hide = event.flag;
+  }
+ 
   receiveValue(value: string) {
     var origval = value;
     this.receivedImage = origval.split(',')[0];

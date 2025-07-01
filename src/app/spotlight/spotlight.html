@@ -15,19 +15,11 @@
 <div class="viewer-modal" *ngIf="viewerOpen" (click)="closeViewer()">
   <div class="viewer-img-wrapper" (click)="$event.stopPropagation()">
     <i class="ri-arrow-left-wide-fill viewer-nav left" *ngIf="products.length > 1" (click)="prevImage($event)"></i>
-    <img
-      [src]="products[selectedIndex].img"
-      [alt]="products[selectedIndex].name"
-      [ngClass]="{
+    <img [src]="products[selectedIndex].img" [alt]="products[selectedIndex].name" [ngClass]="{
         'zoomed-in': zoomState === 'in',
         'zoomed-out': zoomState === 'out'
-      }"
-      (mousedown)="onImgMouseDown($event)"
-      (mouseup)="onImgMouseUp($event)"
-      (mousemove)="onImgMouseMove($event)"
-      (mouseleave)="onImgMouseLeave($event)"
-      #imgEl
-    />
+      }" (mousedown)="onImgMouseDown($event)" (mouseup)="onImgMouseUp($event)" (mousemove)="onImgMouseMove($event)"
+      (mouseleave)="onImgMouseLeave($event)" #imgEl />
     <i class="ri-arrow-right-wide-fill viewer-nav right" *ngIf="products.length > 1" (click)="nextImage($event)"></i>
 
     <div class="viewer-counter">{{ selectedIndex + 1 }} / {{ products.length }}</div>
@@ -41,7 +33,7 @@
         <i *ngIf="zoomState === 'out'" class="ri-zoom-out-line"></i>
       </span>
 
-      <div class="viewer-share-dropdown">
+      <div class="viewer-share-dropdown" style="    display: flex; align-items: center; justify-content: center;">
         <span class="viewer-action" (click)="toggleShare($event)">
           <i class="ri-share-line"></i>
         </span>
@@ -63,5 +55,3 @@
     </div>
   </div>
 </div>
-
-<app-footer></app-footer>
