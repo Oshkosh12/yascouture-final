@@ -10,7 +10,7 @@ frontend:
       commands:
         - npm run build -- --configuration production
   artifacts:
-    baseDirectory: dist/Yascoture
+    baseDirectory: dist/browser
     files:
       - '**/*'
   cache:
