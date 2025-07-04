@@ -14,6 +14,7 @@ export class Slidertwo {
 
   // Drag state
   private dragStartX: number | null = null;
+  private dragStartY: number | null = null; // ✅ NEW
   private dragDeltaX: number = 0;
   private isDragging = false;
 
@@ -41,13 +42,12 @@ export class Slidertwo {
       extraTransform = ` translateX(${this.dragDeltaX * 0.7}px)`;
     }
 
-    // Adjust vertical offset for center image
-    const centerOffset = 20;  // Vertical offset for the center image
-    const horizontalOffset = 0;  // Move center image slightly to the left
+    const centerOffset = 20;
+    const horizontalOffset = 0;
 
     if (offset === 0) {
       return {
-        transform: `translateX(calc(-50% + ${horizontalOffset}px)) translateY(${centerOffset}px) scaleY(1.1)${extraTransform}`, // Apply vertical offset and larger scale for center
+        transform: `translateX(calc(-50% + ${horizontalOffset}px)) translateY(${centerOffset}px) scaleY(1.1)${extraTransform}`,
         opacity: 1,
         zIndex: 3,
         left: '50%',
@@ -56,7 +56,7 @@ export class Slidertwo {
     }
     if (offset === -1) {
       return {
-        transform: `translateX(calc(24%)) scaleY(0.9)${extraTransform}`, // Slightly reduced height for left image
+        transform: `translateX(calc(24%)) scaleY(0.9)${extraTransform}`,
         opacity: 1,
         zIndex: 2,
         left: '50%',
@@ -65,7 +65,7 @@ export class Slidertwo {
     }
     if (offset === 1) {
       return {
-        transform: `translateX(calc(-127%)) scaleY(0.9)${extraTransform}`, // Slightly reduced height for right image
+        transform: `translateX(calc(-127%)) scaleY(0.9)${extraTransform}`,
         opacity: 1,
         zIndex: 2,
         left: '50%',
@@ -96,29 +96,40 @@ export class Slidertwo {
   onDragStart(event: MouseEvent | TouchEvent) {
     this.isDragging = true;
     this.dragStartX = this.getPointerX(event);
+    this.dragStartY = this.getPointerY(event); // ✅ NEW
     this.dragDeltaX = 0;
     event.preventDefault();
   }
 
   onDragMove(event: MouseEvent | TouchEvent) {
-    if (!this.isDragging || this.dragStartX === null) return;
+    if (!this.isDragging || this.dragStartX === null || this.dragStartY === null) return;
+
     const currentX = this.getPointerX(event);
-    this.dragDeltaX = currentX - this.dragStartX;
+    const currentY = this.getPointerY(event);
+
+    const deltaX = currentX - this.dragStartX;
+    const deltaY = currentY - this.dragStartY;
+
+    // ✅ Cancel drag if vertical movement is greater than horizontal
+    if (Math.abs(deltaY) > Math.abs(deltaX)) return;
+
+    this.dragDeltaX = deltaX;
   }
 
   onDragEnd(event: MouseEvent | TouchEvent) {
     if (!this.isDragging || this.dragStartX === null) return;
-    const threshold = 60; // px to trigger slide
 
-    // ✅ Fixed drag direction
+    const threshold = 60;
+
     if (this.dragDeltaX > threshold) {
-      this.nextSlide(); // Swipe right = next
+      this.nextSlide();
     } else if (this.dragDeltaX < -threshold) {
-      this.prevSlide(); // Swipe left = prev
+      this.prevSlide();
     }
 
     this.isDragging = false;
     this.dragStartX = null;
+    this.dragStartY = null;
     this.dragDeltaX = 0;
   }
 
@@ -127,5 +138,12 @@ export class Slidertwo {
       return event.touches[0]?.clientX ?? event.changedTouches[0]?.clientX ?? 0;
     }
     return event.clientX;
+  }
+
+  getPointerY(event: MouseEvent | TouchEvent): number {
+    if (event instanceof TouchEvent) {
+      return event.touches[0]?.clientY ?? event.changedTouches[0]?.clientY ?? 0;
+    }
+    return event.clientY;
   }
 }

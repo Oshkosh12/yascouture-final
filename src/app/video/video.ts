@@ -1,21 +1,25 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-video',
-  imports: [],
+  standalone: true,
   templateUrl: './video.html',
-  styleUrl: './video.scss'
+  styleUrl: './video.scss',
 })
-export class Video {
+export class Video implements AfterViewInit {
   @ViewChild('myVideo') myVideo!: ElementRef<HTMLVideoElement>;
-  @Input() videoref:string = "";
+  @Input() videoref: string = "";
+
   ngAfterViewInit(): void {
     const video = this.myVideo.nativeElement;
-    video.muted = true;
-    video.autoplay = true;
-    video.loop = true;
+
+    video.muted = true; 
     video.playsInline = true;
     video.load();
-    video.play().catch(() => { });
+
+    // Try to play
+    video.play().catch(err => {
+      console.warn('Autoplay failed:', err);
+    });
   }
 }

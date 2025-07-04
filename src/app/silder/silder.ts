@@ -14,6 +14,7 @@ export class Silder {
   activeIndex = 1;
 
   private dragStartX: number | null = null;
+  private dragStartY: number | null = null;
   private dragDeltaX: number = 0;
   private isDragging = false;
 
@@ -91,21 +92,30 @@ export class Silder {
   onDragStart(event: MouseEvent | TouchEvent) {
     this.isDragging = true;
     this.dragStartX = this.getPointerX(event);
+    this.dragStartY = this.getPointerY(event);
     this.dragDeltaX = 0;
     event.preventDefault();
   }
 
   onDragMove(event: MouseEvent | TouchEvent) {
-    if (!this.isDragging || this.dragStartX === null) return;
+    if (!this.isDragging || this.dragStartX === null || this.dragStartY === null) return;
+
     const currentX = this.getPointerX(event);
-    this.dragDeltaX = currentX - this.dragStartX;
+    const currentY = this.getPointerY(event);
+
+    const deltaX = currentX - this.dragStartX;
+    const deltaY = currentY - this.dragStartY;
+
+    // Prevent vertical drag by ignoring if Y movement is dominant
+    if (Math.abs(deltaY) > Math.abs(deltaX)) return;
+
+    this.dragDeltaX = deltaX;
   }
 
   onDragEnd(event: MouseEvent | TouchEvent) {
     if (!this.isDragging || this.dragStartX === null) return;
     const threshold = 60;
 
-    // ✅ FIXED: Swiping left (dragDeltaX < 0) → next; right → prev
     if (this.dragDeltaX < -threshold) {
       this.nextSlide();
     } else if (this.dragDeltaX > threshold) {
@@ -114,6 +124,7 @@ export class Silder {
 
     this.isDragging = false;
     this.dragStartX = null;
+    this.dragStartY = null;
     this.dragDeltaX = 0;
   }
 
@@ -122,5 +133,12 @@ export class Silder {
       return event.touches[0]?.clientX ?? event.changedTouches[0]?.clientX ?? 0;
     }
     return event.clientX;
+  }
+
+  getPointerY(event: MouseEvent | TouchEvent): number {
+    if (event instanceof TouchEvent) {
+      return event.touches[0]?.clientY ?? event.changedTouches[0]?.clientY ?? 0;
+    }
+    return event.clientY;
   }
 }
