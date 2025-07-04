@@ -1,17 +1,18 @@
 .main {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
     overflow-y: scroll;
-    background-image: url(../../assets/back1.jpg);
+    background-image: url(../../assets/Look-3.1-scaled.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .partOne {
     width: 100%;
+    // height: 100vh;
 }
 
 /* PART TWO */
@@ -24,6 +25,8 @@
     padding: 10px 0 0 0;
     background-color: #f5f5f5;
     gap: 10px;
+    margin: 0;
+    padding: 65px 0px;
 }
 
 .partTwo-top {
@@ -36,39 +39,40 @@
 .partTwo-top .heading {
     display: flex;
     align-items: center;
-    gap: 5px;
     justify-content: center;
-    margin: 10px;
+
     font-weight: 300;
-    font-size: 18px;
+    // font-size: 14px;
+    color: rgb(0, 0, 0);
 }
 
 .partTwo-top .line {
-    width: 70px;
-    height: 1px;
+    width: 65px;
+    height: 0.1px;
     background-color: black;
 }
 
 .partTwo-top .heading2 {
-    font-size: 2.8vw;
+    font-size: 55px;
     color: black;
     font-weight: 400;
     text-align: center;
-    margin: 10px;
     word-spacing: 5px;
     letter-spacing: 2px;
 }
 
 .partTwo p {
     text-align: center;
-    font-size: 1.1vw;
-    color: #000;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
     width: 70%;
-    padding: 5px 0;
+    padding: 5px 12px;
+    // width: 100%;
 }
 
 .partTwo-bottom {
     width: 80%;
+    // max-width: 900px;
     min-width: 400px;
 }
 
@@ -80,7 +84,6 @@
 /* PART THREE */
 .partThree {
     width: 100%;
-    height: 700px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,10 +91,11 @@
     padding: 40px 0 0 0;
     background-color: white;
     gap: 25px;
+    padding: 65px 0px;
 }
 
 .partThree-top .heading2 {
-    font-size: 2.8vw;
+    font-size: 45px;
     color: black;
     font-weight: 400;
     text-align: center;
@@ -106,6 +110,7 @@
     height: 600px;
     max-width: 1100px;
     margin: 0 auto;
+
 }
 
 .partThree-end {
@@ -115,15 +120,17 @@
 }
 
 .partThree-end button {
-    padding: 1vw 2.8vw;
-    font-size: 1.2vw;
+    padding: 1.2vw 3vw;
+     font-size: clamp(14px, 1.1vw, 18px);
     letter-spacing: 2px;
     border: 1px solid #222;
     background: transparent;
     color: #222;
     cursor: pointer;
     transition: background 0.2s, color 0.2s;
-    border-radius: 4px;
+    min-height: 55px;
+    min-width: 120px;
+    margin-top: 25px;
 }
 
 .partThree-end button:hover {
@@ -133,34 +140,41 @@
 
 /* PAGE FOUR */
 .pageFour {
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    padding: 60px 10px 20px 10px;
+    padding: 65px 0 ;
     background-color: #f5f5f5;
+    gap: 10px;
+    margin: 0;
 }
-.pageFour .pageFour-top{
+
+.pageFour .pageFour-top {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
+
 .pageFour .pageFour-top h1 {
-    font-size: 3vw;
+    font-size: 45px;
+    color: black;
     font-weight: 400;
-    margin-bottom: 1vw;
-    letter-spacing: 1px;
     text-align: center;
+    margin: 10px;
+    word-spacing: 5px;
+    letter-spacing: 2px;
 }
 
 .pageFour .pageFour-top p {
-    font-size: clamp(14px, 1.2vw, 18px);
-    color: #000000;
-    max-width: 60vw;
-    line-height: 1.5;
-    margin-bottom: 3vw;
     text-align: center;
+    font-size: 15px;
+    color: #000;
+    width: 70%;
+    padding: 5px 0;
+    padding-bottom: 40px;
 }
 
 .pageFour-mid {
@@ -183,9 +197,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px 0 10px 0;
+    padding: 65px 0px;
     background-color: white;
     gap: 25px;
+    margin: 0;
 }
 
 .partfive-top {
@@ -193,10 +208,11 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 100%;
 }
 
 .partfive-top .heading2 {
-    font-size: 2.8vw;
+    font-size: 45px;
     color: black;
     font-weight: 400;
     text-align: center;
@@ -207,10 +223,11 @@
 
 .partfive-top p {
     text-align: center;
-    font-size: 1.1vw;
+    font-size: 15px;
     color: #000;
     width: 70%;
     padding: 5px 0;
+    padding-bottom:40px ;
 }
 
 .partfive-bottom {
@@ -227,9 +244,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px 0 10px 0;
+    padding: 65px 0px;
     background-color: #f5f5f5;
     gap: 25px;
+    margin: 0;
 }
 
 .partsix-top {
@@ -240,7 +258,7 @@
 }
 
 .partsix-top .heading2 {
-    font-size: 2.8vw;
+    font-size: 45px;
     color: black;
     font-weight: 400;
     text-align: center;
@@ -251,10 +269,11 @@
 
 .partsix-top p {
     text-align: center;
-    font-size: 1.1vw;
+    font-size: 15px;
     color: #000;
     width: 70%;
     padding: 5px 0;
+    padding-bottom: 40px;
 }
 
 .partsix-bottom {
@@ -264,16 +283,16 @@
     margin: 0 auto;
 }
 
-/* PAGE SEVEN (PARALLAX EFFECT) */
+/* PAGE SEVEN */
 .pageseven {
     width: 100%;
-    // min-height: 80vh;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     background: transparent;
+    margin: 0;
 }
 
 .pageseven .background {
@@ -335,40 +354,29 @@
     transition: background 0.2s, color 0.2s;
     border-radius: 4px;
 }
+
 .pageseven .heading button:hover {
     background: #fff;
     color: #000;
 }
 
+/* RESPONSIVE TWEAKS */
+@media (max-width: 600px) {
+    .partTwo-top .heading2 {
+        font-size: 35px;
+    }
 
-/* RESPONSIVE BREAKPOINTS */
-
-@media (max-width: 1024px) {
-
-    .partTwo p,
-    .partfive-top p,
-    .partsix-top p {
-        width: 90%;
-        font-size: 13px;
+    .partTwo p {
+        width: 100%;
+        padding: 0px 15px;
     }
 
     .partThree-bottom,
     .partfive-bottom,
     .partsix-bottom {
         height: 550px;
-        min-height: 180px;
     }
 
-    .partThree-end button {
-        font-size: 2.5vw;
-        padding: 2vw 4vw;
-    }
-
-    .pageFour .pageFour-top h1 {
-        font-size: 5vw;
-    }
-
-  
     .pageFour-mid {
         width: 90%;
     }
@@ -380,83 +388,10 @@
 
 @media (max-width: 768px) {
 
-    .partTwo-top .heading2,
-    .partThree-top .heading2,
-    .partfive-top .heading2,
-    .partsix-top .heading2 .pageseven .heading {
-        font-size: 32px;
-    }
-
-    .partTwo p,
-    .partfive-top p,
-    .partsix-top p,
-    .pageseven p {
-        font-size: 18px;
-    }
-
-    .partThree-bottom {
-        height: 506px;
-    }
-
+    .partThree-bottom,
     .partfive-bottom,
     .partsix-bottom {
-        height: 506px;
-    }
-
-    .pageFour .pageFour-top h1 {
-        font-size: 5vw;
-    }
-
-    
-
-    .pageFour-mid {
-        width: 100%;
-    }
-
-    .main {
-        background-size: auto 100%;
-        background-position: center;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .partTwo-top .heading,
-    .partTwo-top .heading2,
-    .partThree-top .heading2,
-    .partfive-top .heading2,
-    .partsix-top .heading2,
-    .pageseven .heading {
-        font-size: 24px;
-    }
-
-    .partTwo p,
-    .partfive-top p,
-    .partsix-top p,
-    .pageseven p {
-        font-size: 16px;
-        width: 98%;
-    }
-
-    .partThree-end button {
-        font-size: 4vw;
-        padding: 3vw 4vw;
-    }
-
-    .pageFour .pageFour-top h1 {
-        font-size: 9vw;
-        margin-bottom: 3vw;
-    }
-
-   
-
-    .partThree-bottom {
-        height: 506px;
-    }
-
-    .partfive-bottom,
-    .partsix-bottom {
-        height: 506px;
+        height: 500px;
     }
 
     .pageFour-mid {
@@ -464,39 +399,42 @@
     }
 
     .pageseven {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+
+
+    .pageFour .pageFour-top p {
+        margin-bottom: 30px;
+    }
+
+    .pageseven {
         height: 200px;
     }
 
-    .pageseven .heading h1 {
-        font-size: 22px;
-    }
-
-    .pageseven .heading p {
-        font-size: 12px;
-    }
-
-    .pageseven .heading button {
-        padding: 2vw 3.8vw;
-        font-size: 2.2vw;
+    .partThree-bottom {
+        height: 380px;
     }
 
     .partThree-bottom {
+        height: 380px;
+    }
+
+    .partsix,
+    .partfive {
+        gap: 0px;
+
+    }
+
+    .partfive-bottom,
+    .partsix-bottom {
         height: 413px;
     }
 
-    .partTwo-top .heading2,
-    .partThree-top .heading2,
-    .pageFour .pageFour-top h1,
-    .partfive-top .heading2,
-    .partsix-top .heading2 {
-        font-size: 30px;
+    .partTwo p {
+        width: 100%;
     }
 
-    .partTwo-top .heading,
-    .partThree-top .heading,
-    .pageFour-top p,
-    .partfive-top .heading,
-    .partsix-top .heading {
-        font-size: 16px;
-    }
 }

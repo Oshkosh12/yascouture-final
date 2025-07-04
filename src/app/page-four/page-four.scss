@@ -5,7 +5,7 @@
     width: 100%;
     height: 100%;
     overflow-y: scroll;
-    background-image: url(../../assets/looks/Look-1.2-600x900.jpeg.webp);
+    background-image: url(../../assets/Look-3.1-scaled.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -26,6 +26,7 @@
     background-color: #f5f5f5;
     gap: 10px;
     margin: 0;
+    padding: 65px 0px;
 }
 
 .partTwo-top {
@@ -38,39 +39,40 @@
 .partTwo-top .heading {
     display: flex;
     align-items: center;
-    gap: 5px;
     justify-content: center;
-    margin: 10px;
+
     font-weight: 300;
-    font-size: 18px;
+    // font-size: 14px;
+    color: rgb(0, 0, 0);
 }
 
 .partTwo-top .line {
-    width: 70px;
-    height: 1px;
+    width: 65px;
+    height: 0.1px;
     background-color: black;
 }
 
 .partTwo-top .heading2 {
-    font-size: 45px;
+    font-size: 55px;
     color: black;
     font-weight: 400;
     text-align: center;
-    margin: 10px;
     word-spacing: 5px;
     letter-spacing: 2px;
 }
 
 .partTwo p {
     text-align: center;
-    font-size: clamp(14px, 1.1vw, 18px);
-    color: #000;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
     width: 70%;
-    padding: 5px 0;
+    padding: 5px 12px;
+    // width: 100%;
 }
 
 .partTwo-bottom {
     width: 80%;
+    // max-width: 900px;
     min-width: 400px;
 }
 
@@ -89,8 +91,7 @@
     padding: 40px 0 0 0;
     background-color: white;
     gap: 25px;
-    margin: 0;
-    padding-bottom: 13px;
+    padding: 65px 0px;
 }
 
 .partThree-top .heading2 {
@@ -109,6 +110,7 @@
     height: 600px;
     max-width: 1100px;
     margin: 0 auto;
+
 }
 
 .partThree-end {
@@ -118,15 +120,17 @@
 }
 
 .partThree-end button {
-    padding: 1vw 2.8vw;
-    font-size: clamp(14px, 1.2vw, 18px);
+    padding: 1.2vw 3vw;
+     font-size: clamp(14px, 1.1vw, 18px);
     letter-spacing: 2px;
     border: 1px solid #222;
     background: transparent;
     color: #222;
     cursor: pointer;
     transition: background 0.2s, color 0.2s;
-    border-radius: 4px;
+    min-height: 55px;
+    min-width: 120px;
+    margin-top: 25px;
 }
 
 .partThree-end button:hover {
@@ -136,34 +140,41 @@
 
 /* PAGE FOUR */
 .pageFour {
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    padding: 60px 10px 20px 10px;
+    padding: 65px 0 ;
     background-color: #f5f5f5;
+    gap: 10px;
     margin: 0;
 }
-.pageFour .pageFour-top{
+
+.pageFour .pageFour-top {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
+
 .pageFour .pageFour-top h1 {
     font-size: 45px;
+    color: black;
     font-weight: 400;
-    margin-bottom: 1vw;
-    letter-spacing: 1px;
     text-align: center;
+    margin: 10px;
+    word-spacing: 5px;
+    letter-spacing: 2px;
 }
 
 .pageFour .pageFour-top p {
     text-align: center;
-    font-size: clamp(14px, 1.1vw, 18px);
+    font-size: 15px;
     color: #000;
     width: 70%;
     padding: 5px 0;
+    padding-bottom: 40px;
 }
 
 .pageFour-mid {
@@ -183,7 +194,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px 0 10px 0;
+    padding: 65px 0px;
     background-color: white;
     gap: 25px;
     margin: 0;
@@ -194,6 +205,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 100%;
 }
 
 .partfive-top .heading2 {
@@ -208,10 +220,11 @@
 
 .partfive-top p {
     text-align: center;
-    font-size: clamp(14px, 1.1vw, 18px);
+    font-size: 15px;
     color: #000;
     width: 70%;
     padding: 5px 0;
+    padding-bottom:40px ;
 }
 
 .partfive-bottom {
@@ -228,7 +241,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px 0 10px 0;
+    padding: 65px 0px;
     background-color: #f5f5f5;
     gap: 25px;
     margin: 0;
@@ -252,11 +265,12 @@
 }
 
 .partsix-top p {
-         text-align: center;
-    font-size: clamp(14px, 1.1vw, 18px);
+    text-align: center;
+    font-size: 15px;
     color: #000;
     width: 70%;
     padding: 5px 0;
+    padding-bottom: 40px;
 }
 
 .partsix-bottom {
@@ -337,13 +351,22 @@
     transition: background 0.2s, color 0.2s;
     border-radius: 4px;
 }
+
 .pageseven .heading button:hover {
     background: #fff;
     color: #000;
 }
 
 /* RESPONSIVE TWEAKS */
-@media (max-width: 1024px) {
+@media (max-width: 600px) {
+    .partTwo-top .heading2 {
+        font-size: 35px;
+    }
+
+    .partTwo p {
+        width: 100%;
+        padding: 0px 15px;
+    }
 
     .partThree-bottom,
     .partfive-bottom,
@@ -372,21 +395,13 @@
         width: 100%;
     }
 
-    .main {
-        background-size: auto 100%;
-        background-position: center;
-    }
-
     .pageseven {
         height: 250px;
     }
 }
 
 @media (max-width: 480px) {
-    .partThree-end button {
-        font-size: 16px;
-        padding: 10px 16px;
-    }
+
 
     .pageFour .pageFour-top p {
         margin-bottom: 30px;
@@ -415,19 +430,8 @@
         height: 413px;
     }
 
-    .partTwo-top .heading2,
-    .partThree-top .heading2,
-    .pageFour .pageFour-top h1,
-    .partfive-top .heading2,
-    .partsix-top .heading2 {
-        font-size: 30px;
+    .partTwo p {
+        width: 100%;
     }
 
-    .partTwo-top .heading,
-    .partThree-top .heading,
-    .pageFour-top p,
-    .partfive-top .heading,
-    .partsix-top .heading {
-        font-size: 16px;
-    }
 }

@@ -179,7 +179,8 @@
 }
 
 .field-partOne,
-.field-parttwo {
+.field-parttwo,
+.field-partThree{
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -507,3 +508,86 @@ outline: none;}
 //   width: 100%;
 //   max-width: 100%;
 // }
+.circle-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.circle-checkbox input {
+  display: none; /* hide default checkbox */
+}
+
+.circle-checkbox span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #555;
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.circle-checkbox input:checked + span {
+  background-color: black;
+  border-color: black;
+}
+
+.circle-checkbox input:checked + span::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.stepUp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 39px;
+  gap: 2px;
+}
+
+.stepUp .circle {
+  min-width: 45px;
+  min-height: 45px;
+  background-color: white;
+  border: 1px solid rgb(114, 114, 114);
+  border-radius: 50%;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.stepUp .circle.active-step {
+  background-color: black;
+  color: white;
+}
+.stepUp .circle.active-step i {
+  background-color: black;
+  color: white;
+}
+
+.stepUp .circle i {
+  font-size: 22px;
+  transition: 0.3s;
+  color:  grey;
+}
+
+.line {
+  width: 40%;
+  height: 1px;
+  background-color: gray;
+  transition: 0.3s;
+}
+
+.line.active-line {
+  background-color: black;
+}

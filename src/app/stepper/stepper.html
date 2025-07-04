@@ -6,56 +6,68 @@
     <div class="container">
       <h1 class="heading">BOOK AN APPOINTMENT</h1>
       <div class="stepUp">
+        <!-- Step 1 -->
         <div class="circle" [ngClass]="{'active-step': currentStep >= 1}">
           <i class="ri-map-pin-line"></i>
         </div>
-        <div class="line"></div>
-        <div class="circle"
-          [ngStyle]="{color: currentStep >= 2 ? 'white':'black', backgroundColor: currentStep >= 2 ? 'black':'white', border: '1px solid black'}">
-          <i class="ri-bank-card-line" style="color: gray;"></i>
+        <div class="line" [ngClass]="{'active-line': currentStep >= 2}"></div>
+
+        <!-- Step 2 -->
+        <div class="circle" [ngClass]="{'active-step': currentStep >= 2}">
+          <i class="ri-bank-card-line"></i>
         </div>
-        <div class="line"></div>
-        <div class="circle"
-          [ngStyle]="{color: currentStep === 3 ? 'white':'black', backgroundColor: currentStep === 3 ? 'black':'white', border:'1px solid black'}">
+        <div class="line" [ngClass]="{'active-line': currentStep === 3}"></div>
+
+        <!-- Step 3 -->
+        <div class="circle" [ngClass]="{'active-step': currentStep === 3}">
           <i class="ri-calendar-line"></i>
         </div>
       </div>
 
       <!-- Step 1: Appointment type & category -->
       <!-- Step 1: Appointment type & category -->
+      <!-- Step 1: Appointment type & category -->
       <div class="appointment-type" *ngIf="currentStep === 1">
         <div class="option" *ngFor="let type of appointmentTypes" [class.active]="type.selected"
           (click)="selectAppointmentType(type)">
-        
-          <div style="display: flex; gap: 10px; align-items: center;">
-              <input type="checkbox">
+          <label class="circle-checkbox">
+            <input type="checkbox" [(ngModel)]="type.selected" (click)="$event.stopPropagation()" />
+            <span></span>
             {{type.label}}
-          </div>
+          </label>
           <span>{{type.description}}</span>
         </div>
       </div>
-<div *ngIf="currentStep === 1" class="category-options">
-  <div class="step1" *ngFor="let cat of categories; let i = index" >
-    <div class="box" (click)="selectCategory(i)" [class.selected]="cat.selected">
-      <h3>{{cat.title}}</h3>
-      <div class="text" >
-        <p style="width: 80%;">{{cat.selected && inboutique ? cat.selectedDescription : cat.defaultDescription}}</p>
-        <p style="text-align: end; width: 20%;">{{cat.selected && inboutique ? cat.phone : ''}}</p>
-      </div>
-    </div>
 
-    <!-- Map appears only when selected and inboutique is true -->
-    <div class="map" *ngIf="cat.selected && inboutique">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3477.422819869147!2d48.0355104758187!3d29.303182875273687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf9d12b79b9c5f%3A0x90692f35d0d5cbf4!2sYas%20Couture!5e0!3m2!1sen!2skw!4v1717866241663!5m2!1sen!2skw"
-        style="border:0; width: 100%; height: 300px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);" 
-        allowfullscreen 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-  </div>
-</div>
+      <div *ngIf="currentStep === 1" class="category-options">
+        <div class="step1" *ngFor="let cat of categories; let i = index">
+          <div class="box" (click)="selectCategory(i)" [class.selected]="cat.selected">
+            <div style="display: flex; gap: 5px;"> <label class="circle-checkbox" (click)="$event.stopPropagation()">
+                <input type="checkbox" [(ngModel)]="cat.selected" />
+                <span></span>
+              </label>
+              <h3>{{ cat.title }}</h3>
+            </div>
+            <div class="text">
+              <p style="width: 80%;">
+                {{ cat.selected && inboutique ? cat.selectedDescription : cat.defaultDescription }}
+              </p>
+              <p style="text-align: end; width: 20%;">
+                {{ cat.selected && inboutique ? cat.phone : '' }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Map appears only when selected and inboutique is true -->
+          <div class="map" *ngIf="cat.selected && inboutique">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3477.422819869147!2d48.0355104758187!3d29.303182875273687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf9d12b79b9c5f%3A0x90692f35d0d5cbf4!2sYas%20Couture!5e0!3m2!1sen!2skw!4v1717866241663!5m2!1sen!2skw"
+              style="border:0; width: 100%; height: 300px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);" allowfullscreen
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
 
 
       <!-- Step 2: Personal details -->
@@ -76,27 +88,12 @@
               <p>Email</p>
               <input type="text" [(ngModel)]="userDetails.email" />
             </div>
-            <div class="input-box phone-input">
-              <p>Phone Number</p>
-              <div class="phone-wrapper">
-                <div class="custom-select country-code" style="position: absolute;
-    width: 21%;">
-                  <div class="selected2" (click)="dropdownOpen = !dropdownOpen">
-                    <img [src]="selectedCountry.flag" alt="flag" style="width: 45%;
-    height: 49%;" />
-                    <span>{{ selectedCountry.code }}</span>
-                  </div>
-                  <ul class="options" *ngIf="dropdownOpen">
-                    <li *ngFor="let c of countries" (click)="selectCountry(c)">
-                      <img [src]="c.flag" alt="flag" />
 
-                    </li>
-                  </ul>
-                </div>
-
-                <input type="text" name="phone" placeholder="Enter phone number" [(ngModel)]="userDetails.phone" />
+              <div class="input-box" style="position: relative;">
+                <img src="../../assets/Flag_of_the_United_Arab_Emirates.svg.png" alt="" style="max-height: 18px; position: absolute; top: 42px; left: 6px;">
+                <p>Phone Number</p>
+                <input type="number" name="phone" placeholder="+965  Enter phone number " [(ngModel)]="userDetails.phone"  style="padding-left: 48px;"/>
               </div>
-            </div>
           </div>
         </div>
       </div>

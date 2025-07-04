@@ -1,12 +1,16 @@
 <h4 class="heading">
   <div class="line"></div>
-  World of Glamour
+  <p style="margin: 0;  width: auto; padding: 0px 12px; letter-spacing: 2px ; font-size: 13px;">EXPLORE</p>
   <div class="line"></div>
 </h4>
 <h1 class="heading2">Celebrities</h1>
+
 <div class="containr">
   <div class="product" *ngFor="let product of products; let i = index" (click)="openViewer(i)">
-    <img [src]="product.img" [alt]="product.name" />
+    <div class="img-wrapper">
+      <img [src]="product.img" [alt]="product.name" />
+      <div class="img-overlay"></div>
+    </div>
     <div class="product-name">{{ product.name }}</div>
   </div>
 </div>
@@ -33,7 +37,7 @@
         <i *ngIf="zoomState === 'out'" class="ri-zoom-out-line"></i>
       </span>
 
-      <div class="viewer-share-dropdown" style="    display: flex; align-items: center; justify-content: center;">
+      <div class="viewer-share-dropdown">
         <span class="viewer-action" (click)="toggleShare($event)">
           <i class="ri-share-line"></i>
         </span>
