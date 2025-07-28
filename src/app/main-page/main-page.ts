@@ -47,7 +47,7 @@ export class MainPage implements AfterViewInit, OnInit {
     },
     ar: {
       label: 'للعربية',
-      flag: 'assets/Flag_of_the_United_Arab_Emirates.svg.png',
+      flag: 'assets/download.jpeg',
     },
   };
 
