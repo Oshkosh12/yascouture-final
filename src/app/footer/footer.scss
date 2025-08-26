@@ -66,6 +66,7 @@ background-color: #f5f5f5;
 @media (max-width: 768px) {
   .title-group h1 {
     font-size: 32px;
+        margin-bottom: 30px;
   }
 
   .cards-container {
@@ -106,7 +107,7 @@ body {
 }
 
 .footer-section {
-  flex: 1 1 220px;
+  flex: 1 1 200px;
   margin: 18px;
 }
 
@@ -202,7 +203,11 @@ body {
     padding-top: 0px;
    }
    .footer-section{
-    flex: 1 1 175px;
+    
+
+    &:last-child {
+    flex: 1 1 105px;
+  }
 }
   .cards-container{
     gap: 0px;

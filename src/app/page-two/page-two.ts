@@ -17,9 +17,9 @@ export class PageTwo {
   images= [
  'assets/j11.webp',
    
-     'assets/j14.webp',
-     'assets/3C8A1581-300x450.jpg',
-     'assets/3C8A1581-1-scaled.jpg.webp',
+ 'assets/j14.webp',
+//  'assets/3C8A1581-300x450.jpg',
+    //  'assets/3C8A1581-1-scaled.jpg.webp',
      'assets/3C8A1513-scaled-1-1.jpg.webp',
      
   ];
@@ -27,10 +27,10 @@ export class PageTwo {
      'assets/j11.webp',
      'assets/j12.webp',
      'assets/j14.webp',
-     'assets/3C8A1581-300x450.jpg',
-     'assets/3C8A1581-1-scaled.jpg.webp',
+    //  'assets/3C8A1581-300x450.jpg',
+    //  'assets/3C8A1581-1-scaled.jpg.webp',
      'assets/3C8A1513-scaled-1-1.jpg.webp',
-     'assets/3C8A1513-scaled-1-1.jpg (1).webp',
+    //  'assets/3C8A1513-scaled-1-1.jpg (1).webp',
 
   ];
     moveNext(id: string) {

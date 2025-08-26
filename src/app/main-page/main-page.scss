@@ -312,17 +312,24 @@
   height: 600px;
   background-color: white;
   position: absolute;
-  top: 25px;
+  top: 30px;
   left: 0px;
   display: flex;
+    justify-content: space-between;
   transition: all 0.3s;
   z-index: 9999;
-  padding: 20px;
+    padding: 20px 60px;
   text-transform: uppercase;
 }
 
+.COUTURE-Hover .collection-book-now-parent{
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
 .COUTURE-Hover .collection {
-  width: 20%;
+  // width: 20%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -341,12 +348,11 @@
 }
 
 .COUTURE-Hover .collection p {
-  font-size: 15px;
-  font-weight: 400;
-  text-align: center;
-  // margin: 8px 0px;
-  color: gray;
-  padding-left: 35px;
+      color: gray;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
 
 }
 
@@ -355,25 +361,25 @@
   font-weight: bold;
   text-align: center;
   margin: 20px;
-  padding-right: 45px;
+  // padding-right: 45px;
   margin: 20px 0px;
 }
 
 .COUTURE-Hover .booknow {
-  width: 30%;
+  // width: 30%;
   height: 100%;
   //  background-color: rgb(0, 255, 110);
 }
 
 .COUTURE-Hover .product {
-  width: 40%;
+  // width: 40%;
   height: 90%;
   //  background-color: blue;
   display: flex;
   //  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  gap: 120px;
+      justify-content: space-between;
+    padding: 20px;
+    gap: 60px;
   margin-top: 10px;
 }
 
@@ -405,17 +411,24 @@
   height: 600px;
   background-color: white;
   position: absolute;
-  top: 25px;
+      top: 30px;
   left: 0px;
   display: flex;
+  justify-content: space-between;
   transition: all 0.3s;
   z-index: 9999;
   text-transform: uppercase;
-  padding: 20px;
+      padding: 20px 60px;
+}
+
+.bride-Hover .collection-book-now-parent{
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
 }
 
 .bride-Hover .collection {
-  width: 20%;
+  // width: 20%;
   height: 100%;
   //  background-color: blue;
 }
@@ -424,7 +437,7 @@
   font-size: 16px;
   text-align: center;
   margin: 20px;
-  padding-right: 45px;
+  // padding-right: 45px;
   font-weight: bold;
 }
 
@@ -433,7 +446,6 @@
   font-weight: 400;
   text-align: center;
   margin: 8px 0px;
-
 }
 
 .bride-Hover .booknow h1 {
@@ -441,25 +453,25 @@
   font-weight: bold;
   text-align: center;
   margin: 20px;
-  padding-right: 45px;
+  // padding-right: 45px;
   margin: 20px 0px;
 }
 
 .bride-Hover .booknow {
-  width: 30%;
+  // width: 30%;
   height: 100%;
   //  background-color: rgb(0, 255, 110);
 }
 
 .bride-Hover .product {
-  width: 45%;
+  // width: 45%;
   height: 90%;
   //  background-color: blue;
   display: flex;
   //  align-items: center;
   justify-content:start;
   padding: 20px;
-  gap: 120px;
+  gap: 60px;
   margin-top: 10px;
 
 }
@@ -486,7 +498,7 @@
   height: 600px;
   background-color: rgb(255, 255, 255);
   position: absolute;
-  top: 25px;
+  top: 30px;
   left: 0px;
   display: flex;
   transition: all 0.3s;
@@ -775,10 +787,14 @@
   min-width: 130px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.15);
   z-index: 100;
-  top: 20px;
+  top: 30px;
   left: 0;
   border-radius: 6px;
   padding: 6px 0;
+
+  @media screen and (max-width: 768px) {
+    top: 35px;
+  }
 }
 
 .language-dropdown .dropdown-option {

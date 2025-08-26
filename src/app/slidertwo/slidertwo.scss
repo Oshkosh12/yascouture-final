@@ -46,6 +46,10 @@
   max-height: 800px;
   pointer-events: none;
   user-select: none;
+
+  @media screen and (max-width: 768px) {
+    max-height: 400px !important;
+  }
 }
 
 .three-d-slide.side {

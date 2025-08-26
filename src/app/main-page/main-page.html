@@ -128,6 +128,7 @@
 
 
       <div class="COUTURE-Hover" *ngIf="showHover && run" (mouseenter)="run && ShowandHideDetails('list1', true)">
+        <div class="collection-book-now-parent">
         <div class="collection">
           <h1 style="cursor: pointer;">Collection</h1>
           <p style="cursor: pointer;" (click)="moveNext('SummerSpring')"> SPRING / SUMMER 24</p>
@@ -138,6 +139,7 @@
           <h1 style="color: gray;  cursor: pointer; font-size: 14px; margin-top: 40px; font-weight: 400;"
             (click)="moveNext('BookAppoinment')">book your
             aoppoinment now</h1>
+        </div>
         </div>
         <div class="product">
           <div class="cardOne">
@@ -153,16 +155,18 @@
         </div>
       </div>
       <div class="bride-Hover" *ngIf="showHover2&& run" (mouseenter)="run && ShowandHideDetails('list2', true)">
+        <div class="collection-book-now-parent">
         <div class="collection">
           <h1>Collection</h1>
-          <p style="cursor: pointer; color: gray; margin-top: 50px;" (click)="moveNext('Bridal')"> BRIDAL COLLECTION
+          <p style="cursor: pointer; color: gray; margin-top: 40px;" (click)="moveNext('Bridal')"> BRIDAL COLLECTION
             2024</p>
 
         </div>
         <div class="booknow">
           <h1>BOOK NOW</h1>
-          <h1 style="color: gray;  cursor: pointer; font-size: 14px; margin-top: 50px; font-weight: 400;"
+          <h1 style="color: gray;  cursor: pointer; font-size: 14px; margin-top: 40px; font-weight: 400;"
             (click)="moveNext('BookAppoinment')">book your aoppoinment now</h1>
+        </div>
         </div>
         <div class="product">
           <div class="cardOne">
@@ -173,8 +177,6 @@
             <img src="../../assets/3C8A1513-scaled-1-1.jpg.webp" alt="">
             <p style="cursor: pointer; font-weight: 700;" (click)="moveNext('WinterFall')">BRIDAL COLLECTION 2024</p>
           </div>
-
-
         </div>
       </div>
       <div class="IN-THE-SPOTLIGHT" *ngIf="showHover3&& run" (mouseenter)="run && ShowandHideDetails('list3', true)">

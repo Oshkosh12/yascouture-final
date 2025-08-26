@@ -185,6 +185,10 @@
 .pageFour-mid video {
     width: 100%;
     border-radius: 8px;
+
+    @media screen and (max-width: 768px) {
+        border-radius: 0;
+    }
 }
 
 /* PART FIVE */
@@ -290,6 +294,16 @@
     overflow: hidden;
     background: transparent;
     margin: 0;
+}
+
+.pageseven .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* dark overlay */
+  z-index: 1;
 }
 
 .pageseven .background {
@@ -406,7 +420,7 @@
 @media (max-width: 480px) {
 
     .pageFour .pageFour-top p {
-        margin-bottom: 30px;
+        // margin-bottom: 30px;
     }
 
     .pageseven {
