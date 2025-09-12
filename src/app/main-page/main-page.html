@@ -1,7 +1,15 @@
 <div class="hero">
   <div class="background">
-   <app-video [videoref]="videoElement"></app-video>
-  </div>
+  <video
+    #myVideo
+    [src]="videoElement"
+    muted
+    autoplay
+    loop
+    playsinline>
+  </video>
+</div>
+
   <div class="header">
     <div class="opp">
       <div class="toggel" (click)="toggleMenu()">

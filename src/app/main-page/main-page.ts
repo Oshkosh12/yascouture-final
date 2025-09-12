@@ -21,18 +21,18 @@ declare var Weglot: any;
   styleUrls: ['./main-page.scss'],
 })
 export class MainPage implements AfterViewInit, OnInit {
-  @ViewChild('myVideo') myVideo!: ElementRef<HTMLVideoElement>;
-  @Input() videoElement:string = "assets/Teaser_1_FC.mp4";
+  @ViewChild('myVideo', { static: false }) myVideo!: ElementRef<HTMLVideoElement>;
+  @Input() videoElement: string = "assets/Teaser_1_FC.mp4";
+
   constructor(private route: Router) {}
-  
 
   sidebarOneOpen = false;
   sidebarTwoOpen = false;
   showHover = false;
   showHover2 = false;
-  divshow1 =false;
+  divshow1 = false;
   divshow2 = false;
-  divshow3 =false;
+  divshow3 = false;
   showHover3 = false;
   run = false;
   menuVisible = false;
@@ -54,28 +54,29 @@ export class MainPage implements AfterViewInit, OnInit {
   ngOnInit() {
     let pageWidth = document.documentElement.clientWidth;
     this.run = pageWidth > 800;
-    console.log(document.getElementById)
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
+  @HostListener('window:resize')
+  onResize() {
     let pageWidth = document.documentElement.clientWidth;
     this.run = pageWidth > 800;
   }
 
   ngAfterViewInit(): void {
-    const video = this.myVideo.nativeElement;
-    video.muted = true;
-    video.autoplay = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.load();
-    video.play().catch(() => {});
+    if (this.myVideo) {
+      const video = this.myVideo.nativeElement;
+      video.muted = true;
+      video.autoplay = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.load();
+      video.play().catch(() => {});
+    }
 
     // ✅ Reapply the current language
     setTimeout(() => {
-      const currentLang = Weglot.getCurrentLang?.() || 'en';
-      Weglot.switchTo(currentLang);
+      const currentLang = Weglot?.getCurrentLang?.() || 'en';
+      Weglot?.switchTo(currentLang);
       document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
       this.selectedLanguage = currentLang;
     }, 500);
@@ -92,28 +93,29 @@ export class MainPage implements AfterViewInit, OnInit {
     }
   }
 
- openSidebarOne() {
-  this.sidebarOneOpen = true;
-  this.sidebarTwoOpen = false;
-}
+  openSidebarOne() {
+    this.sidebarOneOpen = true;
+    this.sidebarTwoOpen = false;
+  }
 
-closeSidebarOne() {
-  this.sidebarOneOpen = false;
-}
+  closeSidebarOne() {
+    this.sidebarOneOpen = false;
+  }
 
-openSidebarTwo() {
-  this.sidebarTwoOpen = true;
-  this.sidebarOneOpen = false;
-}
+  openSidebarTwo() {
+    this.sidebarTwoOpen = true;
+    this.sidebarOneOpen = false;
+  }
 
-closeSidebarTwo() {
-  this.sidebarTwoOpen = false;
-}
+  closeSidebarTwo() {
+    this.sidebarTwoOpen = false;
+  }
 
   toggleMenu() {
     this.menuVisible = !this.menuVisible;
   }
-   closeMenu() {
+
+  closeMenu() {
     this.menuVisible = false;
   }
 
