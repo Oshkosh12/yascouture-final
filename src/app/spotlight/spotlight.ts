@@ -104,7 +104,7 @@ export class Spotlight {
 { name: 'Loren Gray, an American singer and social media personality, in a "Queen" themed photoshoot.', img: 'assets/newCelebImages/Loren Gray.jpeg' },
 { name: 'Tyler Hubbard and Brian Kelley cover story highlighted their collaboration on the hit song "Meant to Be".', img: 'assets/newCelebImages/Tyler Hubbard and Brian Kelley.jpeg' },
 { name: 'Bebe Rexha is known for her powerful vocals and collaborations with various artists across genres.', img: 'assets/newCelebImages/Bebe Rexha.jpeg' },
-{ name: 'Sona Rafiq', img: 'assets/newCelebImages/Sona Rafiq.jpeg' },
+{ name: 'Sona Rafiq', img: 'assets/newCelebImages/Sona Rafiq.jpeg' }, 
 { name: 'Malaika Arora is wearing a striped, beaded gown from Yas Couture.', img: 'assets/newCelebImages/Malaika Arora Color.jpeg' },
 { name: 'Shereen Reda is the daughter of the renowned Egyptian artist Mahmoud Reda.', img: 'assets/newCelebImages/Shereen Reda.jpeg' },
 { name: 'Thalía was a presenter at the event, where she notably announced Luis Miguel as the winner of Album of the Year.', img: 'assets/newCelebImages/Thalía Super.jpeg' },
