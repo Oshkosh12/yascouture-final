@@ -67,17 +67,17 @@ export class PageSix {
     },
     { name: 'LOOK 10',
        img: 'assets/looks/Look-10.2-600x900.jpeg.webp',
-        img2: 'assets/look/Look-9.1-768x1152.jpeg.webp',
+        img2: 'assets/looks/Look-9.1-768x1152.jpeg.webp',
         text:'Red asymmetrical gown embroidered with crystals, beads, and sequins in geometric motifs — featuring a sculpted bodice with cut-out details and a sheer one-shoulder cape.'
         },
     { name: 'LOOK 11',
        img: 'assets/looks/Look-11.1-768x1152.jpeg.webp', 
-       img2: 'assets/look/Look-11.2-600x900.jpeg.webp',
+       img2: 'assets/looks/Look-11.2-600x900.jpeg.webp',
         text:'Sheer black gown embellished with multicolor crystals, beads, and sequins in intricate geometric patterns — featuring a plunging neckline, high choker collar, side slit, and a dramatic open back.'
       },
     { name: 'LOOK 12', 
       img: 'assets/looks/Look-12.1-scaled.jpeg.webp', 
-      img2: 'assets/look/Look-12.2-600x900.jpeg.webp' ,
+      img2: 'assets/looks/Look-12.2-600x900.jpeg.webp' ,
        text:'Gold embroidered gown adorned with shimmering sequins and intricate beadwork in geometric patterns – featuring a high collar, sheer sleeves, and a daring thigh-high slit. A matching embellished belt accentuates the waist, complemented by a coordinating scarf for an elegant finish.'
     },
     { name: 'LOOK 13.',

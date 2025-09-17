@@ -14,7 +14,7 @@ export class Slidertwo {
 
   // Drag state
   private dragStartX: number | null = null;
-  private dragStartY: number | null = null; // ✅ NEW
+  private dragStartY: number | null = null;
   private dragDeltaX: number = 0;
   private isDragging = false;
 
@@ -42,12 +42,9 @@ export class Slidertwo {
       extraTransform = ` translateX(${this.dragDeltaX * 0.7}px)`;
     }
 
-    const centerOffset = 20;
-    const horizontalOffset = 0;
-
     if (offset === 0) {
       return {
-        transform: `translateX(calc(-50% + ${horizontalOffset}px)) translateY(${centerOffset}px) scaleY(1.1)${extraTransform}`,
+        transform: `translateX(-50%) scale(0.999, 0.95)${extraTransform}`,
         opacity: 1,
         zIndex: 3,
         left: '50%',
@@ -56,7 +53,7 @@ export class Slidertwo {
     }
     if (offset === -1) {
       return {
-        transform: `translateX(calc(24%)) scaleY(0.9)${extraTransform}`,
+        transform: `translateX(calc(-93%)) scale(1, 0.77)${extraTransform}`,
         opacity: 1,
         zIndex: 2,
         left: '50%',
@@ -65,7 +62,7 @@ export class Slidertwo {
     }
     if (offset === 1) {
       return {
-        transform: `translateX(calc(-127%)) scaleY(0.9)${extraTransform}`,
+        transform: `translateX(calc(-4%)) scale(1, 0.77)${extraTransform}`,
         opacity: 1,
         zIndex: 2,
         left: '50%',
@@ -73,7 +70,7 @@ export class Slidertwo {
       };
     }
     return {
-      transform: `translateX(calc(-50% + ${offset * 65}%))`,
+      transform: `translateX(calc(-20% + ${offset * 20}%)) scale(0.92, 0.77)`,
       opacity: 0,
       zIndex: 1,
       left: '50%',
@@ -96,7 +93,7 @@ export class Slidertwo {
   onDragStart(event: MouseEvent | TouchEvent) {
     this.isDragging = true;
     this.dragStartX = this.getPointerX(event);
-    this.dragStartY = this.getPointerY(event); // ✅ NEW
+    this.dragStartY = this.getPointerY(event);
     this.dragDeltaX = 0;
     event.preventDefault();
   }
@@ -110,7 +107,7 @@ export class Slidertwo {
     const deltaX = currentX - this.dragStartX;
     const deltaY = currentY - this.dragStartY;
 
-    // ✅ Cancel drag if vertical movement is greater than horizontal
+    // Prevent vertical drag by ignoring if Y movement is dominant
     if (Math.abs(deltaY) > Math.abs(deltaX)) return;
 
     this.dragDeltaX = deltaX;
@@ -118,12 +115,11 @@ export class Slidertwo {
 
   onDragEnd(event: MouseEvent | TouchEvent) {
     if (!this.isDragging || this.dragStartX === null) return;
-
     const threshold = 60;
 
-    if (this.dragDeltaX > threshold) {
+    if (this.dragDeltaX < -threshold) {
       this.nextSlide();
-    } else if (this.dragDeltaX < -threshold) {
+    } else if (this.dragDeltaX > threshold) {
       this.prevSlide();
     }
 
