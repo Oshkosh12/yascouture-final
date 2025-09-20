@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .slider {
@@ -12,42 +12,33 @@
   max-width: 1200px;
   position: relative;
   overflow: hidden;
-  /* Default height */
-  height: 100%;
-  display: flex;
-  align-items: center;
+  height: 500px; // Fixed height for consistency
 }
 
 .slides {
   display: flex;
-  transition: transform 0.9s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   height: 100%;
+  width: 100%;
 }
 
 .slide {
-  display: flex;
-  min-width: 100%;
-  flex-wrap: wrap;
-  height: 100%;
-}
-
-.slide-img {
-  width: 25%;
+  flex: 0 0 calc(100% / 4); // Default: 4 slides visible
   padding: 5px;
-  height: 100%;
   box-sizing: border-box;
   position: relative;
-  transition: all 0.9s ease;
+  height: 100%;
 }
 
-.slide-img img {
+.slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-   transition: all 0.9s ease;
+  transition: all 0.3s ease;
 }
-.slide-img i{
+
+.slide i {
   position: absolute;
   bottom: -10%;
   left: 10%;
@@ -61,13 +52,20 @@
   align-items: center;
   justify-content: center;
   display: none;
-  transition: all 0.9s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  z-index: 2;
 }
-.slide-img:hover  i{
+
+.slide:hover i {
   bottom: 10%;
   display: flex;
-  transition: all 0.9s ease;
 }
+
+.slide:hover img {
+  transform: scale(1.05);
+}
+
 .nav {
   position: absolute;
   top: 50%;
@@ -93,25 +91,19 @@
   font-size: 2rem;
   font-weight: 400;
   padding: 40px 20px;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 /* Responsive styles */
 @media (max-width: 1024px) {
-  .slide-img {
-    width: 33.3333%;
-  }
-  .slider {
-    height: 500px;
+  .slide {
+    flex: 0 0 calc(100% / 3); // 3 slides on medium screens
   }
 }
 
 @media (max-width: 768px) {
-  .slide-img {
-    width: 50%;
-  }
-  .slider {
-    height: 500px;
+  .slide {
+    flex: 0 0 calc(100% / 2); // 2 slides on tablets
   }
   .nav {
     font-size: 1.2rem;
@@ -120,12 +112,11 @@
 }
 
 @media (max-width: 480px) {
-  .slide-img {
-    width: 100%;
-    height: 100%;
+  .slide {
+    flex: 0 0 100%; // 1 slide on mobile
   }
   .slider {
-    height: 500px;
+    height: 400px;
   }
   .main-heading {
     font-size: 1.5rem;

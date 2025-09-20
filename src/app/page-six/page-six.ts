@@ -32,7 +32,7 @@ export class PageSix {
     {
       name: 'LOOK 4',
       img: 'assets/looks/Look-3.2-600x900.jpeg.webp',
-      img2: 'asstes/looks/Look-3.2-600x900.jpeg.webp',
+      img2: 'assets/looks/Look-3.2-600x900.jpeg.webp',
       text: 'An ivory crepe gown with crystal embellishments and delicate beading, designed with a structured crossover bodice, feather accents, and a high slit for effortless sophistication.'
     },
     {
@@ -44,7 +44,7 @@ export class PageSix {
     {
       name: 'LOOK 6',
       img: 'assets/looks/Look-5.1-1-768x1152.jpeg.webp',
-      img2: 'assets/looks/Look-5.2-1-768x1152.jpeg',
+      img2: 'assets/looks/Look-5.2-1-768x1152.jpeg.webp',
       text: 'White gown embellished with crystals and pearls in an intricate crisscross pattern – featuring a high neckline, structured shoulders, and floor-length fringed panels with daring slits.'
     },
     {

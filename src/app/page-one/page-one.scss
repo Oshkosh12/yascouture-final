@@ -127,6 +127,10 @@ h1{
 .partThree-right {
   width: 55%;
   height: 100%;
+
+  .spring-summer-section{
+    margin-right: 3vw !important;
+  }
 }
 
 .pageFour {
@@ -180,6 +184,7 @@ h1{
   display: flex;
   align-items: center;
   justify-content: center;
+      max-width: 865px;
 }
 
 .pageFive {

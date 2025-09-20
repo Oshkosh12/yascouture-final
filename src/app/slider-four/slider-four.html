@@ -1,12 +1,11 @@
 <h1 class="main-heading">THE LOOKS</h1>
 <div class="main">
   <div class="slider">
-    <div class="slides" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
-      <div class="slide" *ngFor="let group of groupedImages">
-        <div class="slide-img" *ngFor="let img of group" >
-          <img [src]="img.url.split(',')[0]" alt="Slide Image" (click)="sendValue(img.url)" />
-          <i class="ri-eye-line" (click)="buttonClicked(img.url)"></i>
-        </div>
+    <div class="slides" [style.transform]="calculateTransform()">
+      <!-- Ab hum grouped images ki jagah direct images use karenge -->
+      <div class="slide" *ngFor="let img of filteredImages">
+        <img [src]="img.url.split(',')[0]" alt="Slide Image" (click)="sendValue(img.url)" />
+        <i class="ri-eye-line" (click)="buttonClicked(img.url)"></i>
       </div>
     </div>
     <button class="nav prev" (click)="moveSlide(-1)">←</button>
