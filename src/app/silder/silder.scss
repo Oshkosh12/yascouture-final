@@ -44,17 +44,23 @@
   align-items: center;
 }
 
-.three-d-slide img {
+.three-d-slide.center img {
   width: 100%;
   height: auto;
-  min-height: 580px;
-  max-width: 380px;
-  object-fit: cover;
+  max-height: 580px;
+  // max-width: 380px;
+  object-fit: contain;
   object-position: top;
   pointer-events: none;
   user-select: none;
   image-resolution: inherit;
 
+}
+
+.three-d-slide.side img {
+  width: 80%;
+  height: auto;
+  object-fit: contain;
 }
 
 .three-d-slide.side {

@@ -40,6 +40,9 @@ export class MainPage implements AfterViewInit, OnInit {
   selectedLanguage: 'en' | 'ar' = 'en';
   languageDropdownOpen = false;
 
+  // ✅ yahan current route store karenge
+  currentRoute: string = '';
+
   languages = {
     en: {
       label: 'English',
@@ -54,6 +57,13 @@ export class MainPage implements AfterViewInit, OnInit {
   ngOnInit() {
     let pageWidth = document.documentElement.clientWidth;
     this.run = pageWidth > 800;
+
+    // ✅ route change listener
+    this.route.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentRoute = event.urlAfterRedirects;
+      }
+    });
   }
 
   @HostListener('window:resize')
@@ -63,6 +73,7 @@ export class MainPage implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit(): void {
+    // ✅ video autoplay setup
     if (this.myVideo) {
       const video = this.myVideo.nativeElement;
       video.muted = true;
@@ -73,16 +84,22 @@ export class MainPage implements AfterViewInit, OnInit {
       video.play().catch(() => {});
     }
 
-    // ✅ Reapply the current language
+    // ✅ wait for Weglot to load properly
     setTimeout(() => {
-      const currentLang = Weglot?.getCurrentLang?.() || 'en';
-      Weglot?.switchTo(currentLang);
-      document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
-      this.selectedLanguage = currentLang;
-    }, 500);
+      if (typeof Weglot !== 'undefined') {
+        const currentLang = Weglot?.getCurrentLang?.() || 'en';
+        Weglot.switchTo(currentLang);
+        document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+        this.selectedLanguage = currentLang;
 
-    // ✅ Listen for language change and update local state
-    if (Weglot && Weglot.on) {
+        if (Weglot.refresh) {
+          Weglot.refresh();
+        }
+      }
+    }, 1500);
+
+    // ✅ language change listener
+    if (typeof Weglot !== 'undefined' && Weglot.on) {
       Weglot.on('languageChanged', (newLang: string) => {
         if (newLang === 'en' || newLang === 'ar') {
           this.selectedLanguage = newLang;
@@ -93,20 +110,18 @@ export class MainPage implements AfterViewInit, OnInit {
     }
   }
 
+  // sidebars
   openSidebarOne() {
     this.sidebarOneOpen = true;
     this.sidebarTwoOpen = false;
   }
-
   closeSidebarOne() {
     this.sidebarOneOpen = false;
   }
-
   openSidebarTwo() {
     this.sidebarTwoOpen = true;
     this.sidebarOneOpen = false;
   }
-
   closeSidebarTwo() {
     this.sidebarTwoOpen = false;
   }
@@ -114,7 +129,6 @@ export class MainPage implements AfterViewInit, OnInit {
   toggleMenu() {
     this.menuVisible = !this.menuVisible;
   }
-
   closeMenu() {
     this.menuVisible = false;
   }
@@ -140,10 +154,14 @@ export class MainPage implements AfterViewInit, OnInit {
   }
 
   switchLanguage(lang: 'en' | 'ar') {
-    if (Weglot && typeof Weglot.switchTo === 'function') {
+    if (typeof Weglot !== 'undefined' && typeof Weglot.switchTo === 'function') {
       Weglot.switchTo(lang);
       document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
       this.setLanguage(lang);
+
+      if (Weglot.refresh) {
+        setTimeout(() => Weglot.refresh(), 500);
+      }
     } else {
       console.error('Weglot is not ready yet.');
     }

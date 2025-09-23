@@ -1,5 +1,5 @@
 <div class="hero">
-  <div class="background">
+  <div class="background" *ngIf="!currentRoute.includes('BookAppoinment')">
   <video
     #myVideo
     [src]="videoElement"
@@ -9,6 +9,10 @@
     playsinline>
   </video>
 </div>
+
+<!-- agar BookAppoinment page ho to sirf black background -->
+<div class="background black-bg" *ngIf="currentRoute.includes('BookAppoinment')"></div>
+
 
   <div class="header">
     <div class="opp">
@@ -46,11 +50,11 @@
           <div class="collection">
             <h1 style="text-transform: uppercase; font-weight: 600;">Collection</h1>
             <p (click)="moveNext('SummerSpring')" style="color: grey; font-size: 14px;"> SPRING / SUMMER 24</p>
-            <P (click)="moveNext('WinterFall')" style="color: grey; font-size: 14px;"> WINTER / FALL 23-24</P>
+            <P (click)="moveNext('WinterFall')" style="color: grey; font-size: 14px;">  FALL / WINTER 23-24</P>
           </div>
           <div class="booknow">
             <h1 style="font-weight: 600;">BOOK NOW</h1>
-            <h1 style="color: gray; font-size: 14px; text-transform: uppercase;" (click)="moveNext('BookAppoinment')">book your aoppoinment now
+            <h1 style="color: gray; font-size: 14px; text-transform: uppercase;" (click)="moveNext('BookAppoinment')">book your appointment now
             </h1>
           </div>
           <div class="product">
@@ -76,7 +80,7 @@
           </div>
           <div class="booknow">
             <h1 style="font-weight: 600;">BOOK NOW</h1>
-            <h1 style="color: gray; font-size: 14px; text-transform: uppercase;">book your aoppoinment now</h1>
+            <h1 style="color: gray; font-size: 14px; text-transform: uppercase;">book your appointment now</h1>
           </div>
           <div class="product">
             <div class="cardOne">
@@ -140,13 +144,13 @@
         <div class="collection">
           <h1 style="cursor: pointer;">Collection</h1>
           <p style="cursor: pointer;" (click)="moveNext('SummerSpring')"> SPRING / SUMMER 24</p>
-          <P style="cursor: pointer;" (click)="moveNext('WinterFall')"> WINTER / FALL 23-24</P>
+          <P style="cursor: pointer;" (click)="moveNext('WinterFall')"> FALL / WINTER 23-24</P>
         </div>
         <div class="booknow">
           <h1 style="cursor: pointer;">BOOK NOW</h1>
           <h1 style="color: gray;  cursor: pointer; font-size: 14px; margin-top: 40px; font-weight: 400;"
             (click)="moveNext('BookAppoinment')">book your
-            aoppoinment now</h1>
+            appointment now</h1>
         </div>
         </div>
         <div class="product">
@@ -173,7 +177,7 @@
         <div class="booknow">
           <h1>BOOK NOW</h1>
           <h1 style="color: gray;  cursor: pointer; font-size: 14px; margin-top: 40px; font-weight: 400;"
-            (click)="moveNext('BookAppoinment')">book your aoppoinment now</h1>
+            (click)="moveNext('BookAppoinment')">book your appointment now</h1>
         </div>
         </div>
         <div class="product">
