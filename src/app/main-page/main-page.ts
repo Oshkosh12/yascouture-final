@@ -22,7 +22,7 @@ declare var Weglot: any;
 })
 export class MainPage implements AfterViewInit, OnInit {
   @ViewChild('myVideo', { static: false }) myVideo!: ElementRef<HTMLVideoElement>;
-  @Input() videoElement: string = "assets/Teaser_1_FC.mp4";
+  @Input() videoElement: string = "https://res.cloudinary.com/dzit141xn/video/upload/v1758726273/Teaser_1_FC_nzlxpd.mp4";
 
   constructor(private route: Router) {}
 
