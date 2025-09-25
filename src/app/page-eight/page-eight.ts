@@ -19,13 +19,13 @@ export class PageEight {
     },
     {
       name: 'LOOK 2',
-      img: 'assets/looks2/Look-2.1-768x1152.jpg',
+      img: 'https://res.cloudinary.com/dzit141xn/image/upload/v1758728794/Look_2.1_wmoeob.jpg',
       img2: 'assets/looks2/Look-2.2-768x1152.jpg',
       text: 'A breathtaking champagne-toned haute couture ensemble. The intricately beaded bodice, featuring a sweetheart neckline and long sleeves, complements a flowing, sheer maxi skirt adorned with delicate embellishments.  The high-slit skirt and subtle shimmer create a look that is both elegant and modern.',
     },
     {
       name: 'LOOK 3',
-      img: 'assets/looks2/Look-3.1-scaled.jpg',
+      img: 'https://res.cloudinary.com/dzit141xn/image/upload/v1758729801/1_pjinex.jpg',
       img2: 'assets/looks2/Look-3.2-scaled.jpg.webp',
       text: 'A breathtaking dusty purple haute couture gown. The flowing chiffon fabric creates a dramatic silhouette with a high neckline embellished with intricate beading. Long sleeves add elegance, completing this ethereal and majestic design.',
     },

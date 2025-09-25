@@ -16,15 +16,15 @@ export class PageTwo {
   constructor(private route: Router) {}
   images = [
     'assets/j11.webp',
-    'assets/newBridalImages/3C8A1469.jpg',
-    'assets/newBridalImages/3C8A1582.jpg',
+    'https://res.cloudinary.com/dzit141xn/image/upload/v1758737702/3C8A1469_rks4js.jpg',
+    'https://res.cloudinary.com/dzit141xn/image/upload/v1758737704/3C8A1582_txslkf.jpg',
     // 'assets/j14.webp',
-    'assets/3C8A1513-scaled-1-1.jpg.webp',
+    'https://res.cloudinary.com/dzit141xn/image/upload/v1758737699/3C8A1513-scaled-1-1.jpg_abxyjv.webp',
   ];
   images2 = [
     'assets/j11.webp',
-    'assets/newBridalImages/3C8A1469 (1).jpg',
-    'assets/newBridalImages/3C8A1513.jpg',
+    'https://ik.imagekit.io/ozrxwulka/3C8A1469%20(2).jpg?updatedAt=1758795423814',
+    'https://ik.imagekit.io/ozrxwulka/3C8A1513%20(3).jpg?updatedAt=1758792380383',
     'assets/j14.webp',
     // 'assets/3C8A1513-scaled-1-1.jpg.webp',
   ];

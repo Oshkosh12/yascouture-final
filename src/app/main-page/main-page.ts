@@ -46,7 +46,7 @@ export class MainPage implements AfterViewInit, OnInit {
   languages = {
     en: {
       label: 'English',
-      flag: 'assets/Flag_of_the_United_States_(DoS_ECA_Color_Standard).svg.png',
+      flag: 'https://res.cloudinary.com/dzit141xn/image/upload/v1758727925/Flag_of_the_United_States__DoS_ECA_Color_Standard.svg_jwuqld.png',
     },
     ar: {
       label: 'للعربية',
