@@ -22,9 +22,10 @@ declare var Weglot: any;
 })
 export class MainPage implements AfterViewInit, OnInit {
   @ViewChild('myVideo', { static: false }) myVideo!: ElementRef<HTMLVideoElement>;
-  @Input() videoElement: string = "https://res.cloudinary.com/dzit141xn/video/upload/v1758726273/Teaser_1_FC_nzlxpd.mp4";
+  @Input() videoElement: string =
+    "https://res.cloudinary.com/dzit141xn/video/upload/v1758726273/Teaser_1_FC_nzlxpd.mp4";
 
-  constructor(private route: Router) {}
+  constructor(private router: Router) {}
 
   sidebarOneOpen = false;
   sidebarTwoOpen = false;
@@ -40,7 +41,6 @@ export class MainPage implements AfterViewInit, OnInit {
   selectedLanguage: 'en' | 'ar' = 'en';
   languageDropdownOpen = false;
 
-  // ✅ yahan current route store karenge
   currentRoute: string = '';
 
   languages = {
@@ -58,10 +58,11 @@ export class MainPage implements AfterViewInit, OnInit {
     let pageWidth = document.documentElement.clientWidth;
     this.run = pageWidth > 800;
 
-    // ✅ route change listener
-    this.route.events.subscribe((event) => {
+    // ✅ Route change listener
+    this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.currentRoute = event.urlAfterRedirects;
+        // console.log("Current Route:", this.currentRoute);
       }
     });
   }
@@ -150,7 +151,7 @@ export class MainPage implements AfterViewInit, OnInit {
   }
 
   moveNext(id: string) {
-    this.route.navigate([id]);
+    this.router.navigate([id]);
   }
 
   switchLanguage(lang: 'en' | 'ar') {

@@ -1,5 +1,5 @@
 <div class="hero">
-  <div class="background" *ngIf="!currentRoute.includes('BookAppoinment')">
+<div class="background" *ngIf="!currentRoute.includes('BookAppointment')">
   <video
     #myVideo
     [src]="videoElement"
@@ -10,8 +10,8 @@
   </video>
 </div>
 
-<!-- agar BookAppoinment page ho to sirf black background -->
-<div class="background black-bg" *ngIf="currentRoute.includes('BookAppoinment')"></div>
+<div class="background black-bg" *ngIf="currentRoute.includes('BookAppointment')"></div>
+
 
 
   <div class="header">
