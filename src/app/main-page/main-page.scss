@@ -5,7 +5,7 @@
   position: relative;
   // z-index: 9999;
   z-index: 1;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .background {
@@ -309,7 +309,7 @@
 // }
 .COUTURE-Hover {
   width: 100%;
-  height: 600px;
+  // height: 600px;
   background-color: white;
   position: absolute;
   top: 30px;
@@ -373,7 +373,7 @@
 
 .COUTURE-Hover .product {
   // width: 40%;
-  height: 90%;
+  // height: 90%;
   //  background-color: blue;
   display: flex;
   //  align-items: center;
@@ -384,31 +384,28 @@
 }
 
 .COUTURE-Hover .product img {
-  width: 220px;
-  height: 75%;
-  object-position: center;
-  object-fit: cover;
+  // width: 220px;
+  // height: 75%;
+  // object-position: center;
+  // object-fit: cover;
+
+   width: 100%;
+    max-width: 330px;
+    max-height: 350px;
+    object-fit: contain;
+    object-position: top;
 }
 
 .COUTURE-Hover .product p {
   text-align: center;
   font-size: 15px;
   font-weight: 500;
-  padding: 10px;
+  padding-top: 10px;
 }
-
-
-
-
-
-
-
-
-
 
 .bride-Hover {
   width: 100%;
-  height: 600px;
+  // height: 600px;
   background-color: white;
   position: absolute;
       top: 30px;
@@ -429,7 +426,7 @@
 
 .bride-Hover .collection {
   // width: 20%;
-  height: 100%;
+  // height: 100%;
   //  background-color: blue;
 }
 
@@ -459,13 +456,13 @@
 
 .bride-Hover .booknow {
   // width: 30%;
-  height: 100%;
+  // height: 100%;
   //  background-color: rgb(0, 255, 110);
 }
 
 .bride-Hover .product {
   // width: 45%;
-  height: 90%;
+  // height: 90%;
   //  background-color: blue;
   display: flex;
   //  align-items: center;
@@ -477,11 +474,16 @@
 }
 
 .bride-Hover .product img {
-  width: 220px;
-  height: 75%;
   // object-position: center;
-  object-fit: cover;
+  // width: 220px;
+  // height: 75%;
+  // object-fit: cover;
   
+  width: 100%;
+    max-width: 330px;
+    max-height: 350px;
+    object-fit: contain;
+    object-position: top;
   
 }
 
@@ -490,12 +492,12 @@
   font-weight: bold;
   font-size: 15px;
   font-weight: 500;
-  padding: 10px;
+  padding-top: 10px;
 }
 
 .IN-THE-SPOTLIGHT {
   width: 100%;
-  height: 600px;
+  // height: 600px;
   background-color: rgb(255, 255, 255);
   position: absolute;
   top: 30px;
@@ -517,12 +519,19 @@
 
 
 .IN-THE-SPOTLIGHT .product img {
-  width: 100%;
-  min-width: 330px;
-  height: 80%;
-  min-height: 350px;
-  object-fit: cover;
-  object-position:top ;
+  // width: 100%;
+  // min-width: 330px;
+  // height: 80%;
+  // min-height: 350px;
+  // object-fit: cover;
+  // object-position:top ;
+
+      width: 100%;
+    max-width: 330px;
+    max-height: 350px;
+    /* min-height: 350px; */
+    object-fit: contain;
+    object-position: top;
 
 }
 
@@ -882,4 +891,14 @@ h2, h3, .the-looks-heading, .section-title {
     padding: 0px 19px;
   }
  
+}
+
+.black-bg {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }

@@ -18,6 +18,7 @@ export class Look {
     img: string;
     img2?: string;
     text?: string;
+    showSecondImage?: boolean; 
   }[] = [
       {
         name: 'LOOK 1',
@@ -27,7 +28,7 @@ export class Look {
       {
         name: 'LOOK 2',
         img: 'assets/looks/Look-1.2-600x900.jpeg.webp',
-        img2: 'assets/lools/Look-1.1-scaled.jpeg.webp',
+        img2: 'assets/looks/Look-1.1-scaled.jpeg.webp',
         text: 'A timeless scarlet masterpiece in textured tulle...',
       },
       {
@@ -39,7 +40,7 @@ export class Look {
       {
         name: 'LOOK 4',
         img: 'assets/looks/Look-3.2-600x900.jpeg.webp',
-        img2: 'asstes/looks/Look-3.2-600x900.jpeg.webp',
+        img2: 'assets/looks/Look-3.2-600x900.jpeg.webp',
         text: 'Dreamlike haute couture gown enriched with luminous beadwork and crystals...',
       },
       {
@@ -51,7 +52,7 @@ export class Look {
       {
         name: 'LOOK 6',
         img: 'assets/looks/Look-5.2-1-600x900.jpeg.webp',
-        img2: 'assets/looks/Look-5.2-1-768x1152.jpeg',
+        img2: 'assets/looks/Look-5.2-1-768x1152.jpeg.webp',
         text: 'Nude tulle gown embroidered with multicolor crystals...',
       },
       {
@@ -60,12 +61,12 @@ export class Look {
         img2: 'assets/looks/Look-6.2-600x900.jpeg.webp',
         text: 'Nude tulle gown embroidered with multicolor crystals...',
       },
-      {
-        name: 'LOOK 8',
-        img: 'assets/looks/Look-7.2-600x900.jpeg.webp',
-        img2: 'assets/looks/Look-6.2-scaled.jpeg',
-        text: 'White gown embellished with crystals and pearls...',
-      },
+      // {
+      //   name: 'LOOK 8',
+      //   img: 'assets/looks/Look-7.2-600x900.jpeg.webp',
+      //   img2: 'assets/looks/Look-6.2-scaled.jpeg',
+      //   text: 'White gown embellished with crystals and pearls...',
+      // },
       {
         name: 'LOOK 9',
         img: 'assets/looks/Look-8.2-600x900.jpeg.webp',
@@ -149,14 +150,18 @@ export class Look {
         img: 'assets/looks/Look-26-600x900.jpeg.webp',
       },
     ];
-  ngOnInit() {
+// Look component mein ngOnInit function ko update karein
+ngOnInit() {
     // Collect all primary and secondary images (img and img2 if present)
     this.allPictures = [];
 
-    this.lookData.forEach(product => {
-      this.allPictures.push(product.img + ',' + product.text);
+    this.lookData.forEach((product, index) => {
+        // Skip indexes 7 and 13 (0-based indexing)
+        if (index !== 7 && index !== 13) {
+            this.allPictures.push(product.img + ',' + product.text);
+        }
     });
-  }
+}
   allPictures: string[] = [];
   showLookDetails(item: { allpictures: string[]; pictures: string[]; name: string; text?: string }) {
     this.route.navigate(['/looksShow'], {

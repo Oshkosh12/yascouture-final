@@ -21,18 +21,18 @@ declare var Weglot: any;
   styleUrls: ['./main-page.scss'],
 })
 export class MainPage implements AfterViewInit, OnInit {
-  @ViewChild('myVideo') myVideo!: ElementRef<HTMLVideoElement>;
-  @Input() videoElement:string = "assets/Teaser_1_FC.mp4";
+  @ViewChild('myVideo', { static: false }) myVideo!: ElementRef<HTMLVideoElement>;
+  @Input() videoElement: string = "https://res.cloudinary.com/dzit141xn/video/upload/v1758726273/Teaser_1_FC_nzlxpd.mp4";
+
   constructor(private route: Router) {}
-  
 
   sidebarOneOpen = false;
   sidebarTwoOpen = false;
   showHover = false;
   showHover2 = false;
-  divshow1 =false;
+  divshow1 = false;
   divshow2 = false;
-  divshow3 =false;
+  divshow3 = false;
   showHover3 = false;
   run = false;
   menuVisible = false;
@@ -40,10 +40,13 @@ export class MainPage implements AfterViewInit, OnInit {
   selectedLanguage: 'en' | 'ar' = 'en';
   languageDropdownOpen = false;
 
+  // ✅ yahan current route store karenge
+  currentRoute: string = '';
+
   languages = {
     en: {
       label: 'English',
-      flag: 'assets/Flag_of_the_United_States_(DoS_ECA_Color_Standard).svg.png',
+      flag: 'https://res.cloudinary.com/dzit141xn/image/upload/v1758727925/Flag_of_the_United_States__DoS_ECA_Color_Standard.svg_jwuqld.png',
     },
     ar: {
       label: 'للعربية',
@@ -54,34 +57,49 @@ export class MainPage implements AfterViewInit, OnInit {
   ngOnInit() {
     let pageWidth = document.documentElement.clientWidth;
     this.run = pageWidth > 800;
-    console.log(document.getElementById)
+
+    // ✅ route change listener
+    this.route.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentRoute = event.urlAfterRedirects;
+      }
+    });
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
+  @HostListener('window:resize')
+  onResize() {
     let pageWidth = document.documentElement.clientWidth;
     this.run = pageWidth > 800;
   }
 
   ngAfterViewInit(): void {
-    const video = this.myVideo.nativeElement;
-    video.muted = true;
-    video.autoplay = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.load();
-    video.play().catch(() => {});
+    // ✅ video autoplay setup
+    if (this.myVideo) {
+      const video = this.myVideo.nativeElement;
+      video.muted = true;
+      video.autoplay = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.load();
+      video.play().catch(() => {});
+    }
 
-    // ✅ Reapply the current language
+    // ✅ wait for Weglot to load properly
     setTimeout(() => {
-      const currentLang = Weglot.getCurrentLang?.() || 'en';
-      Weglot.switchTo(currentLang);
-      document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
-      this.selectedLanguage = currentLang;
-    }, 500);
+      if (typeof Weglot !== 'undefined') {
+        const currentLang = Weglot?.getCurrentLang?.() || 'en';
+        Weglot.switchTo(currentLang);
+        document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+        this.selectedLanguage = currentLang;
 
-    // ✅ Listen for language change and update local state
-    if (Weglot && Weglot.on) {
+        if (Weglot.refresh) {
+          Weglot.refresh();
+        }
+      }
+    }, 1500);
+
+    // ✅ language change listener
+    if (typeof Weglot !== 'undefined' && Weglot.on) {
       Weglot.on('languageChanged', (newLang: string) => {
         if (newLang === 'en' || newLang === 'ar') {
           this.selectedLanguage = newLang;
@@ -92,28 +110,26 @@ export class MainPage implements AfterViewInit, OnInit {
     }
   }
 
- openSidebarOne() {
-  this.sidebarOneOpen = true;
-  this.sidebarTwoOpen = false;
-}
-
-closeSidebarOne() {
-  this.sidebarOneOpen = false;
-}
-
-openSidebarTwo() {
-  this.sidebarTwoOpen = true;
-  this.sidebarOneOpen = false;
-}
-
-closeSidebarTwo() {
-  this.sidebarTwoOpen = false;
-}
+  // sidebars
+  openSidebarOne() {
+    this.sidebarOneOpen = true;
+    this.sidebarTwoOpen = false;
+  }
+  closeSidebarOne() {
+    this.sidebarOneOpen = false;
+  }
+  openSidebarTwo() {
+    this.sidebarTwoOpen = true;
+    this.sidebarOneOpen = false;
+  }
+  closeSidebarTwo() {
+    this.sidebarTwoOpen = false;
+  }
 
   toggleMenu() {
     this.menuVisible = !this.menuVisible;
   }
-   closeMenu() {
+  closeMenu() {
     this.menuVisible = false;
   }
 
@@ -138,10 +154,14 @@ closeSidebarTwo() {
   }
 
   switchLanguage(lang: 'en' | 'ar') {
-    if (Weglot && typeof Weglot.switchTo === 'function') {
+    if (typeof Weglot !== 'undefined' && typeof Weglot.switchTo === 'function') {
       Weglot.switchTo(lang);
       document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
       this.setLanguage(lang);
+
+      if (Weglot.refresh) {
+        setTimeout(() => Weglot.refresh(), 500);
+      }
     } else {
       console.error('Weglot is not ready yet.');
     }

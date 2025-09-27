@@ -19,15 +19,34 @@
 <div class="viewer-modal" *ngIf="viewerOpen" (click)="closeViewer()">
   <div class="viewer-img-wrapper" (click)="$event.stopPropagation()">
     <i class="ri-arrow-left-wide-fill viewer-nav left" *ngIf="products.length > 1" (click)="prevImage($event)"></i>
-    <img [src]="products[selectedIndex].img" [alt]="products[selectedIndex].name" [ngClass]="{
+    
+    <!-- Image -->
+     <div class="image-viewer-img-text">
+    <img 
+      [src]="products[selectedIndex].img" 
+      [alt]="products[selectedIndex].name" 
+      [ngClass]="{
         'zoomed-in': zoomState === 'in',
         'zoomed-out': zoomState === 'out'
-      }" (mousedown)="onImgMouseDown($event)" (mouseup)="onImgMouseUp($event)" (mousemove)="onImgMouseMove($event)"
-      (mouseleave)="onImgMouseLeave($event)" #imgEl />
+      }" 
+      (mousedown)="onImgMouseDown($event)" 
+      (mouseup)="onImgMouseUp($event)" 
+      (mousemove)="onImgMouseMove($event)"
+      (mouseleave)="onImgMouseLeave($event)" 
+      #imgEl 
+    />
+
+    <div class="viewer-product-name">
+  {{ products[selectedIndex].name }}
+</div>
+    </div>
     <i class="ri-arrow-right-wide-fill viewer-nav right" *ngIf="products.length > 1" (click)="nextImage($event)"></i>
 
+
+    <!-- Counter -->
     <div class="viewer-counter">{{ selectedIndex + 1 }} / {{ products.length }}</div>
 
+    <!-- Actions -->
     <div class="viewer-actions">
       <i class="ri-fullscreen-line viewer-action" (click)="toggleFullScreen($event)"></i>
 

@@ -98,17 +98,25 @@ body {
 }
 
 .footer-container {
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: center;
+  // align-items: flex-start;
+  // width: 100%;
+  // grid-area: 48px;
+
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  grid-area: 48px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    gap: 30px;
 }
 
 .footer-section {
-  flex: 1 1 200px;
-  margin: 18px;
+  // flex: 1 1 200px;
+  // margin: 18px;
+      width: 100%;
+      padding: 0 0 0 100px;
 }
 
 .logo-section p {
@@ -117,16 +125,18 @@ body {
   color: #222;
 }
 .logo-section{
-  padding: 62px 0px 0px 0px;
-    margin: 0px 87px 0px 0px;
+  padding: 62px 0px 0px 60px;
+    // margin: 0px 87px 0px 0px;
+        width: 100%;
 }
 
 .footer-section h3 {
   font-size: 18px;
   letter-spacing: 2px;
   margin-bottom: 10px;
-  font-weight: 600;
-  margin-top:53px ;
+      font-weight: 600;
+    margin-top: 53px;
+    color: #313131;
 }
 
 .footer-section ul {

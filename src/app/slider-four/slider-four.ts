@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,49 +8,81 @@ import { CommonModule } from '@angular/common';
   templateUrl: './slider-four.html',
   styleUrls: ['./slider-four.scss']
 })
-export class SliderFour {
+export class SliderFour implements OnInit, OnDestroy {
   @Input() imagesArry: string[] = [];
   @Output() valueChange = new EventEmitter<string>();
-
   @Output() valueChange1 = new EventEmitter<{ flag: boolean; message: string }>();
-  groupedImages: { url: string }[][] = [];
+  
+  // Ab hum groupedImages ki jagah direct images use karenge
+  filteredImages: { url: string }[] = [];
   currentIndex = 0;
+  private resizeListener: (() => void) = () => {};
+  slidesToShow = 4; // Ek time par kitni slides dikhegi
+
+  // Jin indexes ki images remove karni hain
+  private imagesToRemove = [6, 7, 11];
 
   ngOnInit() {
-    this.groupImages();
-    window.addEventListener('resize', this.onResize.bind(this));
+    this.prepareImages();
+    this.updateSlidesToShow();
+    this.resizeListener = this.onResize.bind(this);
+    window.addEventListener('resize', this.resizeListener);
+  }
+
+  ngOnDestroy() {
+    if (this.resizeListener) {
+      window.removeEventListener('resize', this.resizeListener);
+    }
   }
 
   onResize() {
-    this.groupedImages = [];
-    this.groupImages();
+    this.updateSlidesToShow();
   }
 
-  buttonClicked(val:string) {
+  updateSlidesToShow() {
+    const width = window.innerWidth;
+    if (width <= 480) this.slidesToShow = 1;
+    else if (width <= 768) this.slidesToShow = 2;
+    else if (width <= 1024) this.slidesToShow = 3;
+    else this.slidesToShow = 4;
+  }
+
+  prepareImages() {
+    const filtered = this.imagesArry.filter((img, index) => 
+      !this.imagesToRemove.includes(index)
+    );
+    
+    this.filteredImages = filtered.map(url => ({ url }));
+  }
+
+  buttonClicked(val: string) {
     this.valueChange1.emit({ flag: true, message: val });
   }
+
   sendValue(val: string) {
     console.log(val);
     this.valueChange.emit(val);
   }
 
-  groupImages() {
-    let chunkSize = 4;
-    const width = window.innerWidth;
-
-    if (width <= 480) chunkSize = 1;
-    else if (width <= 768) chunkSize = 2;
-    else if (width <= 1024) chunkSize = 3;
-
-    for (let i = 0; i < this.imagesArry.length; i += chunkSize) {
-      const chunk = this.imagesArry.slice(i, i + chunkSize);
-      const chunkWithUrlObjects = chunk.map(url => ({ url }));
-      this.groupedImages.push(chunkWithUrlObjects);
+moveSlide(direction: number) {
+  const totalSlides = this.filteredImages.length;
+  const maxIndex = totalSlides - this.slidesToShow;
+  if (direction === 1) {
+    if (this.currentIndex >= maxIndex) {
+      this.currentIndex = 0; 
+    } else {
+      this.currentIndex++;
+    }
+  } else if (direction === -1) {
+    if (this.currentIndex <= 0) {
+      this.currentIndex = maxIndex; 
+    } else {
+      this.currentIndex--;
     }
   }
+}
 
-  moveSlide(direction: number) {
-    const totalSlides = this.groupedImages.length;
-    this.currentIndex = (this.currentIndex + direction + totalSlides) % totalSlides;
+  calculateTransform(): string {
+    return `translateX(-${this.currentIndex * (100 / this.slidesToShow)}%)`;
   }
 }

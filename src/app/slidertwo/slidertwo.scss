@@ -39,8 +39,8 @@
 }
 
 .three-d-slide img {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
   object-fit: contain;
   max-width: 400px;
   max-height: 800px;
@@ -80,7 +80,8 @@
 }
 
 .arrow.left {
-  left: 11%;
+      position: absolute;
+    left: 15px;
   background-color: transparent;
   transition: all 0.3s;
   font-size: 40px;
@@ -88,7 +89,8 @@
   font-weight: 400;
 }
 .arrow.right {
-  right: 12%;
+      right: 0;
+    position: absolute;
   background-color: transparent;
   transition: all 0.3s;
   font-size: 40px;
