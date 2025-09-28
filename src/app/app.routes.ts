@@ -24,7 +24,7 @@ export const routes: Routes = [
   { path: 'WinterFall', component: PageFour },
   { path: 'Bridal', component: PageTwo },
   { path: 'SpotLight', component: PageFive },
-  { path: 'BookAppoinment', component: Stepper },
+  { path: 'BookAppointment', component: Stepper },
   { path: 'WinterLooks', component: PageSix },
   { path: 'contact-us', component: PageSeven },
   { path: 'summerLooks', component: PageEight },

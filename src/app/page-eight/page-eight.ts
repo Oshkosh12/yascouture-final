@@ -20,7 +20,7 @@ export class PageEight {
     {
       name: 'LOOK 2',
       img: 'https://res.cloudinary.com/dzit141xn/image/upload/v1758728794/Look_2.1_wmoeob.jpg',
-      img2: 'assets/looks2/Look-2.2-768x1152.jpg',
+      img2: 'https://ik.imagekit.io/ozrxwulka/Look-2.2-768x1152.jpg?updatedAt=1758988278348',
       text: 'A breathtaking champagne-toned haute couture ensemble. The intricately beaded bodice, featuring a sweetheart neckline and long sleeves, complements a flowing, sheer maxi skirt adorned with delicate embellishments.  The high-slit skirt and subtle shimmer create a look that is both elegant and modern.',
     },
     {
