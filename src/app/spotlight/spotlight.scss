@@ -23,7 +23,6 @@
   font-family: 'MyCustomFont';
 }
 
-/* Responsive Grid */
 .containr {
   display: grid;
   grid-template-columns: 1fr;
@@ -53,7 +52,6 @@
   margin: 0 auto;
 }
 
-/* Image Wrapper with Overlay */
 .img-wrapper {
   position: relative;
   width: 100%;
@@ -84,8 +82,6 @@
 .product:hover img {
   transform: scale(1.1);
 }
-
-/* Overlay Text */
 .product-name {
   position: absolute;
   top: 50%;
