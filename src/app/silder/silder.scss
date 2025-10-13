@@ -15,7 +15,6 @@
   position: relative;
   width: 100%;
   height: 100%;
-
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -30,7 +29,7 @@
   width: 90%;
   height: 100%;
   min-width: 180px;
-  max-width: 480px;
+  max-width: 362px;
   min-height: 120px;
   max-height: 100%;
   transform: translateX(-50%);
@@ -44,40 +43,45 @@
   align-items: center;
 }
 
+// ✅ Center image - Perfect styling
 .three-d-slide.center img {
   width: 100%;
   height: auto;
   max-height: 580px;
-  // max-width: 380px;
   object-fit: contain;
-  object-position: top;
+  object-position: center;
   pointer-events: none;
-  user-select: none;
   image-resolution: inherit;
-
-}
-
-.three-d-slide.side img {
-  width: 80%;
-  height: auto;
-  object-fit: contain;
 }
 
 .three-d-slide.side {
   filter: brightness(0.7);
+  
+  img {
+        width: 100%;
+    overflow: hidden;
+    height: auto;
+    max-height: 600px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s 
+ease;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
 }
 
-.three-d-slide.side::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  // background: rgba(0,0,0,0.35);
-  z-index: 2;
+.three-d-slide.side:hover img {
+  // transform: scale(0.9); 
 }
 
 .three-d-slide.center {
   z-index: 3;
-  // box-shadow: 0 12px 40px rgba(0,0,0,0.25);
 }
 
 .arrow {
@@ -121,17 +125,28 @@
   font-size: 50px;
 }
 
+// ✅ Responsive design - Fixed for all screens
 @media (max-width: 900px) {
-
   .three-d-slider-track,
   .three-d-slide {
     width: 100%;
     height: 100%;
-    min-height: 700px;
+    min-height: 500px; // Reduced from 700px
   }
 
   .three-d-slide {
-    width: 90%;
+    width: 85%;
+  }
+
+  // ✅ Mobile ke liye side images ko aur optimize karo
+  .three-d-slide.side img {
+    width: 65%;
+    max-height: 400px;
+    transform: scale(0.8);
+  }
+
+  .three-d-slide.center img {
+    max-height: 450px;
   }
 
   .arrow {
@@ -142,22 +157,49 @@
 }
 
 @media (max-width: 600px) {
-
   .three-d-slider-track,
   .three-d-slide {
     width: 100%;
     height: 100%;
-    min-height: 700px;
-
+    min-height: 400px; // Reduced from 700px
   }
 
   .three-d-slide {
-    width: 90%;
+    width: 80%;
+  }
+
+  // ✅ Small mobile ke liye aur optimize
+  .three-d-slide.side img {
+    width: 60%;
+    max-height: 350px;
+    transform: scale(0.75);
+  }
+
+  .three-d-slide.center img {
+    max-height: 380px;
   }
 
   .arrow {
     width: 28px;
     height: 36px;
     font-size: 2vw;
+  }
+}
+
+// ✅ Extra small screens ke liye
+@media (max-width: 400px) {
+  .three-d-slider-track,
+  .three-d-slide {
+    min-height: 350px;
+  }
+
+  .three-d-slide.side img {
+    width: 55%;
+    max-height: 300px;
+    transform: scale(0.7);
+  }
+
+  .three-d-slide.center img {
+    max-height: 320px;
   }
 }
