@@ -2,12 +2,28 @@
 <div class="main">
   <div class="slider">
     <div class="slides" [style.transform]="calculateTransform()">
-      <!-- Ab hum grouped images ki jagah direct images use karenge -->
       <div class="slide" *ngFor="let img of filteredImages">
-        <img [src]="img.url.split(',')[0]" alt="Slide Image" (click)="sendValue(img.url)" />
-        <i class="ri-eye-line" (click)="buttonClicked(img.url)"></i>
+        <div class="image-wrapper">
+           Default image 
+          <img
+            class="default-img"
+            [src]="img.defaultUrl"
+            alt="Slide Image"
+            (click)="sendValue(img.defaultUrl)"
+          />
+           Hover image 
+          <img
+            class="hover-img"
+            [src]="img.hoverUrl"
+            alt="Hover Image"
+            (click)="sendValue(img.defaultUrl)"
+          />
+        </div>
+
+        <i class="ri-eye-line" (click)="buttonClicked(img.defaultUrl)"></i>
       </div>
     </div>
+
     <button class="nav prev" (click)="moveSlide(-1)">←</button>
     <button class="nav next" (click)="moveSlide(1)">→</button>
   </div>
